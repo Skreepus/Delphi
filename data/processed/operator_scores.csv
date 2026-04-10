@@ -1,0 +1,763 @@
+operator,total_historical,compliant_count,non_compliant_count,raw_compliance_rate,compliance_rate_smoothed,total_objects,inactive_on_orbit,inactive_ratio,operator_source,compliance_component,debris_component,reliability_score,confidence,reliability_tier,operator_display
+glob,52,0,52,0.0,0.03601855845809092,52,52,1.0,satcat_owner_code,2.5212990920663643,0.0,2.5,high,low,Glob
+itso,59,0,59,0.0,0.0319519470192742,64,58,0.90625,satcat_owner_code,2.236636291349194,2.8125,5.0,high,low,Itso
+eute,25,0,25,0.0,0.07075073982839288,27,25,0.9259259259259259,satcat_owner_code,4.952551787987502,2.2222222222222223,7.2,high,low,Eute
+orb,25,1,24,0.04,0.10646502554267859,25,24,0.96,satcat_owner_code,7.452551787987501,1.200000000000001,8.7,high,low,Orb
+ses,21,1,20,0.047619047619047616,0.12420919646645835,22,20,0.9090909090909091,satcat_owner_code,8.694643752652084,2.7272727272727284,11.4,high,low,Ses
+national space program office nspouniversity corporation for atmospheric research ucar boulder co,5,0,5,0.0,0.24762758939937507,5,5,1.0,ucs_operator,17.333931257956255,0.0,17.3,medium,low,National Space Program Office Nspouniversity Corporation For Atmospheric Research Ucar Boulder Co
+orbcomm inc,20,0,20,0.0,0.08613133544326089,35,20,0.5714285714285714,ucs_operator,6.029193481028262,12.857142857142858,18.9,high,low,Orbcomm Inc
+dga arms procurement agencycentre national detudes spatiales cnes,4,0,4,0.0,0.2830029593135715,4,4,1.0,ucs_operator,19.810207151950006,0.0,19.8,medium,low,Dga Arms Procurement Agencycentre National Detudes Spatiales Cnes
+panamsat intelsat sa,7,0,7,0.0,0.19810207151950004,9,7,0.7777777777777778,ucs_operator,13.867145006365003,6.666666666666666,20.5,medium,low,Panamsat Intelsat Sa
+abs,3,0,3,0.0,0.3301701191991668,3,3,1.0,satcat_owner_code,23.111908343941675,0.0,23.1,medium,low,Abs
+ab,8,1,7,0.125,0.2710018831995455,9,7,0.7777777777777778,satcat_owner_code,18.970131823968185,6.666666666666666,25.6,medium,low,Ab
+im,5,0,5,0.0,0.24762758939937507,7,5,0.7142857142857143,satcat_owner_code,17.333931257956255,8.571428571428571,25.9,medium,low,Im
+copernicus land and marine environment services,2,0,2,0.0,0.3962041430390001,2,2,1.0,ucs_operator,27.734290012730007,0.0,27.7,low,low,Copernicus Land And Marine Environment Services
+ministry of defensegeneral delegation for ordnance dga,2,0,2,0.0,0.3962041430390001,2,2,1.0,ucs_operator,27.734290012730007,0.0,27.7,low,low,Ministry Of Defensegeneral Delegation For Ordnance Dga
+norwegian coastal admnistration,2,0,2,0.0,0.3962041430390001,2,2,1.0,ucs_operator,27.734290012730007,0.0,27.7,low,low,Norwegian Coastal Admnistration
+nato,5,0,5,0.0,0.24762758939937507,8,5,0.625,satcat_owner_code,17.333931257956255,11.25,28.6,medium,low,Nato
+braz,10,0,10,0.0,0.1523862088611539,17,6,0.35294117647058826,satcat_owner_code,10.667034620280772,19.41176470588235,30.1,high,low,Braz
+ca,23,1,22,0.043478260869565216,0.11465464289211541,51,13,0.2549019607843137,satcat_owner_code,8.025825002448078,22.352941176470587,30.4,high,low,Ca
+mala,6,0,6,0.0,0.22011341279944452,10,5,0.5,satcat_owner_code,15.407938895961117,15.0,30.4,medium,low,Mala
+national oceanographic and atmospheric administration noaa part of international program,3,0,3,0.0,0.3301701191991668,4,3,0.75,ucs_operator,23.111908343941675,7.5,30.6,medium,low,National Oceanographic And Atmospheric Administration Noaa Part Of International Program
+den,8,0,8,0.0,0.1800927922904546,11,4,0.36363636363636365,satcat_owner_code,12.606495460331823,19.09090909090909,31.7,medium,low,Den
+egyp,5,0,5,0.0,0.24762758939937507,8,4,0.5,satcat_owner_code,17.333931257956255,15.0,32.3,medium,low,Egyp
+indo,10,1,9,0.1,0.22930928578423082,16,7,0.4375,satcat_owner_code,16.051650004896157,16.875,32.9,high,low,Indo
+nig,3,0,3,0.0,0.3301701191991668,3,2,0.6666666666666666,satcat_owner_code,23.111908343941675,10.000000000000002,33.1,medium,low,Nig
+changchun institute of optics,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Changchun Institute Of Optics
+ministry of defensextar,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Ministry Of Defensextar
+ury,1,0,1,0.0,0.49525517879875014,1,1,1.0,satcat_owner_code,34.66786251591251,0.0,34.7,low,low,Ury
+stct,1,0,1,0.0,0.49525517879875014,1,1,1.0,satcat_owner_code,34.66786251591251,0.0,34.7,low,low,Stct
+institute of space and astronautical science isasnasaesa,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Institute Of Space And Astronautical Science Isasnasaesa
+astro space center of moscowrussian academy of sciences,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Astro Space Center Of Moscowrussian Academy Of Sciences
+astrotech sohla,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Astrotech Sohla
+centre national detudes spatiales cnesnasa,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Centre National Detudes Spatiales Cnesnasa
+echostar satellite services llcintelsat,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Echostar Satellite Services Llcintelsat
+national aeronautics and space administration nasacolorado state university,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,National Aeronautics And Space Administration Nasacolorado State University
+centre national detudes spatiales cnes,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Centre National Detudes Spatiales Cnes
+university of texas  austin,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,University Of Texas  Austin
+skobeltsyn institute of nuclear physics,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Skobeltsyn Institute Of Nuclear Physics
+mobile satellite ventures,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Mobile Satellite Ventures
+exseed space,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Exseed Space
+venz,1,0,1,0.0,0.49525517879875014,1,1,1.0,satcat_owner_code,34.66786251591251,0.0,34.7,low,low,Venz
+est,1,0,1,0.0,0.49525517879875014,1,1,1.0,satcat_owner_code,34.66786251591251,0.0,34.7,low,low,Est
+usbz,1,0,1,0.0,0.49525517879875014,1,1,1.0,satcat_owner_code,34.66786251591251,0.0,34.7,low,low,Usbz
+algerian space agency asaluk space agency,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Algerian Space Agency Asaluk Space Agency
+hughes space and communications co,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Hughes Space And Communications Co
+col,1,0,1,0.0,0.49525517879875014,1,1,1.0,satcat_owner_code,34.66786251591251,0.0,34.7,low,low,Col
+hisdesatministry of defense,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Hisdesatministry Of Defense
+european space operations centre esocnasarussia,1,0,1,0.0,0.49525517879875014,1,1,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,European Space Operations Centre Esocnasarussia
+rasc,1,0,1,0.0,0.49525517879875014,1,1,1.0,satcat_owner_code,34.66786251591251,0.0,34.7,low,low,Rasc
+ang,1,0,1,0.0,0.49525517879875014,1,1,1.0,satcat_owner_code,34.66786251591251,0.0,34.7,low,low,Ang
+xm satellite radio,1,0,1,0.0,0.49525517879875014,2,2,1.0,ucs_operator,34.66786251591251,0.0,34.7,low,low,Xm Satellite Radio
+esa,43,10,33,0.23255813953488372,0.26045697206945656,74,29,0.3918918918918919,satcat_owner_code,18.23198804486196,18.243243243243242,36.5,high,low,Esa
+mex,4,0,4,0.0,0.2830029593135715,7,3,0.42857142857142855,satcat_owner_code,19.810207151950006,17.142857142857142,37.0,medium,low,Mex
+china aerospace science and technology corp casc,9,0,9,0.0,0.1650850595995834,21,3,0.14285714285714285,ucs_operator,11.555954171970837,25.714285714285715,37.3,medium,low,China Aerospace Science And Technology Corp Casc
+chbz,2,0,2,0.0,0.3962041430390001,3,2,0.6666666666666666,satcat_owner_code,27.734290012730007,10.000000000000002,37.7,low,low,Chbz
+ac,2,0,2,0.0,0.3962041430390001,3,2,0.6666666666666666,satcat_owner_code,27.734290012730007,10.000000000000002,37.7,low,low,Ac
+jpn,198,45,153,0.22727272727272727,0.23373642146863186,267,76,0.2846441947565543,satcat_owner_code,16.36154950280423,21.46067415730337,37.8,high,low,Jpn
+ses sa,7,0,7,0.0,0.19810207151950004,46,9,0.1956521739130435,ucs_operator,13.867145006365003,24.130434782608695,38.0,medium,low,Ses Sa
+military space forces vks,3,0,3,0.0,0.3301701191991668,6,3,0.5,ucs_operator,23.111908343941675,15.0,38.1,medium,low,Military Space Forces Vks
+eume,3,0,3,0.0,0.3301701191991668,6,3,0.5,satcat_owner_code,23.111908343941675,15.0,38.1,medium,low,Eume
+sirius xm holdings,3,0,3,0.0,0.3301701191991668,7,3,0.42857142857142855,ucs_operator,23.111908343941675,17.142857142857142,40.3,medium,medium,Sirius Xm Holdings
+thai,7,2,5,0.2857142857142857,0.39810207151950006,9,5,0.5555555555555556,satcat_owner_code,27.867145006365003,13.333333333333332,41.2,medium,medium,Thai
+safr,5,0,5,0.0,0.24762758939937507,5,1,0.2,satcat_owner_code,17.333931257956255,24.0,41.3,medium,medium,Safr
+saud,2,0,2,0.0,0.3962041430390001,4,2,0.5,satcat_owner_code,27.734290012730007,15.0,42.7,low,medium,Saud
+centre national detudes spatiales cnesdélégation générale de larmement dga,2,0,2,0.0,0.3962041430390001,2,1,0.5,ucs_operator,27.734290012730007,15.0,42.7,low,medium,Centre National Detudes Spatiales Cnesdélégation Générale De Larmement Dga
+fr,41,10,31,0.24390243902439024,0.2722959253453409,117,25,0.21367521367521367,satcat_owner_code,19.060714774173864,23.589743589743588,42.7,high,medium,Fr
+national aeronautics and space administration nasajohns hopkins university applied physics laboratory,2,0,2,0.0,0.3962041430390001,2,1,0.5,ucs_operator,27.734290012730007,15.0,42.7,low,medium,National Aeronautics And Space Administration Nasajohns Hopkins University Applied Physics Laboratory
+globalstar,5,0,5,0.0,0.24762758939937507,33,5,0.15151515151515152,ucs_operator,17.333931257956255,25.454545454545457,42.8,medium,medium,Globalstar
+ind,69,23,46,0.3333333333333333,0.346958621044375,97,37,0.38144329896907214,satcat_owner_code,24.287103473106253,18.556701030927837,42.8,high,medium,Ind
+peru,3,0,3,0.0,0.3301701191991668,3,1,0.3333333333333333,satcat_owner_code,23.111908343941675,20.000000000000004,43.1,medium,medium,Peru
+kaz,3,0,3,0.0,0.3301701191991668,3,1,0.3333333333333333,satcat_owner_code,23.111908343941675,20.000000000000004,43.1,medium,medium,Kaz
+skor,13,2,11,0.15384615384615385,0.24881379469968753,56,7,0.125,satcat_owner_code,17.416965628978126,26.25,43.7,high,medium,Skor
+rp,7,0,7,0.0,0.19810207151950004,9,0,0.0,satcat_owner_code,13.867145006365003,30.0,43.9,medium,medium,Rp
+intelsat sa,4,0,4,0.0,0.2830029593135715,36,5,0.1388888888888889,ucs_operator,19.810207151950006,25.833333333333336,45.6,medium,medium,Intelsat Sa
+dodnoaa,2,0,2,0.0,0.3962041430390001,5,2,0.4,ucs_operator,27.734290012730007,18.0,45.7,low,medium,Dodnoaa
+neth,6,2,4,0.3333333333333333,0.44233563502166673,8,4,0.5,satcat_owner_code,30.96349445151667,15.0,46.0,medium,medium,Neth
+ciel satellite group,0,0,0,0.0,0.6603402383983336,1,1,1.0,ucs_operator,46.22381668788335,0.0,46.2,low,medium,Ciel Satellite Group
+kawasaki heavy industries,0,0,0,0.0,0.6603402383983336,1,1,1.0,ucs_operator,46.22381668788335,0.0,46.2,low,medium,Kawasaki Heavy Industries
+centre national detudes spatiales cnesisrael space agency,0,0,0,0.0,0.6603402383983336,1,1,1.0,ucs_operator,46.22381668788335,0.0,46.2,low,medium,Centre National Detudes Spatiales Cnesisrael Space Agency
+aoyama gakuin university in tokyo,0,0,0,0.0,0.6603402383983336,1,1,1.0,ucs_operator,46.22381668788335,0.0,46.2,low,medium,Aoyama Gakuin University In Tokyo
+beihang universityapsco,0,0,0,0.0,0.6603402383983336,1,1,1.0,ucs_operator,46.22381668788335,0.0,46.2,low,medium,Beihang Universityapsco
+spacety co ltd,0,0,0,0.0,0.6603402383983336,1,1,1.0,ucs_operator,46.22381668788335,0.0,46.2,low,medium,Spacety Co Ltd
+us space forceother transaction authority,0,0,0,0.0,0.6603402383983336,1,1,1.0,ucs_operator,46.22381668788335,0.0,46.2,low,medium,Us Space Forceother Transaction Authority
+eutelsat sa,3,0,3,0.0,0.3301701191991668,29,6,0.20689655172413793,ucs_operator,23.111908343941675,23.793103448275865,46.9,medium,medium,Eutelsat Sa
+chinese amateur satellite camsat,5,0,5,0.0,0.24762758939937507,5,0,0.0,ucs_operator,17.333931257956255,30.0,47.3,medium,medium,Chinese Amateur Satellite Camsat
+nor,5,1,4,0.2,0.37262758939937507,14,4,0.2857142857142857,satcat_owner_code,26.083931257956255,21.42857142857143,47.5,medium,medium,Nor
+uk,34,9,25,0.2647058823529412,0.2967843436539189,133,14,0.10526315789473684,satcat_owner_code,20.774904055774325,26.842105263157894,47.6,high,medium,Uk
+asra,2,0,2,0.0,0.3962041430390001,3,1,0.3333333333333333,satcat_owner_code,27.734290012730007,20.000000000000004,47.7,low,medium,Asra
+kyushu institute of technology kit,2,0,2,0.0,0.3962041430390001,3,1,0.3333333333333333,ucs_operator,27.734290012730007,20.000000000000004,47.7,low,medium,Kyushu Institute Of Technology Kit
+sing,6,1,5,0.16666666666666666,0.3312245239105556,17,3,0.17647058823529413,satcat_owner_code,23.185716673738895,24.705882352941174,47.9,medium,medium,Sing
+grec,3,0,3,0.0,0.3301701191991668,7,1,0.14285714285714285,satcat_owner_code,23.111908343941675,25.714285714285715,48.8,medium,medium,Grec
+argn,11,3,8,0.2727272727272727,0.3557871939425001,26,5,0.19230769230769232,satcat_owner_code,24.905103575975005,24.23076923076923,49.1,high,medium,Argn
+italian defense ministry,1,0,1,0.0,0.49525517879875014,2,1,0.5,ucs_operator,34.66786251591251,15.0,49.7,low,medium,Italian Defense Ministry
+ukr,6,2,4,0.3333333333333333,0.44233563502166673,8,3,0.375,satcat_owner_code,30.96349445151667,18.75,49.7,medium,medium,Ukr
+paki,4,1,3,0.25,0.42586010217071435,9,3,0.3333333333333333,satcat_owner_code,29.810207151950003,20.000000000000004,49.8,medium,medium,Paki
+peoples liberation army c41,2,0,2,0.0,0.3962041430390001,8,2,0.25,ucs_operator,27.734290012730007,22.5,50.2,low,medium,Peoples Liberation Army C41
+zhuhai orbita aerospace science and technology co,3,0,3,0.0,0.3301701191991668,4,0,0.0,ucs_operator,23.111908343941675,30.0,53.1,medium,medium,Zhuhai Orbita Aerospace Science And Technology Co
+sky and space global uk,3,0,3,0.0,0.3301701191991668,3,0,0.0,ucs_operator,23.111908343941675,30.0,53.1,medium,medium,Sky And Space Global Uk
+zhuhai orbita control engineering co ltd,3,0,3,0.0,0.3301701191991668,8,0,0.0,ucs_operator,23.111908343941675,30.0,53.1,medium,medium,Zhuhai Orbita Control Engineering Co Ltd
+russian satellite communications company,2,0,2,0.0,0.3962041430390001,14,2,0.14285714285714285,ucs_operator,27.734290012730007,25.714285714285715,53.4,low,medium,Russian Satellite Communications Company
+geooptics inc,8,3,5,0.375,0.45282006501772737,8,2,0.25,ucs_operator,31.697404551240915,22.5,54.2,medium,medium,Geooptics Inc
+georgia institute of technology,1,0,1,0.0,0.49525517879875014,3,1,0.3333333333333333,ucs_operator,34.66786251591251,20.000000000000004,54.7,low,medium,Georgia Institute Of Technology
+national aeronautics and space administration nasaus geological survey,1,0,1,0.0,0.49525517879875014,3,1,0.3333333333333333,ucs_operator,34.66786251591251,20.000000000000004,54.7,low,medium,National Aeronautics And Space Administration Nasaus Geological Survey
+swed,2,0,2,0.0,0.3962041430390001,13,1,0.07692307692307693,satcat_owner_code,27.734290012730007,27.692307692307693,55.4,low,medium,Swed
+ministry of defense,21,8,13,0.38095238095238093,0.415875863133125,117,13,0.1111111111111111,ucs_operator,29.11131041931875,26.666666666666664,55.8,high,medium,Ministry Of Defense
+dodus air force,2,0,2,0.0,0.3962041430390001,35,2,0.05714285714285714,ucs_operator,27.734290012730007,28.285714285714285,56.0,low,medium,Dodus Air Force
+embratel star one,1,0,1,0.0,0.49525517879875014,7,2,0.2857142857142857,ucs_operator,34.66786251591251,21.42857142857143,56.1,low,medium,Embratel Star One
+ger,50,22,28,0.44,0.45247208896594343,86,16,0.18604651162790697,satcat_owner_code,31.67304622761604,24.41860465116279,56.1,high,medium,Ger
+indian space research organization isro,7,2,5,0.2857142857142857,0.39810207151950006,47,2,0.0425531914893617,ucs_operator,27.867145006365003,28.72340425531915,56.6,medium,medium,Indian Space Research Organization Isro
+us air force,4,1,3,0.25,0.42586010217071435,28,3,0.10714285714285714,ucs_operator,29.810207151950003,26.78571428571429,56.6,medium,medium,Us Air Force
+tsinghua university,2,1,1,0.5,0.5962041430390002,2,1,0.5,ucs_operator,41.734290012730014,15.0,56.7,low,medium,Tsinghua University
+hispasat,1,0,1,0.0,0.49525517879875014,4,1,0.25,ucs_operator,34.66786251591251,22.5,57.2,low,medium,Hispasat
+broadcasting satellite system corp,1,0,1,0.0,0.49525517879875014,4,1,0.25,ucs_operator,34.66786251591251,22.5,57.2,low,medium,Broadcasting Satellite System Corp
+roshydromet  planeta,1,0,1,0.0,0.49525517879875014,4,1,0.25,ucs_operator,34.66786251591251,22.5,57.2,low,medium,Roshydromet  Planeta
+aus,22,9,13,0.4090909090909091,0.43924082860780006,45,5,0.1111111111111111,satcat_owner_code,30.746858002546006,26.666666666666664,57.4,high,medium,Aus
+gomspace aps,2,0,2,0.0,0.3962041430390001,3,0,0.0,ucs_operator,27.734290012730007,30.0,57.7,low,medium,Gomspace Aps
+spacety aerospace companychangsha gaoxinqu tianyi research institute,2,0,2,0.0,0.3962041430390001,2,0,0.0,ucs_operator,27.734290012730007,30.0,57.7,low,medium,Spacety Aerospace Companychangsha Gaoxinqu Tianyi Research Institute
+los alamos national laboratory,2,0,2,0.0,0.3962041430390001,3,0,0.0,ucs_operator,27.734290012730007,30.0,57.7,low,medium,Los Alamos National Laboratory
+german aerospace center dlr,2,0,2,0.0,0.3962041430390001,4,0,0.0,ucs_operator,27.734290012730007,30.0,57.7,low,medium,German Aerospace Center Dlr
+vtnm,2,0,2,0.0,0.3962041430390001,2,0,0.0,satcat_owner_code,27.734290012730007,30.0,57.7,low,medium,Vtnm
+nkor,2,0,2,0.0,0.3962041430390001,3,0,0.0,satcat_owner_code,27.734290012730007,30.0,57.7,low,medium,Nkor
+european space agency esa and 250 international scientific investigators,2,0,2,0.0,0.3962041430390001,4,0,0.0,ucs_operator,27.734290012730007,30.0,57.7,low,medium,European Space Agency Esa And 250 International Scientific Investigators
+darpatethers unlimited,2,0,2,0.0,0.3962041430390001,2,0,0.0,ucs_operator,27.734290012730007,30.0,57.7,low,medium,Darpatethers Unlimited
+tiger innovations,2,0,2,0.0,0.3962041430390001,2,0,0.0,ucs_operator,27.734290012730007,30.0,57.7,low,medium,Tiger Innovations
+bel,2,0,2,0.0,0.3962041430390001,12,0,0.0,satcat_owner_code,27.734290012730007,30.0,57.7,low,medium,Bel
+bigelow aerospace,2,0,2,0.0,0.3962041430390001,2,0,0.0,ucs_operator,27.734290012730007,30.0,57.7,low,medium,Bigelow Aerospace
+isra,17,7,10,0.4117647058823529,0.44905103575975003,31,3,0.0967741935483871,satcat_owner_code,31.433572503182504,27.096774193548388,58.5,high,medium,Isra
+air force satellite control network,1,0,1,0.0,0.49525517879875014,5,1,0.2,ucs_operator,34.66786251591251,24.0,58.7,low,medium,Air Force Satellite Control Network
+directv inc,1,0,1,0.0,0.49525517879875014,10,2,0.2,ucs_operator,34.66786251591251,24.0,58.7,low,medium,Directv Inc
+turk,12,5,7,0.4166666666666667,0.46540138101300005,36,4,0.1111111111111111,satcat_owner_code,32.57809667091,26.666666666666664,59.2,high,medium,Turk
+us navy,1,0,1,0.0,0.49525517879875014,6,1,0.16666666666666666,ucs_operator,34.66786251591251,25.0,59.7,low,medium,Us Navy
+eumetsat european organization for the exploitation of meteorological satellites,1,0,1,0.0,0.49525517879875014,12,2,0.16666666666666666,ucs_operator,34.66786251591251,25.0,59.7,low,medium,Eumetsat European Organization For The Exploitation Of Meteorological Satellites
+national aeronautics and space administration nasa,5,2,3,0.4,0.49762758939937507,24,3,0.125,ucs_operator,34.83393125795625,26.25,61.1,medium,medium,National Aeronautics And Space Administration Nasa
+sky perfect jsat corporation,1,0,1,0.0,0.49525517879875014,10,1,0.1,ucs_operator,34.66786251591251,27.0,61.7,low,medium,Sky Perfect Jsat Corporation
+china meteorological administration,1,0,1,0.0,0.49525517879875014,10,1,0.1,ucs_operator,34.66786251591251,27.0,61.7,low,medium,China Meteorological Administration
+echostar satellite services llc,1,0,1,0.0,0.49525517879875014,11,1,0.09090909090909091,ucs_operator,34.66786251591251,27.272727272727273,61.9,low,medium,Echostar Satellite Services Llc
+telesat canada ltd bce inc,1,0,1,0.0,0.49525517879875014,12,1,0.08333333333333333,ucs_operator,34.66786251591251,27.5,62.2,low,medium,Telesat Canada Ltd Bce Inc
+tbd,59,29,30,0.4915254237288136,0.49969388250314517,184,14,0.07608695652173914,satcat_owner_code,34.97857177522016,27.717391304347824,62.7,high,medium,Tbd
+uae,5,2,3,0.4,0.49762758939937507,18,1,0.05555555555555555,satcat_owner_code,34.83393125795625,28.333333333333332,63.2,medium,medium,Uae
+luxe,2,1,1,0.5,0.5962041430390002,4,1,0.25,satcat_owner_code,41.734290012730014,22.5,64.2,low,medium,Luxe
+por,2,1,1,0.5,0.5962041430390002,4,1,0.25,satcat_owner_code,41.734290012730014,22.5,64.2,low,medium,Por
+pry,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Pry
+polytechnic university of madrid,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Polytechnic University Of Madrid
+npl,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Npl
+guat,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Guat
+cri,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Cri
+dfh satellite co ltd,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Dfh Satellite Co Ltd
+defence research and development canada drdccanadian space agency,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Defence Research And Development Canada Drdccanadian Space Agency
+planetary resources,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Planetary Resources
+defense ministry,1,0,1,0.0,0.49525517879875014,6,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Defense Ministry
+robertsville middle school oak ridge tennessee,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Robertsville Middle School Oak Ridge Tennessee
+fh aachen,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Fh Aachen
+french south african institute of technologycape peninsula university of technology,1,0,1,0.0,0.49525517879875014,2,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,French South African Institute Of Technologycape Peninsula University Of Technology
+earthisurrey satellite technology ltd,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Earthisurrey Satellite Technology Ltd
+mda,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Mda
+ghgsat inc,1,0,1,0.0,0.49525517879875014,6,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Ghgsat Inc
+cosmiac configurable space microsystems innovations  applications center,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Cosmiac Configurable Space Microsystems Innovations  Applications Center
+gha,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Gha
+skyfox labs,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Skyfox Labs
+qiansheng exploration technology co ltd,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Qiansheng Exploration Technology Co Ltd
+scientific production corporation joint stock creation of russian space agency,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Scientific Production Corporation Joint Stock Creation Of Russian Space Agency
+space ok shanghai ok space co ltd,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Space Ok Shanghai Ok Space Co Ltd
+university of aalborg,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,University Of Aalborg
+colorado state university,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Colorado State University
+university of colorado,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,University Of Colorado
+nanyang technological university,1,0,1,0.0,0.49525517879875014,2,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Nanyang Technological University
+university of florida,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,University Of Florida
+university of illinois urbanachampaign,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,University Of Illinois Urbanachampaign
+university of michiganmontana university,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,University Of Michiganmontana University
+university of michigannasa earth science technology office,1,0,1,0.0,0.49525517879875014,8,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,University Of Michigannasa Earth Science Technology Office
+university of montpellier,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,University Of Montpellier
+mus,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Mus
+university of science and technology,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,University Of Science And Technology
+mng,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Mng
+mmr,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Mmr
+astranis,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Astranis
+nasacalpoly,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Nasacalpoly
+university of toronto institute for aerospace studies,1,0,1,0.0,0.49525517879875014,5,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,University Of Toronto Institute For Aerospace Studies
+university of würzburg,1,0,1,0.0,0.49525517879875014,2,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,University Of Würzburg
+mitlincoln laboratoryuniversity of massachusetts amherst,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Mitlincoln Laboratoryuniversity Of Massachusetts Amherst
+armed forces,1,0,1,0.0,0.49525517879875014,7,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Armed Forces
+link space aerospace technology,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Link Space Aerospace Technology
+lka,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Lka
+us army space and missile defense commandarmy forces strategic command,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Us Army Space And Missile Defense Commandarmy Forces Strategic Command
+us southern command,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Us Southern Command
+aistech,1,0,1,0.0,0.49525517879875014,2,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Aistech
+vietnam national space center,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Vietnam National Space Center
+von karman institute vki,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Von Karman Institute Vki
+microspace rapid pvt ltd,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Microspace Rapid Pvt Ltd
+massachusetts institute of technology,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Massachusetts Institute Of Technology
+max valier school bolzano italy oskar von miller school merano italy,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Max Valier School Bolzano Italy Oskar Von Miller School Merano Italy
+aalto university,1,0,1,0.0,0.49525517879875014,2,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Aalto University
+university of vigoalén space,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,University Of Vigoalén Space
+national academy of sciences,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,National Academy Of Sciences
+nasa langley research center,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Nasa Langley Research Center
+ken,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Ken
+chle,1,0,1,0.0,0.49525517879875014,3,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Chle
+spacequest ltd,1,0,1,0.0,0.49525517879875014,2,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Spacequest Ltd
+chinese academy of sciences caschina academy of space technology,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Chinese Academy Of Sciences Caschina Academy Of Space Technology
+chinese academy of launch vehicle technology casic,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Chinese Academy Of Launch Vehicle Technology Casic
+netherlands organization for applied scientific research nto consortium,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Netherlands Organization For Applied Scientific Research Nto Consortium
+huaian youth comprehensive development base,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Huaian Youth Comprehensive Development Base
+china centre for resources satellite data and application cresda,1,0,1,0.0,0.49525517879875014,7,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,China Centre For Resources Satellite Data And Application Cresda
+china amateur satellite  camsat,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,China Amateur Satellite  Camsat
+imagesat international nvministry of defense,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Imagesat International Nvministry Of Defense
+uga,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Uga
+chengdu guoxing aerospace technology co ltd,1,0,1,0.0,0.49525517879875014,2,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Chengdu Guoxing Aerospace Technology Co Ltd
+indian space research organization isrocentre national detudes spatiales cnes,1,0,1,0.0,0.49525517879875014,2,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Indian Space Research Organization Isrocentre National Detudes Spatiales Cnes
+surrey satellite technology ltd,1,0,1,0.0,0.49525517879875014,6,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Surrey Satellite Technology Ltd
+california polytechnic state universitynasa jpl,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,California Polytechnic State Universitynasa Jpl
+technical university of munich,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Technical University Of Munich
+bgd,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Bgd
+bhut,1,0,1,0.0,0.49525517879875014,1,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Bhut
+teen satellite project,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Teen Satellite Project
+iss,1,0,1,0.0,0.49525517879875014,5,0,0.0,satcat_owner_code,34.66786251591251,30.0,64.7,low,medium,Iss
+center for atmospheric sciences hampton universitynasa,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Center For Atmospheric Sciences Hampton Universitynasa
+institute of space sensor technology and planetary exploration,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Institute Of Space Sensor Technology And Planetary Exploration
+canon electronics,1,0,1,0.0,0.49525517879875014,2,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Canon Electronics
+technical university delft,1,0,1,0.0,0.49525517879875014,1,0,0.0,ucs_operator,34.66786251591251,30.0,64.7,low,medium,Technical University Delft
+zhejiang university,3,1,2,0.3333333333333333,0.4968367858658334,5,0,0.0,ucs_operator,34.778575010608336,30.0,64.8,medium,medium,Zhejiang University
+ltu,5,2,3,0.4,0.49762758939937507,6,0,0.0,satcat_owner_code,34.83393125795625,30.0,64.8,medium,medium,Ltu
+russian federal space agency,3,1,2,0.3333333333333333,0.4968367858658334,6,0,0.0,ucs_operator,34.778575010608336,30.0,64.8,medium,medium,Russian Federal Space Agency
+national university of defense technology,3,1,2,0.3333333333333333,0.4968367858658334,3,0,0.0,ucs_operator,34.778575010608336,30.0,64.8,medium,medium,National University Of Defense Technology
+fleet space technologies,3,1,2,0.3333333333333333,0.4968367858658334,4,0,0.0,ucs_operator,34.778575010608336,30.0,64.8,medium,medium,Fleet Space Technologies
+eutelsat americas,0,0,0,0.0,0.6603402383983336,3,1,0.3333333333333333,ucs_operator,46.22381668788335,20.000000000000004,66.2,low,medium,Eutelsat Americas
+sanya institute of remote sensing,1,1,0,1.0,0.7452551787987501,4,2,0.5,ucs_operator,52.16786251591251,15.0,67.2,low,medium,Sanya Institute Of Remote Sensing
+china academy of space technology cast,6,3,3,0.5,0.5534467461327779,49,1,0.02040816326530612,ucs_operator,38.74127222929445,29.387755102040817,68.1,medium,medium,China Academy Of Space Technology Cast
+optus communications parent singapore telecom,0,0,0,0.0,0.6603402383983336,4,1,0.25,ucs_operator,46.22381668788335,22.5,68.7,low,medium,Optus Communications Parent Singapore Telecom
+spacety aerospace company,6,3,3,0.5,0.5534467461327779,6,0,0.0,ucs_operator,38.74127222929445,30.0,68.7,medium,medium,Spacety Aerospace Company
+chinese ministry of national defense,6,3,3,0.5,0.5534467461327779,148,0,0.0,ucs_operator,38.74127222929445,30.0,68.7,medium,medium,Chinese Ministry Of National Defense
+roc,13,8,5,0.6153846153846154,0.6238137946996876,24,3,0.125,satcat_owner_code,43.66696562897813,26.25,69.9,high,medium,Roc
+aerospace corporation,9,5,4,0.5555555555555556,0.58175172626625,15,0,0.0,ucs_operator,40.7226208386375,30.0,70.7,medium,high,Aerospace Corporation
+china satellite communication corp china satcom,0,0,0,0.0,0.6603402383983336,17,3,0.17647058823529413,ucs_operator,46.22381668788335,24.705882352941174,70.9,low,high,China Satellite Communication Corp China Satcom
+nslcomm,2,1,1,0.5,0.5962041430390002,2,0,0.0,ucs_operator,41.734290012730014,30.0,71.7,low,high,Nslcomm
+nihon university,2,1,1,0.5,0.5962041430390002,3,0,0.0,ucs_operator,41.734290012730014,30.0,71.7,low,high,Nihon University
+zwe,2,1,1,0.5,0.5962041430390002,2,0,0.0,satcat_owner_code,41.734290012730014,30.0,71.7,low,high,Zwe
+sgjp,2,1,1,0.5,0.5962041430390002,2,0,0.0,satcat_owner_code,41.734290012730014,30.0,71.7,low,high,Sgjp
+us air force academy,2,1,1,0.5,0.5962041430390002,4,0,0.0,ucs_operator,41.734290012730014,30.0,71.7,low,high,Us Air Force Academy
+astro digital,2,1,1,0.5,0.5962041430390002,6,0,0.0,ucs_operator,41.734290012730014,30.0,71.7,low,high,Astro Digital
+spacepharma,2,1,1,0.5,0.5962041430390002,2,0,0.0,ucs_operator,41.734290012730014,30.0,71.7,low,high,Spacepharma
+us army space and missile defense command,2,1,1,0.5,0.5962041430390002,8,0,0.0,ucs_operator,41.734290012730014,30.0,71.7,low,high,Us Army Space And Missile Defense Command
+svk,2,1,1,0.5,0.5962041430390002,3,0,0.0,satcat_owner_code,41.734290012730014,30.0,71.7,low,high,Svk
+arab satellite communications org asco,0,0,0,0.0,0.6603402383983336,7,1,0.14285714285714285,ucs_operator,46.22381668788335,25.714285714285715,71.9,low,high,Arab Satellite Communications Org Asco
+spire global inc,124,76,48,0.6129032258064516,0.6140237851590158,135,4,0.02962962962962963,ucs_operator,42.9816649611311,29.11111111111111,72.1,high,high,Spire Global Inc
+us,2588,1650,938,0.6375579598145286,0.6375843383694307,11281,407,0.03607836184735396,satcat_owner_code,44.630903685860154,28.917649144579382,73.5,high,high,Us
+inmarsat ltd,0,0,0,0.0,0.6603402383983336,12,1,0.08333333333333333,ucs_operator,46.22381668788335,27.5,73.7,low,high,Inmarsat Ltd
+tyvak nanosatellite systems inc,8,5,3,0.625,0.6346382468359092,12,0,0.0,ucs_operator,44.42467727851364,30.0,74.4,medium,high,Tyvak Nanosatellite Systems Inc
+pol,9,6,3,0.6666666666666666,0.6650850595995834,15,1,0.06666666666666667,satcat_owner_code,46.55595417197084,28.0,74.6,medium,high,Pol
+oneweb satellites,0,0,0,0.0,0.6603402383983336,589,3,0.0050933786078098476,ucs_operator,46.22381668788335,29.847198641765704,76.1,low,high,Oneweb Satellites
+national aeronautics and space administration nasacentre national detudes spatiales cnesnoaaeumetsat,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Aeronautics And Space Administration Nasacentre National Detudes Spatiales Cnesnoaaeumetsat
+national aeronautics and space administration nasaames research centerstanford university,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Aeronautics And Space Administration Nasaames Research Centerstanford University
+tokyo metropolitan college of industrial technology,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Tokyo Metropolitan College Of Industrial Technology
+national aeronautics and space administration nasa goddard space flight center,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Aeronautics And Space Administration Nasa Goddard Space Flight Center
+national aeronautics and space administration nasagoddard space flight center,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Aeronautics And Space Administration Nasagoddard Space Flight Center
+turkish ministry of national defense,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Turkish Ministry Of National Defense
+national aeronautics and space administration nasagsfc,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Aeronautics And Space Administration Nasagsfc
+national aeronautics and space administration nasa earth science officelaboratory for atmospheric and space physics univ of colorado,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Aeronautics And Space Administration Nasa Earth Science Officelaboratory For Atmospheric And Space Physics Univ Of Colorado
+turkmenistan ministry of communicationsssimonaco,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Turkmenistan Ministry Of Communicationsssimonaco
+national aeronautics and space administration nasajaxa,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Aeronautics And Space Administration Nasajaxa
+national aeronautics and space administration nasaapplied physics laboratory johns hopkins,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Aeronautics And Space Administration Nasaapplied Physics Laboratory Johns Hopkins
+tokyo institute of technology,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Tokyo Institute Of Technology
+pointview tech,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Pointview Tech
+thuraya satellite communications,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Thuraya Satellite Communications
+telebrasbrazilian air force,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Telebrasbrazilian Air Force
+telemetry tracking and command network istrac centre,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Telemetry Tracking And Command Network Istrac Centre
+national reconnaissance office,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Reconnaissance Office
+national oceanographic and atmospheric administration noaanasa,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Oceanographic And Atmospheric Administration Noaanasa
+telenor satellite broadcasting,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Telenor Satellite Broadcasting
+telesat canada ltd bce incapt satellite holdings ltd,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Telesat Canada Ltd Bce Incapt Satellite Holdings Ltd
+national institute of technology at kochi college,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Institute Of Technology At Kochi College
+tohoku universityhokkaido university,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Tohoku Universityhokkaido University
+national institute of information and communications technology jpn,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Institute Of Information And Communications Technology Jpn
+national authority for remote sensing and space science narss,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Authority For Remote Sensing And Space Science Narss
+terrastar corporation,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Terrastar Corporation
+national aeronautics and space administration nasauniversity of california berkeley in partnership with germany france austria canada,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Aeronautics And Space Administration Nasauniversity Of California Berkeley In Partnership With Germany France Austria Canada
+thai air force,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Thai Air Force
+thaicom public company ltd,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Thaicom Public Company Ltd
+national aeronautics and space administration nasases americom ses société européenne des satellites ses,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Aeronautics And Space Administration Nasases Americom Ses Société Européenne Des Satellites Ses
+national aeronautics and space administration nasamultinational,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Aeronautics And Space Administration Nasamultinational
+national institute for space research inpe,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Institute For Space Research Inpe
+turksat,0,0,0,0.0,0.6603402383983336,5,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Turksat
+uk governmentsurrey satellite technologies,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Uk Governmentsurrey Satellite Technologies
+tübitak space technologies research institute,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Tübitak Space Technologies Research Institute
+us air force us navynasa,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Us Air Force Us Navynasa
+ministry of defensecentre national detudes spatiales cnes  cooperation with austria belgium spain sweden,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ministry Of Defensecentre National Detudes Spatiales Cnes  Cooperation With Austria Belgium Spain Sweden
+us coast guard,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Us Coast Guard
+vanderbilt universityamsat,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Vanderbilt Universityamsat
+viasat inc,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Viasat Inc
+vietnamese posts and telecommunications group vnpt,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Vietnamese Posts And Telecommunications Group Vnpt
+ministry of armed forces,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ministry Of Armed Forces
+wakayama university uniform consortium,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Wakayama University Uniform Consortium
+military satellite communications  us air force,0,0,0,0.0,0.6603402383983336,10,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Military Satellite Communications  Us Air Force
+weathernews inc,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Weathernews Inc
+wildblue communications,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Wildblue Communications
+mexico telecomm,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Mexico Telecomm
+würzburg center for telematics,0,0,0,0.0,0.6603402383983336,4,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Würzburg Center For Telematics
+xingyun satellite co,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Xingyun Satellite Co
+xinwei telecom technology company,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Xinwei Telecom Technology Company
+us air force institute of technology,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Us Air Force Institute Of Technology
+national aeronautics and space administration nasa  earth science enterprisejapan meteorological agencybrazilian space agency,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Aeronautics And Space Administration Nasa  Earth Science Enterprisejapan Meteorological Agencybrazilian Space Agency
+ministry of defenseparadigm secure communications wholly owned by eads astrium,0,0,0,0.0,0.6603402383983336,4,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ministry Of Defenseparadigm Secure Communications Wholly Owned By Eads Astrium
+ministry of natural resourcesministry of housing and urbanrural developmentnational bureau of statistics,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ministry Of Natural Resourcesministry Of Housing And Urbanrural Developmentnational Bureau Of Statistics
+national reconnaissance office nrous air force,0,0,0,0.0,0.6603402383983336,14,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Reconnaissance Office Nrous Air Force
+nasagerman research centre for geosciences gfz,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Nasagerman Research Centre For Geosciences Gfz
+ukdmc international imaging dmcii,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ukdmc International Imaging Dmcii
+university of californiaberkeleyimperial collegelondon,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,University Of Californiaberkeleyimperial Collegelondon
+university of colorados laboratory for atmospheric and space physicsindian institute of space science and technology,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,University Of Colorados Laboratory For Atmospheric And Space Physicsindian Institute Of Space Science And Technology
+university of north carolina  wilmington,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,University Of North Carolina  Wilmington
+mozhaisky space engineering academy,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Mozhaisky Space Engineering Academy
+momentus,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Momentus
+university of stuttgart,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,University Of Stuttgart
+university of tokyo and nestra,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,University Of Tokyo And Nestra
+mne,0,0,0,0.0,0.6603402383983336,1,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Mne
+mitsubishi heavy industries,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Mitsubishi Heavy Industries
+unknown us agency,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Unknown Us Agency
+missile defense agency mda,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Missile Defense Agency Mda
+minospace technology,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Minospace Technology
+ministry of ecology and environmentministry of emergency management,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ministry Of Ecology And Environmentministry Of Emergency Management
+national reconnaissance office nrous navy,0,0,0,0.0,0.6603402383983336,6,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Reconnaissance Office Nrous Navy
+teikyo university,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Teikyo University
+national space activities commission conae,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Space Activities Commission Conae
+optus communications parent singapore telecomaustralian ministry of defense,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Optus Communications Parent Singapore Telecomaustralian Ministry Of Defense
+shanghai academy of space technology,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Shanghai Academy Of Space Technology
+shanghai engineering center for microsatellites,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Shanghai Engineering Center For Microsatellites
+shanghai institute of satellite engineering,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Shanghai Institute Of Satellite Engineering
+shanghai micro satellite engineering center,0,0,0,0.0,0.6603402383983336,4,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Shanghai Micro Satellite Engineering Center
+operational responsive space ors office,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Operational Responsive Space Ors Office
+open cosmos,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Open Cosmos
+omnispace,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Omnispace
+shanghai weixing keji,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Shanghai Weixing Keji
+ohb se orbitale hochtechnologie bremen,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ohb Se Orbitale Hochtechnologie Bremen
+singapore armed forces,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Singapore Armed Forces
+singapore telecommunications ltd singtelchunghwa telecom co ltd,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Singapore Telecommunications Ltd Singtelchunghwa Telecom Co Ltd
+ohb italia,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ohb Italia
+sky mexico,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Sky Mexico
+o3b networks ltd,0,0,0,0.0,0.6603402383983336,20,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,O3B Networks Ltd
+ses saechostar satellite services llc,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ses Saechostar Satellite Services Llc
+ses sa  total capacity leased to subsidiary of echostar corp,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ses Sa  Total Capacity Leased To Subsidiary Of Echostar Corp
+orbit fab,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Orbit Fab
+seoul national university,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Seoul National University
+pt pasifik satelit nntara,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Pt Pasifik Satelit Nntara
+piesat,0,0,0,0.0,0.6603402383983336,4,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Piesat
+pt telkomunikasi,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Pt Telkomunikasi
+philippines department of science and technology university of the philippines diliman and japans hokkaido university and tohoku university,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Philippines Department Of Science And Technology University Of The Philippines Diliman And Japans Hokkaido University And Tohoku University
+peruvian space agency,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Peruvian Space Agency
+regional african satellite communications organization rascom,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Regional African Satellite Communications Organization Rascom
+riyadh space research institute,0,0,0,0.0,0.6603402383983336,9,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Riyadh Space Research Institute
+o3b,0,0,0,0.0,0.6603402383983336,10,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,O3B
+roscosmos state corporation,0,0,0,0.0,0.6603402383983336,5,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Roscosmos State Corporation
+russian federal service for hydrometeorology and environmental monitoring roshydromet,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Russian Federal Service For Hydrometeorology And Environmental Monitoring Roshydromet
+salish kootenai college,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Salish Kootenai College
+scanwaygerman orbital systems,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Scanwaygerman Orbital Systems
+panamsat intelsat sadirectv inc,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Panamsat Intelsat Sadirectv Inc
+seal,0,0,0,0.0,0.6603402383983336,1,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Seal
+pakistan space and upper atmosphere research commission suparcopaksat international,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Pakistan Space And Upper Atmosphere Research Commission Suparcopaksat International
+pakistan space and upper atmosphere research commission suparco,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Pakistan Space And Upper Atmosphere Research Commission Suparco
+panamsat intelsat sasky perfect jsat corp,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Panamsat Intelsat Sasky Perfect Jsat Corp
+national remote sensing center nrscc,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Remote Sensing Center Nrscc
+sky perfect jsat corporationdsn corp,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Sky Perfect Jsat Corporationdsn Corp
+slb,0,0,0,0.0,0.6603402383983336,1,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Slb
+naval research laboratory,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Naval Research Laboratory
+srm university,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Srm University
+naval postgraduate school,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Naval Postgraduate School
+naval physical and oceanographic laboratory,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Naval Physical And Oceanographic Laboratory
+state oceanic administration soa,0,0,0,0.0,0.6603402383983336,6,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,State Oceanic Administration Soa
+strategic space commandspace surveillance network,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Strategic Space Commandspace Surveillance Network
+sun yatsen university,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Sun Yatsen University
+national university of singapore,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National University Of Singapore
+svn,0,0,0,0.0,0.6603402383983336,1,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Svn
+swedish national space board,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Swedish National Space Board
+taiwans national space organizationnational oceanographic and atmospheric admistration noaa,0,0,0,0.0,0.6603402383983336,6,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Taiwans National Space Organizationnational Oceanographic And Atmospheric Admistration Noaa
+national space science center nssc,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Space Science Center Nssc
+technical university of graz,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Technical University Of Graz
+national space research and development agency nasrda,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Space Research And Development Agency Nasrda
+national space organization,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,National Space Organization
+sri international,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Sri International
+nbn co operated by optus,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Nbn Co Operated By Optus
+nearspace launchair force research laboratory,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Nearspace Launchair Force Research Laboratory
+spot image,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Spot Image
+south asian association for regional cooperation,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,South Asian Association For Regional Cooperation
+space development agency,0,0,0,0.0,0.6603402383983336,10,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Space Development Agency
+novosibirsk state university,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Novosibirsk State University
+norwegian space center,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Norwegian Space Center
+norwegian defence research establishment ffi,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Norwegian Defence Research Establishment Ffi
+norwegian defence research establishment,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Norwegian Defence Research Establishment
+space logistics llc,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Space Logistics Llc
+sky perfect jsat corporationkacific,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Sky Perfect Jsat Corporationkacific
+space research institute king abdulaziz city for science and technology,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Space Research Institute King Abdulaziz City For Science And Technology
+space technologies research institute,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Space Technologies Research Institute
+ningxia jingui information technology co ltd,0,0,0,0.0,0.6603402383983336,10,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ningxia Jingui Information Technology Co Ltd
+space technology institutevietnam academy of science and technology stivast,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Space Technology Institutevietnam Academy Of Science And Technology Stivast
+nigcomsat,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Nigcomsat
+spacecommunication ltd,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Spacecommunication Ltd
+nico,0,0,0,0.0,0.6603402383983336,1,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Nico
+spanish space agency,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Spanish Space Agency
+noaa national oceanographic and atmospheric administration,0,0,0,0.0,0.6603402383983336,5,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Noaa National Oceanographic And Atmospheric Administration
+measat satellite systems sdn bhd,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Measat Satellite Systems Sdn Bhd
+1worldspace,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,1Worldspace
+maxar technologies inc,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Maxar Technologies Inc
+galaxy space,0,0,0,0.0,0.6603402383983336,6,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Galaxy Space
+fger,0,0,0,0.0,0.6603402383983336,2,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Fger
+federal security service fsb,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Federal Security Service Fsb
+f space test office,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,F Space Test Office
+f orso operationally responsive space office,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,F Orso Operationally Responsive Space Office
+exactearth,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Exactearth
+eutelsat sanilesat,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Eutelsat Sanilesat
+bela,0,0,0,0.0,0.6603402383983336,3,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Bela
+eutelsat saeshailsat,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Eutelsat Saeshailsat
+galaxyspace,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Galaxyspace
+european university network,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,European University Network
+european space agency esanasa,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,European Space Agency Esanasa
+belintersat,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Belintersat
+bhr,0,0,0,0.0,0.6603402383983336,1,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Bhr
+bolivarian agency for space activities,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Bolivarian Agency For Space Activities
+bolivia aerospace bureau,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Bolivia Aerospace Bureau
+eshailsat,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Eshailsat
+brite consortium,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Brite Consortium
+broadcasting satellite system corpsky perfect jsat corporation,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Broadcasting Satellite System Corpsky Perfect Jsat Corporation
+esaeumetsat european organization for the exploitation of meterological satellites,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Esaeumetsat European Organization For The Exploitation Of Meterological Satellites
+european space operations centre esoc,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,European Space Operations Centre Esoc
+bulsatcom,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Bulsatcom
+beijing landview mapping information technology co ltd blmit,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Beijing Landview Mapping Information Technology Co Ltd Blmit
+gastianta and gzhhnj bds agr co ltd,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Gastianta And Gzhhnj Bds Agr Co Ltd
+atlas 5,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Atlas 5
+harbin institutechina amateur satellite  camsat,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Harbin Institutechina Amateur Satellite  Camsat
+avanti communications plc,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Avanti Communications Plc
+axelspace,0,0,0,0.0,0.6603402383983336,5,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Axelspace
+gonets satcom,0,0,0,0.0,0.6603402383983336,18,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Gonets Satcom
+azercosmos,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Azercosmos
+goddard space flight centerpenn state university,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Goddard Space Flight Centerpenn State University
+goddard space flight centereos data and operations system,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Goddard Space Flight Centereos Data And Operations System
+global eagle entertainment,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Global Eagle Entertainment
+beijing future navigation technology co ltd,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Beijing Future Navigation Technology Co Ltd
+ghalam llp,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ghalam Llp
+german aerospace center dlrinfoterra,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,German Aerospace Center Dlrinfoterra
+german aerospace center dlrikntesat spacecom,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,German Aerospace Center Dlrikntesat Spacecom
+german aerospace center dlrastrium,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,German Aerospace Center Dlrastrium
+geoinformatics and space technology development agency gistda,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Geoinformatics And Space Technology Development Agency Gistda
+general atomics  electromagnetic systems group,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,General Atomics  Electromagnetic Systems Group
+geespace,0,0,0,0.0,0.6603402383983336,9,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Geespace
+gazprom space systems,0,0,0,0.0,0.6603402383983336,5,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Gazprom Space Systems
+bangladesh telecommunication regulatory commission btrc,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Bangladesh Telecommunication Regulatory Commission Btrc
+bank rakyat indonesia bri,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Bank Rakyat Indonesia Bri
+china telecom,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,China Telecom
+bwa,0,0,0,0.0,0.6603402383983336,1,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Bwa
+eos data analytics,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Eos Data Analytics
+endurosat,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Endurosat
+department of astronautics university of tokyo,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Department Of Astronautics University Of Tokyo
+deimos imagingdmc international imaging dmcii,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Deimos Imagingdmc International Imaging Dmcii
+defense innovation unitcesium astro,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Defense Innovation Unitcesium Astro
+chiba institute of technology,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Chiba Institute Of Technology
+defence research and development organization,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Defence Research And Development Organization
+dauria aerospace,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Dauria Aerospace
+chilean air force,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Chilean Air Force
+china aerospace science and industry corporation casic,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,China Aerospace Science And Industry Corporation Casic
+ctrs moroccoinstitut für luftund raumfahrttechnik berlin,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ctrs Moroccoinstitut Für Luftund Raumfahrttechnik Berlin
+department of astrophysical and planetary science uc bouldernational aeronautics and space administration nasa,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Department Of Astrophysical And Planetary Science Uc Bouldernational Aeronautics And Space Administration Nasa
+crown prince foundation,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Crown Prince Foundation
+china earthquake administrationitalian institute for nuclear physics,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,China Earthquake Administrationitalian Institute For Nuclear Physics
+china electronic technology group,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,China Electronic Technology Group
+china national academy of sciences cnsas,0,0,0,0.0,0.6603402383983336,19,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,China National Academy Of Sciences Cnsas
+chinese university corporation for polar research,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Chinese University Corporation For Polar Research
+china national space administration,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,China National Space Administration
+chinese academy of sciences,0,0,0,0.0,0.6603402383983336,13,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Chinese Academy Of Sciences
+china national space administration cnsanational centre for space studies cnes,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,China National Space Administration Cnsanational Centre For Space Studies Cnes
+china national space administration cnsanational institute for space research brazil,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,China National Space Administration Cnsanational Institute For Space Research Brazil
+chinas ministry of land and resources ministry of environmental protection and ministry of agriculture,0,0,0,0.0,0.6603402383983336,8,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Chinas Ministry Of Land And Resources Ministry Of Environmental Protection And Ministry Of Agriculture
+china aerospace science and technology corporation casc,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,China Aerospace Science And Technology Corporation Casc
+centre national detudes spatiales cneseuropean space agency esa,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Centre National Detudes Spatiales Cneseuropean Space Agency Esa
+centre national detudes spatiales cnesagenzia spaziale italiana asi,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Centre National Detudes Spatiales Cnesagenzia Spaziale Italiana Asi
+centre for research in satellite technology crest,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Centre For Research In Satellite Technology Crest
+emirates institution for advanced science  technology eiast,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Emirates Institution For Advanced Science  Technology Eiast
+egyptian space agency,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Egyptian Space Agency
+egyptian radio and tv union,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Egyptian Radio And Tv Union
+ecu,0,0,0,0.0,0.6603402383983336,2,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Ecu
+ecole polytechnique fédérale de lanne epfl,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Ecole Polytechnique Fédérale De Lanne Epfl
+canadian space agency,0,0,0,0.0,0.6603402383983336,7,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Canadian Space Agency
+echostar corporation entire payload leased from telesat canada ltd,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Echostar Corporation Entire Payload Leased From Telesat Canada Ltd
+easfbundeswehr,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Easfbundeswehr
+earth sciences enterprise nasa,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Earth Sciences Enterprise Nasa
+mda corporation,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Mda Corporation
+dorbit,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Dorbit
+dodus navy,0,0,0,0.0,0.6603402383983336,5,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Dodus Navy
+directv latin americaintelsat,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Directv Latin Americaintelsat
+directorate general of armaments dga,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Directorate General Of Armaments Dga
+digitalglobe corporation,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Digitalglobe Corporation
+center of excellence for space sciences and technologies spacesi,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Center Of Excellence For Space Sciences And Technologies Spacesi
+dfh satellite co ltdamsatchina,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Dfh Satellite Co Ltdamsatchina
+deutsches zentrum für luft und raumfahrt,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Deutsches Zentrum Für Luft Und Raumfahrt
+department of national defense,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Department Of National Defense
+centi chinaeurope networks of technology and innovation,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Centi Chinaeurope Networks Of Technology And Innovation
+department of homeland security,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Department Of Homeland Security
+helios wireechostar global australia,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Helios Wireechostar Global Australia
+hellassat consortium ltd,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Hellassat Consortium Ltd
+german orbital systems,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,German Orbital Systems
+hera systems,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Hera Systems
+algerian space agency asal,0,0,0,0.0,0.6603402383983336,4,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Algerian Space Agency Asal
+amsatna,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Amsatna
+kazcosmos,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Kazcosmos
+jsc kazsat,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Jsc Kazsat
+jaxa ministry of environment national institute of environmental studies,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Jaxa Ministry Of Environment National Institute Of Environmental Studies
+amsatuk,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Amsatuk
+japan space systems,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Japan Space Systems
+hellassat consortium ltdinmarsat,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Hellassat Consortium Ltdinmarsat
+japan meteorological agencymeteorological satellite center msc,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Japan Meteorological Agencymeteorological Satellite Center Msc
+itu space systems design  test laboratory,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Itu Space Systems Design  Test Laboratory
+andesite  boston university,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Andesite  Boston University
+italian space agencyministry of defense,0,0,0,0.0,0.6603402383983336,6,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Italian Space Agencyministry Of Defense
+italian space agency,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Italian Space Agency
+italian defense ministrytelespazio,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Italian Defense Ministrytelespazio
+italian defense ministryfrench defense ministry,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Italian Defense Ministryfrench Defense Ministry
+angosat,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Angosat
+isky technology,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Isky Technology
+applied physics laboratorynasa,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Applied Physics Laboratorynasa
+iridium communications inc,0,0,0,0.0,0.6603402383983336,75,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Iridium Communications Inc
+kingdom of morocco,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Kingdom Of Morocco
+aprize satellite argentina,0,0,0,0.0,0.6603402383983336,11,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Aprize Satellite Argentina
+alg,0,0,0,0.0,0.6603402383983336,3,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Alg
+alfarabi kazakh national university,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Alfarabi Kazakh National University
+aac clyde space,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Aac Clyde Space
+ma,0,0,0,0.0,0.6603402383983336,2,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Ma
+luxgovsat,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Luxgovsat
+loft orbital,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Loft Orbital
+lightsquared,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Lightsquared
+laos national authority for science and technology,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Laos National Authority For Science And Technology
+agency for defense development,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Agency For Defense Development
+air force research laboratory,0,0,0,0.0,0.6603402383983336,4,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Air Force Research Laboratory
+la sapienza university of rome,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,La Sapienza University Of Rome
+kwt,0,0,0,0.0,0.6603402383983336,1,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Kwt
+kuwait university,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Kuwait University
+kt corporationkorean agency for defense development add,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Kt Corporationkorean Agency For Defense Development Add
+kt corporation,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Kt Corporation
+korean aerospace research institute kari,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Korean Aerospace Research Institute Kari
+korea meteorological administrationnational meteorological satellite center,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Korea Meteorological Administrationnational Meteorological Satellite Center
+airbus,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Airbus
+korea advanced institute of science and technology kaist,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Korea Advanced Institute Of Science And Technology Kaist
+korea advanced institute of science and technology,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Korea Advanced Institute Of Science And Technology
+al yah satellite communications co yahsat,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Al Yah Satellite Communications Co Yahsat
+kleo connect,0,0,0,0.0,0.6603402383983336,4,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Kleo Connect
+apt satellite holdings ltd,0,0,0,0.0,0.6603402383983336,5,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Apt Satellite Holdings Ltd
+china siwei surveying and mapping technology co ltd,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,China Siwei Surveying And Mapping Technology Co Ltd
+argentinian ministry of science technology and productive innovationradio club bariloche,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Argentinian Ministry Of Science Technology And Productive Innovationradio Club Bariloche
+horizons 2 satellite llc intelsat sky perfect jsat corporation,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Horizons 2 Satellite Llc Intelsat Sky Perfect Jsat Corporation
+hughesnet leased from echostar technologies llc,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Hughesnet Leased From Echostar Technologies Llc
+hispamar subsidiary of hispasat  spain,0,0,0,0.0,0.6603402383983336,5,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Hispamar Subsidiary Of Hispasat  Spain
+hisdesat,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Hisdesat
+indian air force,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Indian Air Force
+indian navy,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Indian Navy
+indian space research organization isroexactearth,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Indian Space Research Organization Isroexactearth
+indonesian national aeronautics and space agency lembaga penerbangan dan antariksa nasional  lapan,0,0,0,0.0,0.6603402383983336,3,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Indonesian National Aeronautics And Space Agency Lembaga Penerbangan Dan Antariksa Nasional  Lapan
+inmarsat ltdeuropean space agency esa,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Inmarsat Ltdeuropean Space Agency Esa
+asia satellite telecommunications co ltd,0,0,0,0.0,0.6603402383983336,5,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Asia Satellite Telecommunications Co Ltd
+inspace,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Inspace
+asia broadcast satellite ltd,0,0,0,0.0,0.6603402383983336,5,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Asia Broadcast Satellite Ltd
+institute of space and aeronautical sciencenasa,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Institute Of Space And Aeronautical Sciencenasa
+institute of space and astronautical science isasjapan aerospace exploration agency jaxa,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Institute Of Space And Astronautical Science Isasjapan Aerospace Exploration Agency Jaxa
+hrv,0,0,0,0.0,0.6603402383983336,1,0,0.0,satcat_owner_code,46.22381668788335,30.0,76.2,low,high,Hrv
+arsat,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Arsat
+instituto nacional de pesquisas espaciais inpe,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Instituto Nacional De Pesquisas Espaciais Inpe
+intelsatparadigm secure communications wholly owned by eads astrium,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Intelsatparadigm Secure Communications Wholly Owned By Eads Astrium
+intelsat sasky perfect jsat corp,0,0,0,0.0,0.6603402383983336,1,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Intelsat Sasky Perfect Jsat Corp
+instituto nacional de técnia aeroespacial inta,0,0,0,0.0,0.6603402383983336,2,0,0.0,ucs_operator,46.22381668788335,30.0,76.2,low,high,Instituto Nacional De Técnia Aeroespacial Inta
+bul,3,2,1,0.6666666666666666,0.6635034525325001,4,0,0.0,satcat_owner_code,46.44524167727501,30.0,76.4,medium,high,Bul
+shanghai academy of spaceflight technology,3,2,1,0.6666666666666666,0.6635034525325001,18,0,0.0,ucs_operator,46.44524167727501,30.0,76.4,medium,high,Shanghai Academy Of Spaceflight Technology
+fin,3,2,1,0.6666666666666666,0.6635034525325001,23,0,0.0,satcat_owner_code,46.44524167727501,30.0,76.4,medium,high,Fin
+czch,6,4,2,0.6666666666666666,0.664557857243889,12,0,0.0,satcat_owner_code,46.51905000707223,30.0,76.5,medium,high,Czch
+it,48,34,14,0.7083333333333334,0.7055102101018628,107,8,0.07476635514018691,satcat_owner_code,49.3857147071304,27.757009345794394,77.1,high,high,It
+unknown,10,7,3,0.7,0.6908477473226924,12,0,0.0,ucs_operator,48.35934231258847,30.0,78.4,high,high,Unknown
+esro,7,5,2,0.7142857142857143,0.6981020715195001,7,0,0.0,satcat_owner_code,48.86714500636501,30.0,78.9,medium,high,Esro
+cis,2477,1826,651,0.7371820750908357,0.737089121256127,3711,291,0.07841552142279709,satcat_owner_code,51.59623848792889,27.64753435731609,79.2,high,high,Cis
+hiber global,4,3,1,0.75,0.7115743878850002,4,0,0.0,ucs_operator,49.81020715195001,30.0,79.8,medium,high,Hiber Global
+rwa,4,3,1,0.75,0.7115743878850002,13,0,0.0,satcat_owner_code,49.81020715195001,30.0,79.8,medium,high,Rwa
+spn,34,27,7,0.7941176470588235,0.7832708301404054,68,6,0.08823529411764706,satcat_owner_code,54.82895810982838,27.352941176470587,82.2,high,high,Spn
+astroforge,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Astroforge
+university of colorado boulder,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,University Of Colorado Boulder
+21st century aerospace technology 21at,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,21St Century Aerospace Technology 21At
+acmeo,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Acmeo
+stanford student space initiative,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Stanford Student Space Initiative
+synspective,1,1,0,1.0,0.7452551787987501,3,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Synspective
+astroscale,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Astroscale
+ada space,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Ada Space
+changsha tianyi space science and technology research institute co ltd spacety,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Changsha Tianyi Space Science And Technology Research Institute Co Ltd Spacety
+austrian space forum oewfspire,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Austrian Space Forum Oewfspire
+sternula,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Sternula
+agilspace,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Agilspace
+university of louisiana at lafayette,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,University Of Louisiana At Lafayette
+wuhan university,1,1,0,1.0,0.7452551787987501,3,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Wuhan University
+academy of military science,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Academy Of Military Science
+xiyong microelectrics park,1,1,0,1.0,0.7452551787987501,6,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Xiyong Microelectrics Park
+university of new south walesdepartment of defence,1,1,0,1.0,0.7452551787987501,2,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,University Of New South Walesdepartment Of Defence
+aerospacelab,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Aerospacelab
+university of maliborskylabs,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,University Of Maliborskylabs
+aurora insight,1,1,0,1.0,0.7452551787987501,2,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Aurora Insight
+xiamen universityaerospace dongfanghong satellite co ltd casc,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Xiamen Universityaerospace Dongfanghong Satellite Co Ltd Casc
+tallinn university of technology,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Tallinn University Of Technology
+astronautic technology sdn bhd atsb,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Astronautic Technology Sdn Bhd Atsb
+vat,1,1,0,1.0,0.7452551787987501,1,0,0.0,satcat_owner_code,52.16786251591251,30.0,82.2,low,high,Vat
+air force research laboratoryglobalstar,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Air Force Research Laboratoryglobalstar
+beijing zerog space technology co ltdhong kong aerospace tech group,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Beijing Zerog Space Technology Co Ltdhong Kong Aerospace Tech Group
+arm,1,1,0,1.0,0.7452551787987501,1,0,0.0,satcat_owner_code,52.16786251591251,30.0,82.2,low,high,Arm
+trustpoint inc,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Trustpoint Inc
+tomorrowio,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Tomorrowio
+tohoku university,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Tohoku University
+analytical space,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Analytical Space
+tianjin university,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Tianjin University
+university of brasilia,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,University Of Brasilia
+university of california,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,University Of California
+c3s llc,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,C3S Llc
+university of versailles saintquentinenyvelines uvsqnational centre for scientific research cnrs,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,University Of Versailles Saintquentinenyvelines Uvsqnational Centre For Scientific Research Cnrs
+us naval academy,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Us Naval Academy
+amsatnepal,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Amsatnepal
+cabinet satellite intelligence center csic,1,1,0,1.0,0.7452551787987501,11,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Cabinet Satellite Intelligence Center Csic
+california polytechnic institute,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,California Polytechnic Institute
+telnet holding,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Telnet Holding
+california polytechnic state university,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,California Polytechnic State University
+university of chile for aerospace investigation,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,University Of Chile For Aerospace Investigation
+care weather technologies,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Care Weather Technologies
+asiapacific space cooperation organization apsco,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Asiapacific Space Cooperation Organization Apsco
+utah state university,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Utah State University
+casiom,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Casiom
+beijing zerog technology co ltd,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Beijing Zerog Technology Co Ltd
+airbus defense and space,1,1,0,1.0,0.7452551787987501,3,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Airbus Defense And Space
+astro live experiences,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Astro Live Experiences
+astrodynamics and control laboratory of yonsei university,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Astrodynamics And Control Laboratory Of Yonsei University
+visiona tecnologia espacial sa,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Visiona Tecnologia Espacial Sa
+air force research laboratoryswedish defense materiel administration,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Air Force Research Laboratoryswedish Defense Materiel Administration
+technical university dresden,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Technical University Dresden
+university of southern california space engineering research centerlockheed martin,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,University Of Southern California Space Engineering Research Centerlockheed Martin
+c3s,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,C3S
+sen,1,1,0,1.0,0.7452551787987501,1,0,0.0,satcat_owner_code,52.16786251591251,30.0,82.2,low,high,Sen
+spacety aerospace companythrustme,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Spacety Aerospace Companythrustme
+insight position digital intelligence technology service co ltd,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Insight Position Digital Intelligence Technology Service Co Ltd
+national space program,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,National Space Program
+national technical university,1,1,0,1.0,0.7452551787987501,2,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,National Technical University
+hubei university of technology hut,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Hubei University Of Technology Hut
+noorul islam university,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Noorul Islam University
+north idaho stem charter academy,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,North Idaho Stem Charter Academy
+harris corporation,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Harris Corporation
+norwegian space centerstatsat,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Norwegian Space Centerstatsat
+gumush aerospaceuniversity of turkish aeronautical association utaa,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Gumush Aerospaceuniversity Of Turkish Aeronautical Association Utaa
+government of sudan,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Government Of Sudan
+nrs lab atmospheres milieux observations spatiales verrieres,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Nrs Lab Atmospheres Milieux Observations Spatiales Verrieres
+orbital sidekick,1,1,0,1.0,0.7452551787987501,2,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Orbital Sidekick
+orbital solutions monaco,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Orbital Solutions Monaco
+orbital space,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Orbital Space
+origin space,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Origin Space
+gama,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Gama
+planetiq,1,1,0,1.0,0.7452551787987501,3,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Planetiq
+plans,1,1,0,1.0,0.7452551787987501,2,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Plans
+portland state aerospace society,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Portland State Aerospace Society
+institute of software chinese academy of sciences,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Institute Of Software Chinese Academy Of Sciences
+ethiopian space science and technology institute,1,1,0,1.0,0.7452551787987501,2,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Ethiopian Space Science And Technology Institute
+national center for atmospheric research ncku,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,National Center For Atmospheric Research Ncku
+national authority for remote sensing and space sciences,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,National Authority For Remote Sensing And Space Sciences
+mexican space agencynanoavionics,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Mexican Space Agencynanoavionics
+masdar institute of science and technology,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Masdar Institute Of Science And Technology
+michigan technological universityair force research laboratory,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Michigan Technological Universityair Force Research Laboratory
+marshall intec,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Marshall Intec
+lunasonde,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Lunasonde
+lacuna spacenanoavionics,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Lacuna Spacenanoavionics
+laboratory for atmospheric and space physics university of colorado boulder,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Laboratory For Atmospheric And Space Physics University Of Colorado Boulder
+la sapienza university of romemachakos universityuniversity of nairobi kenya,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,La Sapienza University Of Romemachakos Universityuniversity Of Nairobi Kenya
+mohammend bin rashid space centre mbrsc,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Mohammend Bin Rashid Space Centre Mbrsc
+korea aerospace research institute kari,1,1,0,1.0,0.7452551787987501,7,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Korea Aerospace Research Institute Kari
+momentus inc,1,1,0,1.0,0.7452551787987501,2,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Momentus Inc
+nasa goddard space flight center,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Nasa Goddard Space Flight Center
+nasa small satellite technology program,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Nasa Small Satellite Technology Program
+nasacarnegie mellon university,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Nasacarnegie Mellon University
+khalifa university,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Khalifa University
+kenya space agency,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Kenya Space Agency
+national aeronautics and space administration nasaames research center,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,National Aeronautics And Space Administration Nasaames Research Center
+it university of copenhagen university of southern denmark aalborg university and aarhus university,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,It University Of Copenhagen University Of Southern Denmark Aalborg University And Aarhus University
+irl,1,1,0,1.0,0.7452551787987501,1,0,0.0,satcat_owner_code,52.16786251591251,30.0,82.2,low,high,Irl
+national autonomous university of mexico,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,National Autonomous University Of Mexico
+radio amateur society of thailand rast,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Radio Amateur Society Of Thailand Rast
+loft orbitalfugro,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Loft Orbitalfugro
+esaroyal meteorological institute belgium,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Esaroyal Meteorological Institute Belgium
+dubai electricity and water authority dewa,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Dubai Electricity And Water Authority Dewa
+dji,1,1,0,1.0,0.7452551787987501,2,0,0.0,satcat_owner_code,52.16786251591251,30.0,82.2,low,high,Dji
+shanghai jiao tong universityapsco,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Shanghai Jiao Tong Universityapsco
+reaktor space lab,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Reaktor Space Lab
+department of defensespace test program,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Department Of Defensespace Test Program
+department of defensearmy space and missile defense command,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Department Of Defensearmy Space And Missile Defense Command
+department of computer science and the faculty of engineering ariel university,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Department Of Computer Science And The Faculty Of Engineering Ariel University
+satrevolutionsteamjet,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Satrevolutionsteamjet
+deimos,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Deimos
+sony,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Sony
+college of engineering king saud university,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,College Of Engineering King Saud University
+cnes centre national détudes spatiales,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Cnes Centre National Détudes Spatiales
+clyde space ltdeutelsat,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Clyde Space Ltdeutelsat
+chosun university,1,1,0,1.0,0.7452551787987501,2,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Chosun University
+spacety,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Spacety
+chinese academy of launch vehicle technology calt,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Chinese Academy Of Launch Vehicle Technology Calt
+defence science and technology groupuniversity of new south wales,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Defence Science And Technology Groupuniversity Of New South Wales
+sapienza,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Sapienza
+shanghai lizheng satellite application technology,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Shanghai Lizheng Satellite Application Technology
+rom,1,1,0,1.0,0.7452551787987501,1,0,0.0,satcat_owner_code,52.16786251591251,30.0,82.2,low,high,Rom
+equator technological university,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Equator Technological University
+esaeuropean maritime safety agency,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Esaeuropean Maritime Safety Agency
+epic aerospace,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Epic Aerospace
+revolutionary guard corps,1,1,0,1.0,0.7452551787987501,2,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Revolutionary Guard Corps
+rocket labs,1,1,0,1.0,0.7452551787987501,1,0,0.0,ucs_operator,52.16786251591251,30.0,82.2,low,high,Rocket Labs
+prc,286,220,66,0.7692307692307693,0.7681004176996367,1168,45,0.038527397260273974,satcat_owner_code,53.767029238974565,28.84417808219178,82.6,high,high,Prc
+japan aerospace exploration agency jaxa,2,2,0,1.0,0.7962041430390001,15,1,0.06666666666666667,ucs_operator,55.73429001273001,28.0,83.7,low,high,Japan Aerospace Exploration Agency Jaxa
+blacksky global,6,5,1,0.8333333333333334,0.7756689683550001,16,0,0.0,ucs_operator,54.29682778485001,30.0,84.3,medium,high,Blacksky Global
+st petersburg polytechnic university,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,St Petersburg Polytechnic University
+elbit systems,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Elbit Systems
+us armys space and missile defense command,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Us Armys Space And Missile Defense Command
+tianyi research institute,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Tianyi Research Institute
+us space force,2,2,0,1.0,0.7962041430390001,5,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Us Space Force
+mexico secretariat of national defense sedena,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Mexico Secretariat Of National Defense Sedena
+nanoavionics,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Nanoavionics
+myradar,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Myradar
+chinese academy of space techology cast,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Chinese Academy Of Space Techology Cast
+skykraft,2,2,0,1.0,0.7962041430390001,5,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Skykraft
+brigham young university,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Brigham Young University
+department of defensemissile defense agency,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Department Of Defensemissile Defense Agency
+colombian air force,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Colombian Air Force
+minospace,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Minospace
+lacuna space,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Lacuna Space
+nanjing university,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Nanjing University
+national aeronautics and space administration nasacornell university,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,National Aeronautics And Space Administration Nasacornell University
+university of chile,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,University Of Chile
+hong kong aerospace technology group,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Hong Kong Aerospace Technology Group
+iqps,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Iqps
+national reconnaissance office nro,2,2,0,1.0,0.7962041430390001,48,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,National Reconnaissance Office Nro
+general atomics electromagnetic systems,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,General Atomics Electromagnetic Systems
+central european institute of technology,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Central European Institute Of Technology
+bauman moscow state technical university,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Bauman Moscow State Technical University
+shandong institutes of industrial technology,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Shandong Institutes Of Industrial Technology
+sateliot iot,2,2,0,1.0,0.7962041430390001,2,0,0.0,ucs_operator,55.73429001273001,30.0,85.7,low,high,Sateliot Iot
+head aerospace,5,5,0,1.0,0.8726275893993751,7,1,0.14285714285714285,ucs_operator,61.08393125795626,25.714285714285715,86.8,medium,high,Head Aerospace
+iceye ltd,16,14,2,0.875,0.8411063534313158,22,1,0.045454545454545456,ucs_operator,58.877444740192104,28.636363636363637,87.5,high,high,Iceye Ltd
+university of south florida institute of applied engineering iae,3,3,0,1.0,0.8301701191991668,3,0,0.0,ucs_operator,58.11190834394168,30.0,88.1,medium,high,University Of South Florida Institute Of Applied Engineering Iae
+hawkeye 360,3,3,0,1.0,0.8301701191991668,17,0,0.0,ucs_operator,58.11190834394168,30.0,88.1,medium,high,Hawkeye 360
+cape peninsula university of technology cput,3,3,0,1.0,0.8301701191991668,3,0,0.0,ucs_operator,58.11190834394168,30.0,88.1,medium,high,Cape Peninsula University Of Technology Cput
+alba orbital,3,3,0,1.0,0.8301701191991668,3,0,0.0,ucs_operator,58.11190834394168,30.0,88.1,medium,high,Alba Orbital
+gang hang ke,3,3,0,1.0,0.8301701191991668,3,0,0.0,ucs_operator,58.11190834394168,30.0,88.1,medium,high,Gang Hang Ke
+beijing space view technology,3,3,0,1.0,0.8301701191991668,4,0,0.0,ucs_operator,58.11190834394168,30.0,88.1,medium,high,Beijing Space View Technology
+espace,3,3,0,1.0,0.8301701191991668,3,0,0.0,ucs_operator,58.11190834394168,30.0,88.1,medium,high,Espace
+lynk global inc,3,3,0,1.0,0.8301701191991668,5,0,0.0,ucs_operator,58.11190834394168,30.0,88.1,medium,high,Lynk Global Inc
+guodian gaoke,9,8,1,0.8888888888888888,0.83175172626625,14,0,0.0,ucs_operator,58.2226208386375,30.0,88.2,medium,high,Guodian Gaoke
+european space agency esa,4,4,0,1.0,0.854431530742143,40,1,0.025,ucs_operator,59.81020715195001,29.25,89.1,medium,high,European Space Agency Esa
+defense advanced research projects agency darpa,4,4,0,1.0,0.854431530742143,6,0,0.0,ucs_operator,59.81020715195001,30.0,89.8,medium,high,Defense Advanced Research Projects Agency Darpa
+moscow state university,4,4,0,1.0,0.854431530742143,5,0,0.0,ucs_operator,59.81020715195001,30.0,89.8,medium,high,Moscow State University
+unseenlabs,4,4,0,1.0,0.854431530742143,8,0,0.0,ucs_operator,59.81020715195001,30.0,89.8,medium,high,Unseenlabs
+herzliya science center,4,4,0,1.0,0.854431530742143,4,0,0.0,ucs_operator,59.81020715195001,30.0,89.8,medium,high,Herzliya Science Center
+spacex,1048,908,140,0.8664122137404581,0.8658239968745909,3987,2,0.0005016302984700275,ucs_operator,60.607679781221364,29.984951091045897,90.6,high,high,Spacex
+chang guang satellite technology co ltd,20,18,2,0.9,0.8687400310954349,60,0,0.0,ucs_operator,60.81180217668044,30.0,90.8,high,high,Chang Guang Satellite Technology Co Ltd
+hun,5,5,0,1.0,0.8726275893993751,9,0,0.0,satcat_owner_code,61.08393125795626,30.0,91.1,medium,high,Hun
+capella space,5,5,0,1.0,0.8726275893993751,5,0,0.0,ucs_operator,61.08393125795626,30.0,91.1,medium,high,Capella Space
+satrevolution,5,5,0,1.0,0.8726275893993751,5,0,0.0,ucs_operator,61.08393125795626,30.0,91.1,medium,high,Satrevolution
+swtz,5,5,0,1.0,0.8726275893993751,11,0,0.0,satcat_owner_code,61.08393125795626,30.0,91.1,medium,high,Swtz
+umbra,5,5,0,1.0,0.8726275893993751,5,0,0.0,ucs_operator,61.08393125795626,30.0,91.1,medium,high,Umbra
+satellogic sa,30,27,3,0.9,0.8782127489453031,38,0,0.0,ucs_operator,61.474892426171216,30.0,91.5,high,high,Satellogic Sa
+technical university berlin,6,6,0,1.0,0.8867800794661113,12,0,0.0,ucs_operator,62.07460556262779,30.0,92.1,medium,high,Technical University Berlin
+astrocast,7,7,0,1.0,0.8981020715195001,10,0,0.0,ucs_operator,62.86714500636501,30.0,92.9,medium,high,Astrocast
+nz,7,7,0,1.0,0.8981020715195001,8,0,0.0,satcat_owner_code,62.86714500636501,30.0,92.9,medium,high,Nz
+iran,8,8,0,1.0,0.9073655195631819,18,0,0.0,satcat_owner_code,63.515586369422735,30.0,93.5,medium,high,Iran
+kepler communications,19,18,1,0.9473684210526315,0.9082282143270455,21,0,0.0,ucs_operator,63.57597500289318,30.0,93.6,high,high,Kepler Communications
+kleos space,12,12,0,1.0,0.9320680476796668,16,0,0.0,ucs_operator,65.24476333757667,30.0,95.2,high,high,Kleos Space
+swarm technologies,90,89,1,0.9888888888888889,0.9782905453246774,90,0,0.0,ucs_operator,68.48033817272741,30.0,98.5,high,high,Swarm Technologies
+planet labs inc,203,203,0,1.0,0.9950534986174515,219,0,0.0,ucs_operator,69.65374490322161,30.0,99.7,high,high,Planet Labs Inc
