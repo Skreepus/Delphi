@@ -1,4 +1,5 @@
 import streamlit as st
+from views import home, about
 
 st.set_page_config(page_title="Delphi Project", layout="wide")
 
@@ -16,6 +17,8 @@ st.markdown("""
 
 /* Hide default Streamlit chrome */
 #MainMenu, footer, header { visibility: hidden; }
+[data-testid="stSidebar"] { display: none !important; }
+[data-testid="stSidebarCollapsedControl"] { display: none !important; }
 .block-container { padding-top: 0 !important; }
 
 /* Root variables */
@@ -127,22 +130,10 @@ st.markdown("<hr style='border-color:#2a2a2a; margin:0;'>", unsafe_allow_html=Tr
 
 # ── Page routing ────────────────────────────────────────────────────────────
 if st.session_state.page == "home":
-    st.markdown("""
-    <div class="hero">
-        <p class="eyebrow">Welcome</p>
-        <h1>The <em>Delphi</em><br>Project</h1>
-        <p>Your content goes here.<br>This is the home page.</p>
-    </div>
-    """, unsafe_allow_html=True)
+    home.render()
 
 elif st.session_state.page == "about":
-    st.markdown("""
-    <div class="hero">
-        <p class="eyebrow">Our Story</p>
-        <h1>About <em>Us</em></h1>
-        <p>Tell the world who you are.<br>Your about page content goes here.</p>
-    </div>
-    """, unsafe_allow_html=True)
+    about.render()
 
 # ── Navbar button styling ───────────────────────────────────────────────────
 st.markdown("""
@@ -204,7 +195,7 @@ button[kind="secondary"]:hover span {
 }
 
 /* ============================================================
-   SEARCH INPUT — Merriweather Light (unchanged)
+   SEARCH INPUT — Merriweather Light
    ============================================================ */
 input[type="text"] {
     background: #161616 !important;
