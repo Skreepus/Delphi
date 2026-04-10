@@ -1,32 +1,77 @@
 import streamlit as st
+import base64
+from pathlib import Path
+
+
+def get_base64_image(image_path):
+    """Convert image to base64 for CSS embedding."""
+    img_bytes = Path(image_path).read_bytes()
+    encoded = base64.b64encode(img_bytes).decode()
+    suffix = Path(image_path).suffix.replace(".", "")
+    if suffix == "jpg":
+        suffix = "jpeg"
+    return f"data:image/{suffix};base64,{encoded}"
 
 
 def render():
-    st.markdown("""<style>
+    earth_img = get_base64_image("assets/earth.jpg")
+
+    st.markdown(f"""<style>
     @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Merriweather:wght@300;400;700&display=swap');
 
-    @keyframes fadeSlideUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes glowPulse {
-        0%, 100% { opacity: 0.4; }
-        50% { opacity: 1; }
-    }
+    @keyframes fadeSlideUp {{
+        from {{ opacity: 0; transform: translateY(30px); }}
+        to {{ opacity: 1; transform: translateY(0); }}
+    }}
+    @keyframes glowPulse {{
+        0%, 100% {{ opacity: 0.4; }}
+        50% {{ opacity: 1; }}
+    }}
 
-    .about-page {
+    /* ── Page Container ── */
+    .about-page {{
         max-width: 900px;
         margin: 0 auto;
         padding: 4rem 2rem;
-    }
-    .about-section {
+        position: relative;
+        z-index: 2;
+    }}
+
+    /* ── Earth Background ── */
+    .bg-layers {{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+    }}
+    .bg-earth {{
+        position: absolute;
+        bottom: -42%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        max-width: 900px;
+        opacity: 0.15;
+        mask-image: radial-gradient(ellipse 75% 75% at center, black 30%, transparent 70%);
+        -webkit-mask-image: radial-gradient(ellipse 75% 75% at center, black 30%, transparent 70%);
+    }}
+
+    /* ── Sections ── */
+    .about-section {{
         margin-bottom: 4rem;
         animation: fadeSlideUp 0.8s ease-out;
-    }
-    .about-section:nth-child(2) { animation-delay: 0.1s; }
-    .about-section:nth-child(4) { animation-delay: 0.2s; }
-    .about-section:nth-child(6) { animation-delay: 0.3s; }
-    .about-section-label {
+        position: relative;
+        z-index: 2;
+    }}
+    .about-section:nth-child(2) {{ animation-delay: 0.1s; }}
+    .about-section:nth-child(4) {{ animation-delay: 0.2s; }}
+    .about-section:nth-child(6) {{ animation-delay: 0.3s; }}
+
+    .about-section-label {{
         font-family: "Merriweather", serif;
         font-weight: 300;
         font-size: 0.9rem;
@@ -35,8 +80,8 @@ def render():
         color: #c9a96e;
         margin-bottom: 1rem;
         text-align: center;
-    }
-    .about-section h2 {
+    }}
+    .about-section h2 {{
         font-family: "Lora", serif;
         font-weight: 500;
         font-size: 2.8rem;
@@ -44,8 +89,8 @@ def render():
         margin-bottom: 1.2rem;
         line-height: 1.2;
         text-align: center;
-    }
-    .about-section p {
+    }}
+    .about-section p {{
         font-family: "Merriweather", serif;
         font-weight: 300;
         font-size: 1.05rem;
@@ -55,31 +100,37 @@ def render():
         text-align: center;
         margin-left: auto;
         margin-right: auto;
-    }
-    .fancy-divider {
+    }}
+
+    /* ── Divider ── */
+    .fancy-divider {{
         display: flex;
         align-items: center;
         gap: 1rem;
         margin: 0 0 4rem 0;
-    }
-    .fancy-divider .line {
+        position: relative;
+        z-index: 2;
+    }}
+    .fancy-divider .line {{
         flex: 1;
         height: 1px;
         background: linear-gradient(90deg, transparent, #2a2a2a, transparent);
-    }
-    .fancy-divider .diamond {
+    }}
+    .fancy-divider .diamond {{
         color: #c9a96e;
         font-size: 0.5rem;
         animation: glowPulse 3s ease-in-out infinite;
-    }
-    .team-grid {
+    }}
+
+    /* ── Team Grid ── */
+    .team-grid {{
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2.5rem;
         margin-top: 1.5rem;
-    }
-    .team-card {
-        background: #161616;
+    }}
+    .team-card {{
+        background: rgba(22, 22, 22, 0.85);
         border: 1px solid #2a2a2a;
         border-radius: 10px;
         padding: 2.5rem 2.5rem;
@@ -87,8 +138,10 @@ def render():
         transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
         position: relative;
         overflow: hidden;
-    }
-    .team-card::before {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }}
+    .team-card::before {{
         content: "";
         position: absolute;
         top: 0;
@@ -98,39 +151,43 @@ def render():
         background: linear-gradient(90deg, transparent, #c9a96e, transparent);
         opacity: 0;
         transition: opacity 0.3s;
-    }
-    .team-card:hover {
+    }}
+    .team-card:hover {{
         border-color: #c9a96e;
         transform: translateY(-4px);
         box-shadow: 0 8px 30px rgba(201,169,110,0.08);
-    }
-    .team-card:hover::before {
+    }}
+    .team-card:hover::before {{
         opacity: 1;
-    }
-    .team-card .name {
+    }}
+    .team-card .name {{
         font-family: "Lora", serif;
         font-weight: 500;
         font-size: 1.6rem;
         color: #e8e2d9;
         margin-bottom: 0.4rem;
-    }
-    .team-card .role {
+    }}
+    .team-card .role {{
         font-family: "Merriweather", serif;
         font-weight: 300;
         font-size: 0.9rem;
         color: #6b6560;
         letter-spacing: 0.05em;
         margin-bottom: 1rem;
-    }
-    .team-card .card-line {
+    }}
+    .team-card .card-line {{
         width: 30px;
         height: 1px;
         background: #2a2a2a;
         margin: 0 auto;
-    }
+    }}
     </style>""", unsafe_allow_html=True)
 
-    st.markdown("""<div class="about-page">
+    st.markdown(f"""<div class="bg-layers">
+<img class="bg-earth" src="{earth_img}" alt="">
+</div>
+
+<div class="about-page">
 
 <div class="about-section">
 <p class="about-section-label">01 — Our Goal</p>
