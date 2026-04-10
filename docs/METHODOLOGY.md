@@ -1,4 +1,4 @@
-# Orbital Credit — Methodology
+# Delphi — Methodology
 
 ## Problem Statement
 
@@ -6,7 +6,7 @@ Thousands of satellites orbit Earth with no standardised public-facing complianc
 
 ## What We Built
 
-Orbital Credit merges public satellite data to compute:
+Delphi merges public satellite data to compute:
 1. **Operator Reliability Score** (0–100) — historical compliance rate weighted by inactive-on-orbit ratio
 2. **Satellite Disposal Risk Score** (0–1) — ML model or heuristic combining orbital, lifecycle, and operator features
 
@@ -50,8 +50,4 @@ Fallback: weighted heuristic using age/lifetime ratio + operator score + orbit c
 | operator_total_launched | Aggregated |
 
 ## Known Limitations (MVP)
-
-- Entity resolution is fuzzy — some operators may be duplicated
-- Compliance labels rely on disposal date proxies; true compliance requires policy interpretation
-- GEO-specific disposal rules not yet implemented
-- No live API integration (static data snapshots)
+- Data is outdated (2023)

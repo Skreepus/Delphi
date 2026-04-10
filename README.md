@@ -1,8 +1,8 @@
-# 🛰️ Orbital Credit
+# Delphi
 
 **A Predictive Compliance and Disposal-Risk Platform for Sustainable Satellite Operations**
 
-> Hackathon project — 50-hour build · 4-person team
+
 
 ---
 
