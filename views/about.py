@@ -4,7 +4,6 @@ from pathlib import Path
 
 
 def get_base64_image(image_path):
-    """Convert image to base64 for CSS embedding."""
     img_bytes = Path(image_path).read_bytes()
     encoded = base64.b64encode(img_bytes).decode()
     suffix = Path(image_path).suffix.replace(".", "")
@@ -27,8 +26,11 @@ def render():
         0%, 100% {{ opacity: 0.4; }}
         50% {{ opacity: 1; }}
     }}
+    @keyframes earthFadeIn {{
+        from {{ opacity: 0; }}
+        to {{ opacity: 0.15; }}
+    }}
 
-    /* ── Page Container ── */
     .about-page {{
         max-width: 900px;
         margin: 0 auto;
@@ -37,7 +39,6 @@ def render():
         z-index: 2;
     }}
 
-    /* ── Earth Background ── */
     .bg-layers {{
         position: fixed;
         top: 0;
@@ -55,12 +56,16 @@ def render():
         transform: translateX(-50%);
         width: 80%;
         max-width: 900px;
-        opacity: 0.15;
+        opacity: 0;
+        visibility: visible;
         mask-image: radial-gradient(ellipse 75% 75% at center, black 30%, transparent 70%);
         -webkit-mask-image: radial-gradient(ellipse 75% 75% at center, black 30%, transparent 70%);
+        animation: earthFadeIn 0.6s ease-out 0.2s forwards;
+                
+        
+                
     }}
 
-    /* ── Sections ── */
     .about-section {{
         margin-bottom: 4rem;
         animation: fadeSlideUp 0.8s ease-out;
@@ -102,7 +107,6 @@ def render():
         margin-right: auto;
     }}
 
-    /* ── Divider ── */
     .fancy-divider {{
         display: flex;
         align-items: center;
@@ -122,7 +126,6 @@ def render():
         animation: glowPulse 3s ease-in-out infinite;
     }}
 
-    /* ── Team Grid ── */
     .team-grid {{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -182,7 +185,6 @@ def render():
         margin: 0 auto;
     }}
 
-    /* ── Footer Line ── */
     .footer-line {{
         margin-top: 5rem;
         text-align: center;
@@ -190,10 +192,10 @@ def render():
     .footer-line p {{
         font-family: "Merriweather", serif;
         font-weight: 300;
-        font-size: 0.95rem;          /* ← was 0.75rem */
+        font-size: 0.95rem;
         letter-spacing: 0.15em;
         text-transform: lowercase;
-        color: #e8e2d9;              /* ← was #2a2a2a */
+        color: #e8e2d9;
     }}
     </style>""", unsafe_allow_html=True)
 

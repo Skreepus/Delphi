@@ -35,6 +35,11 @@ body, .stApp {
     background-color: #0d0d0d !important;
     color: #e8e2d9;
 }
+            
+.bg-earth {
+    visibility: hidden;
+}
+
 
 /* ── Hero ── */
 .hero {
