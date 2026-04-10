@@ -46,6 +46,7 @@ DISPOSAL_COMPLIANCE_YEARS = 5
 # ── Operator reliability scoring ───────────────────────────────────────────
 COMPLIANCE_WEIGHT = 70
 DEBRIS_WEIGHT = 30
+MIN_OPERATOR_HISTORY = 3
 
 RELIABILITY_TIERS = {
     "high": 70,

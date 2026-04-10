@@ -138,22 +138,35 @@ def _enrich_from_master(
     master_df: pd.DataFrame
 ) -> pd.DataFrame:
     """
-    Bring expected_lifetime_yrs from the UCS-matched master into
-    the full SATCAT rows. Satellites not in UCS keep NaN (fallback to 0).
+    Bring expected_lifetime_yrs and operator identity from the
+    UCS-matched master into the full SATCAT rows.
+
+    Satellites not in UCS keep NaN for these columns.
     """
     if "norad_id" not in satcat_df.columns or "norad_id" not in master_df.columns:
         return satcat_df
 
-    lifetime_lookup = master_df[["norad_id", "expected_lifetime_yrs"]].drop_duplicates(
-        subset="norad_id"
-    )
+    # ── Columns to bring from master ────────────────────────────
+    enrich_cols = ["norad_id", "expected_lifetime_yrs"]
+    for col in ("operator_resolved", "operator_clean", "operator",
+                "country", "mission_type", "orbit_type", "users"):
+        if col in master_df.columns:
+            enrich_cols.append(col)
 
-    if "expected_lifetime_yrs" in satcat_df.columns:
-        satcat_df = satcat_df.drop(columns=["expected_lifetime_yrs"])
+    # Deduplicate so merge is clean
+    lookup = master_df[enrich_cols].drop_duplicates(subset="norad_id")
 
-    satcat_df = satcat_df.merge(lifetime_lookup, on="norad_id", how="left")
+    # Drop columns that already exist in satcat to avoid _x/_y
+    drop_cols = [c for c in enrich_cols if c in satcat_df.columns and c != "norad_id"]
+    if drop_cols:
+        satcat_df = satcat_df.drop(columns=drop_cols)
+
+    satcat_df = satcat_df.merge(lookup, on="norad_id", how="left")
+
+    matched = satcat_df["operator_resolved"].notna().sum() if "operator_resolved" in satcat_df.columns else 0
+    print(f"  Operator names enriched: {matched:,} / {len(satcat_df):,}")
+
     return satcat_df
-
 
 def _print_summary(df: pd.DataFrame, name: str) -> None:
     """Print label distribution."""
