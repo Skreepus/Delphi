@@ -97,7 +97,7 @@ def add_operator_features(df: pd.DataFrame) -> pd.DataFrame:
 
     # Build operator_final if it doesn't exist
     if "operator_final" not in df.columns:
-        df["operator_final"] = np.nan
+        df["operator_final"] = pd.array([pd.NA] * len(df), dtype="object")
         for col in ("operator_resolved", "operator_clean", "operator", "owner_code"):
             if col in df.columns:
                 mask = df["operator_final"].isna() & df[col].notna()

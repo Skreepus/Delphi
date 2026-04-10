@@ -12,7 +12,7 @@
     "operator_reliability_score",
     "has_lifetime_data"
   ],
-  "intercept": 0.2168873278642174,
+  "intercept": 0.21688732786423476,
   "confusion_matrix": {
     "true_negative": 264,
     "false_positive": 323,
