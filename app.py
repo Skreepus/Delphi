@@ -118,7 +118,7 @@ if SHOW_CENTER_GUIDE:
     st.markdown('<div class="center-guide"></div>', unsafe_allow_html=True)
 
 # ── Navbar ─────────────────────────────────────────────────────────────────
-col_logo, col_spacer, col_rankings, col_about = st.columns([1.2, 2, 0.8, 0.5])
+col_logo, col_spacer, col_rankings, col_explorer, col_about = st.columns([1.2, 1.5, 0.8, 0.8, 0.5])
 
 with col_logo:
     if st.button("delphi-project", key="logo_btn"):
@@ -128,6 +128,11 @@ with col_logo:
 with col_rankings:
     if st.button("rankings", key="rankings_btn"):
         st.session_state.page = "operator_rankings"
+        st.rerun()
+
+with col_explorer:
+    if st.button("explorer", key="explorer_btn"):
+        st.session_state.page = "satellite_explorer"
         st.rerun()
 
 with col_about:
@@ -147,6 +152,10 @@ elif st.session_state.page == "about":
 elif st.session_state.page == "operator_rankings":
     from views import operator_rankings
     operator_rankings.render()
+
+elif st.session_state.page == "satellite_explorer":
+    from views import satellite_explorer
+    satellite_explorer.render()
 
 # ── Navbar button styling ───────────────────────────────────────────────────
 st.markdown("""
@@ -187,7 +196,7 @@ section[data-testid="stMain"] button {
 }
 
 /* ============================================================
-   NAV LINK BUTTONS — rankings + about us
+   NAV LINK BUTTONS — rankings + explorer + about us
    ============================================================ */
 button[kind="secondary"],
 button[kind="secondary"] p,
