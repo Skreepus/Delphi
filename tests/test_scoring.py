@@ -4,8 +4,8 @@ Run with: pytest tests/test_scoring.py
 """
 import pytest
 import pandas as pd
-from src.scoring.satellite_risk import compute_heuristic_risk, assign_risk_tiers
-from src.scoring.operator_score import compute_operator_scores
+from src.scoring.risk_categories import compute_heuristic_risk, assign_risk_tiers
+from src.scoring.operator_reliability import compute_operator_scores
 
 
 def make_satellite_df():
