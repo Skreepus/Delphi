@@ -1,26 +1,54 @@
+"""
+Model Evaluation (Simplified)
+
+Just accuracy, AUC, and confusion matrix.
+No SHAP. No cross-validation.
+"""
+
 import pandas as pd
-from sklearn.metrics import classification_report, roc_auc_score
-from sklearn.pipeline import Pipeline
+import numpy as np
+from sklearn.metrics import (
+    accuracy_score,
+    roc_auc_score,
+    confusion_matrix,
+    classification_report,
+)
 
 
-def evaluate(model: Pipeline, X_test: pd.DataFrame, y_test: pd.Series) -> dict:
+def evaluate(y_true, y_pred, y_prob=None):
     """
-    Tests the model performance and prints accuracy metrics.
-    """
-    y_pred = model.predict(X_test)
-    y_prob = model.predict_proba(X_test)[:, 1]
-    auc = roc_auc_score(y_test, y_prob)
-    print(f"[Evaluator] AUC: {auc:.3f}")
-    print(classification_report(y_test, y_pred))
-    return {"auc": auc}
+    Print basic evaluation metrics.
 
+    Parameters
+    ----------
+    y_true : array-like
+        Actual labels (0 or 1)
+    y_pred : array-like
+        Predicted labels (0 or 1)
+    y_prob : array-like, optional
+        Predicted probabilities for the positive class
 
-def get_shap_values(model: Pipeline, X: pd.DataFrame):
+    Returns
+    -------
+    dict with accuracy, auc (if y_prob given)
     """
-    Explains the model's predictions by identifying which features mattered most.
-    """
-    import shap
-    classifier = model.named_steps["classifier"]
-    X_transformed = model.named_steps["preprocessor"].transform(X)
-    explainer = shap.TreeExplainer(classifier)
-    return explainer.shap_values(X_transformed), explainer
+    acc = accuracy_score(y_true, y_pred)
+    print(f"Accuracy: {acc:.3f}")
+
+    cm = confusion_matrix(y_true, y_pred)
+    print(f"\nConfusion Matrix:")
+    print(f"              Predicted")
+    print(f"           Neg    Pos")
+    print(f"  Act Neg  {cm[0][0]:>5}  {cm[0][1]:>5}")
+    print(f"  Act Pos  {cm[1][0]:>5}  {cm[1][1]:>5}")
+
+    print(classification_report(y_true, y_pred))
+
+    results = {"accuracy": float(acc)}
+
+    if y_prob is not None:
+        auc = roc_auc_score(y_true, y_prob)
+        print(f"AUC: {auc:.3f}")
+        results["auc"] = float(auc)
+
+    return results

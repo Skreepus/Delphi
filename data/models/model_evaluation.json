@@ -1,0 +1,29 @@
+{
+  "accuracy": 0.8490456911509543,
+  "auc": 0.883251237405908,
+  "training_rows": 8641,
+  "prediction_rows": 17074,
+  "features_used": [
+    "age_years",
+    "apogee_km",
+    "perigee_km",
+    "inclination_deg",
+    "period_min",
+    "operator_reliability_score",
+    "operator_compliance_rate",
+    "operator_inactive_ratio",
+    "has_lifetime_data",
+    "orbit_class_GEO",
+    "orbit_class_HEO",
+    "orbit_class_LEO",
+    "orbit_class_MEO",
+    "orbit_class_UNKNOWN"
+  ],
+  "intercept": 0.24110456637272787,
+  "confusion_matrix": {
+    "true_negative": 333,
+    "false_positive": 254,
+    "false_negative": 7,
+    "true_positive": 1135
+  }
+}

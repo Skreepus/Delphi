@@ -1,0 +1,16 @@
+feature,coefficient
+intercept,0.24110456637272787
+age_years,-0.10972845423703675
+apogee_km,-0.4304572109684254
+perigee_km,0.08800793874013266
+inclination_deg,-0.04723921801805494
+period_min,0.8190623165098866
+operator_reliability_score,-2.0866764689632835
+operator_compliance_rate,2.900581071819326
+operator_inactive_ratio,0.009279094936289381
+has_lifetime_data,0.9292525537179791
+orbit_class_GEO,-2.009388969715875
+orbit_class_HEO,-1.104836397342728
+orbit_class_LEO,-1.8949851583037214
+orbit_class_MEO,-1.3968427148307134
+orbit_class_UNKNOWN,-0.5056957667902148

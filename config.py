@@ -56,3 +56,18 @@ RELIABILITY_TIERS = {
 
 # ── Active satellite status keywords ───────────────────────────────────────
 ACTIVE_STATUSES = ["active", "operational"]
+
+# ── Risk Categories ─────────────────────────────────────────
+# Operator reliability thresholds
+OPERATOR_RISK_THRESHOLDS = {
+    "high_risk":   0.40,   # reliability below 0.40 → high risk
+    "medium_risk": 0.70,   # reliability 0.40–0.70  → medium risk
+                           # reliability above 0.70 → low risk
+}
+
+# Labels for display
+RISK_LABELS = {
+    "high":   "High Risk",
+    "medium": "Medium Risk",
+    "low":    "Low Risk",
+}
