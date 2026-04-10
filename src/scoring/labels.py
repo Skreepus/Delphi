@@ -1,4 +1,24 @@
 """
+Label Design (v1 — MVP)
+
+Target: binary compliance label for historical satellites.
+
+COMPLIANT:     satellite has decayed/deorbited within 25 years of mission end
+NON_COMPLIANT: satellite is inactive/dead and still on orbit beyond 25yr window
+UNKNOWN:       missing decay date, mission end date, or status — exclude from training
+
+Active satellites: no label assigned — these are the prediction targets.
+
+Key columns needed from merged dataset:
+    - status          (active / inactive / decayed / unknown)
+    - launch_date     (from UCS)
+    - expected_lifetime_yrs (from UCS)
+    - decay_date      (from Space-Track decay records)
+
+Compliance proxy if decay_date is missing:
+    If status == 'inactive' and satellite_age_yrs > expected_lifetime_yrs + 25 → NON_COMPLIANT
+
+
 COMPLIANT:     decayed/deorbited within 25 years of mission end
 NON_COMPLIANT: inactive/dead and still on orbit beyond 25yr window
 UNKNOWN:       insufficient data — excluded from training
