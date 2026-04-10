@@ -93,20 +93,9 @@ def normalise(df: pd.DataFrame, params: pd.DataFrame) -> pd.DataFrame:
 
 
 def prepare_data(df: pd.DataFrame):
-    """
-    Split into training features, training labels, and prediction features.
+    # No orbit dummies anymore — just use NUMERIC_FEATURES directly
+    feature_cols = [c for c in NUMERIC_FEATURES if c in df.columns]
 
-    Training set:    rows where compliance_label is compliant or non_compliant
-    Prediction set:  rows where compliance_label is unknown (active satellites)
-    """
-    # Get all feature columns (numeric + one-hot orbit class)
-    orbit_dummies = [c for c in df.columns if c.startswith("orbit_class_")]
-    feature_cols = NUMERIC_FEATURES + orbit_dummies
-
-    # Only use columns that actually exist
-    feature_cols = [c for c in feature_cols if c in df.columns]
-
-    # Split
     train_mask = df["compliance_label"].isin(["compliant", "non_compliant"])
     predict_mask = df["compliance_label"] == "unknown"
 

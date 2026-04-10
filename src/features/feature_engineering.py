@@ -31,14 +31,10 @@ NUMERIC_FEATURES = [
     "inclination_deg",
     "period_min",
     "operator_reliability_score",
-    "operator_compliance_rate",
-    "operator_inactive_ratio",
     "has_lifetime_data",
 ]
 
-CATEGORICAL_FEATURES = [
-    "orbit_class",
-]
+CATEGORICAL_FEATURES = []
 
 METADATA_COLUMNS = [
     "norad_id",
@@ -229,9 +225,11 @@ def build_feature_table(
     print("\n── Step 5: Fill missing values ──")
     df = fill_missing_with_median(df, NUMERIC_FEATURES)
 
-    print("\n── Step 6: One-hot encode orbit_class ──")
-    df = one_hot_encode(df, "orbit_class")
-
+    print("\n── Step 6: One-hot encode categoricals ──")
+    for cat_col in CATEGORICAL_FEATURES:
+        df = one_hot_encode(df, cat_col)
+    if not CATEGORICAL_FEATURES:
+        print("  No categorical features to encode")
     # ── Report ──────────────────────────────────────────────────
     # Find all orbit_class_ columns created by one-hot encoding
     orbit_dummies = [c for c in df.columns if c.startswith("orbit_class_")]
