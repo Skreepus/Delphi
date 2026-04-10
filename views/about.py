@@ -181,6 +181,20 @@ def render():
         background: #2a2a2a;
         margin: 0 auto;
     }}
+
+    /* ── Footer Line ── */
+    .footer-line {{
+        margin-top: 5rem;
+        text-align: center;
+    }}
+    .footer-line p {{
+        font-family: "Merriweather", serif;
+        font-weight: 300;
+        font-size: 0.95rem;          /* ← was 0.75rem */
+        letter-spacing: 0.15em;
+        text-transform: lowercase;
+        color: #e8e2d9;              /* ← was #2a2a2a */
+    }}
     </style>""", unsafe_allow_html=True)
 
     st.markdown(f"""<div class="bg-layers">
@@ -215,29 +229,33 @@ def render():
 
 <div class="about-section">
 <p class="about-section-label">03 — Our Team</p>
-<h2>The People Behind Delphi</h2>
+<h2>Hackathon Goats</h2>
 <div class="team-grid">
 <div class="team-card">
-<p class="name">Tom</p>
-<p class="role">Co-Founder</p>
+<p class="name">Kenneth</p>
+<p class="role">why am i here?</p>
 <div class="card-line"></div>
 </div>
 <div class="team-card">
-<p class="name">Jerry</p>
-<p class="role">Co-Founder</p>
+<p class="name">Srineer</p>
+<p class="role">great guy they say</p>
 <div class="card-line"></div>
 </div>
 <div class="team-card">
-<p class="name">Dill</p>
-<p class="role">Co-Founder</p>
+<p class="name">Vimal</p>
+<p class="role">havent decided what titles yet</p>
 <div class="card-line"></div>
 </div>
 <div class="team-card">
-<p class="name">Doe</p>
-<p class="role">Co-Founder</p>
+<p class="name">Vinn</p>
+<p class="role">these are pretty much just placeholders</p>
 <div class="card-line"></div>
 </div>
 </div>
+</div>
+
+<div class="footer-line">
+<p>made for coldbrew 2026</p>
 </div>
 
 </div>""", unsafe_allow_html=True)
