@@ -1,14 +1,13 @@
 """
 Client for CelesTrak public data.
-No authentication required.
 Docs: https://celestrak.org/
 """
 import requests
 import pandas as pd
 from io import StringIO
 
-ACTIVE_URL = "https://celestrak.org/SOCRATES/query.php"
-GP_URL = "https://celestrak.org/SOCRATES/query.php"  # TODO: confirm correct endpoint
+ACTIVE_URL = "https://celestrak.org/SOCRATES/search.php?CATNR=25544"
+GP_URL = "https://celestrak.org/SOCRATES/search.php?CATNR=25544"  
 
 
 def fetch_active_satellites() -> pd.DataFrame:

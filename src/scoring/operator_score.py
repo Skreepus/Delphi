@@ -1,21 +1,15 @@
-"""
-Operator reliability score: 0–100 (higher = more reliable).
-"""
 import pandas as pd
 import numpy as np
 
 
 def compute_operator_scores(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Compute an operator reliability score from aggregated satellite data.
+    Builds a reliability score (0-100) for each operator based on their compliance
+    and inactive-on-orbit history. Compliance rate carries 60% of the weight,
+    inactive ratio carries 30%.
 
-    Formula (v1 heuristic — replace with model output if available):
-        score = compliance_rate * 60
-              + (1 - inactive_ratio) * 30
-              + recency_bonus * 10
-
-    Returns:
-        DataFrame with one row per operator and a 'reliability_score' column.
+    Returns a DataFrame ranked by reliability_score with one row per operator,
+    including compliance_rate, inactive_ratio, reliability_score and reliability_tier.
     """
     agg = df.groupby("operator").agg(
         total=("satellite_name", "count"),
@@ -27,8 +21,7 @@ def compute_operator_scores(df: pd.DataFrame) -> pd.DataFrame:
     agg["inactive_ratio"] = agg["inactive_on_orbit"] / agg["total"].clip(lower=1)
 
     agg["reliability_score"] = (
-        agg["compliance_rate"] * 60
-        + (1 - agg["inactive_ratio"]) * 30
+        agg["compliance_rate"] * 60 + (1 - agg["inactive_ratio"]) * 30
     ).clip(0, 100).round(1)
 
     agg["reliability_tier"] = pd.cut(
