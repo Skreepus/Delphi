@@ -21,6 +21,14 @@ st.markdown("""
 [data-testid="stSidebarCollapsedControl"] { display: none !important; }
 .block-container { padding-top: 0 !important; }
 
+/* ── Sticky Navbar ── */
+[data-testid="stMain"] > div:first-child {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    background: #0d0d0d !important;
+}
+
 /* Root variables */
 :root {
     --bg: #0d0d0d;
@@ -35,11 +43,10 @@ body, .stApp {
     background-color: #0d0d0d !important;
     color: #e8e2d9;
 }
-            
+
 .bg-earth {
     visibility: hidden;
 }
-
 
 /* ── Hero ── */
 .hero {
@@ -111,20 +118,17 @@ if SHOW_CENTER_GUIDE:
     st.markdown('<div class="center-guide"></div>', unsafe_allow_html=True)
 
 # ── Navbar ─────────────────────────────────────────────────────────────────
-col_logo, col_spacer_left, col_search, col_spacer_right, col_about = st.columns([0.5, 0.6, 2, 0.9, 0.1])
+col_logo, col_spacer, col_rankings, col_about = st.columns([1.2, 2, 0.8, 0.5])
 
 with col_logo:
     if st.button("delphi-project", key="logo_btn"):
         st.session_state.page = "home"
         st.rerun()
 
-with col_search:
-    search_query = st.text_input(
-        label="search",
-        placeholder="Search…",
-        label_visibility="collapsed",
-        key="search_bar"
-    )
+with col_rankings:
+    if st.button("rankings", key="rankings_btn"):
+        st.session_state.page = "operator_rankings"
+        st.rerun()
 
 with col_about:
     if st.button("about us", key="about_btn"):
@@ -139,6 +143,10 @@ if st.session_state.page == "home":
 
 elif st.session_state.page == "about":
     about.render()
+
+elif st.session_state.page == "operator_rankings":
+    from views import operator_rankings
+    operator_rankings.render()
 
 # ── Navbar button styling ───────────────────────────────────────────────────
 st.markdown("""
@@ -179,7 +187,7 @@ section[data-testid="stMain"] button {
 }
 
 /* ============================================================
-   ABOUT US BUTTON — Cormorant Garamond Medium 500
+   NAV LINK BUTTONS — rankings + about us
    ============================================================ */
 button[kind="secondary"],
 button[kind="secondary"] p,
@@ -197,29 +205,6 @@ button[kind="secondary"]:hover,
 button[kind="secondary"]:hover p,
 button[kind="secondary"]:hover span {
     color: #c9a96e !important;
-}
-
-/* ============================================================
-   SEARCH INPUT — Merriweather Light
-   ============================================================ */
-input[type="text"] {
-    background: #161616 !important;
-    border: 1px solid #2a2a2a !important;
-    border-radius: 6px !important;
-    font-family: "Merriweather", serif !important;
-    font-weight: 300 !important;
-    font-size: 0.85rem !important;
-    color: #e8e2d9 !important;
-}
-input[type="text"]:focus {
-    border-color: #c9a96e !important;
-    box-shadow: none !important;
-}
-input[type="text"]::placeholder {
-    font-family: "Merriweather", serif !important;
-    font-weight: 300 !important;
-    font-style: italic !important;
-    color: #6b6560 !important;
 }
 </style>
 """, unsafe_allow_html=True)
