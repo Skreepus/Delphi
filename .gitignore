@@ -3,9 +3,6 @@ __pycache__/
 .env
 .venv/
 venv/
-data/raw/
-data/processed/
-data/backup/
 *.pkl
 *.joblib
 .vscode/
