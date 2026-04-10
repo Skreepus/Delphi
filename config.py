@@ -41,7 +41,7 @@ FEATURE_TABLE_CSV = DATA_PROCESSED / "feature_table.csv"
 # ── Scoring thresholds ─────────────────────────────────────────────────────
 RISK_HIGH_THRESHOLD = 0.7
 RISK_MEDIUM_THRESHOLD = 0.4
-DISPOSAL_COMPLIANCE_YEARS = 25
+DISPOSAL_COMPLIANCE_YEARS = 5
 
 # ── Operator reliability scoring ───────────────────────────────────────────
 COMPLIANCE_WEIGHT = 70
