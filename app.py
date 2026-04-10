@@ -1,26 +1,229 @@
-"""
-Orbital Credit — Main Streamlit entry point.
-Run with: streamlit run app.py
-"""
 import streamlit as st
 
-st.set_page_config(
-    page_title="Orbital Credit",
-    page_icon="🛰️",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
+st.set_page_config(page_title="Delphi Project", layout="wide")
 
-st.title("🛰️ Orbital Credit")
-st.subheader("Predictive Compliance & Disposal-Risk Platform for Sustainable Satellite Operations")
+# ── DEVELOPMENT TOGGLE ──────────────────────────────────────────────────────
+SHOW_CENTER_GUIDE = False
 
+# ── Session state for page routing ─────────────────────────────────────────
+if "page" not in st.session_state:
+    st.session_state.page = "home"
+
+# ── Custom CSS ──────────────────────────────────────────────────────────────
 st.markdown("""
-Navigate using the sidebar to explore:
-- **Home** — Summary metrics and risk overview
-- **Operator Rankings** — Reliability scores by operator
-- **Satellite Rankings** — High-risk active satellites
-- **Operator Profile** — Drill down into a specific operator
-- **Satellite Profile** — Drill down into a specific satellite
-""")
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap');
 
-# TODO: Add top-level KPI cards once data pipeline is wired up
+/* Hide default Streamlit chrome */
+#MainMenu, footer, header { visibility: hidden; }
+.block-container { padding-top: 0 !important; }
+
+/* Root variables */
+:root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --border: #2a2a2a;
+    --text: #e8e2d9;
+    --muted: #6b6560;
+    --accent: #c9a96e;
+}
+
+body, .stApp {
+    background-color: #0d0d0d !important;
+    color: #e8e2d9;
+}
+
+/* ── Hero ── */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 64px);
+    text-align: center;
+    padding: 4rem 2rem;
+}
+.eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 1.2rem;
+}
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    color: #e8e2d9;
+    margin-bottom: 1.5rem;
+}
+.hero h1 em { font-style: italic; color: #c9a96e; }
+.hero p {
+    font-size: 0.8rem;
+    color: #6b6560;
+    max-width: 380px;
+    line-height: 1.9;
+}
+
+/* ── Center Guide Line ── */
+.center-guide {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100vh;
+    background-color: rgba(201, 169, 110, 0.6);
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.center-guide::before {
+    content: "← CENTER →";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    background: rgba(201, 169, 110, 0.9);
+    color: #0d0d0d;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 2px 6px;
+    white-space: nowrap;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# ── Conditionally show center guide ─────────────────────────────────────────
+if SHOW_CENTER_GUIDE:
+    st.markdown('<div class="center-guide"></div>', unsafe_allow_html=True)
+
+# ── Navbar ─────────────────────────────────────────────────────────────────
+col_logo, col_spacer_left, col_search, col_spacer_right, col_about = st.columns([0.5, 0.6, 2, 0.9, 0.1])
+
+with col_logo:
+    if st.button("delphi-project", key="logo_btn"):
+        st.session_state.page = "home"
+        st.rerun()
+
+with col_search:
+    search_query = st.text_input(
+        label="search",
+        placeholder="Search…",
+        label_visibility="collapsed",
+        key="search_bar"
+    )
+
+with col_about:
+    if st.button("about us", key="about_btn"):
+        st.session_state.page = "about"
+        st.rerun()
+
+st.markdown("<hr style='border-color:#2a2a2a; margin:0;'>", unsafe_allow_html=True)
+
+# ── Page routing ────────────────────────────────────────────────────────────
+if st.session_state.page == "home":
+    st.markdown("""
+    <div class="hero">
+        <p class="eyebrow">Welcome</p>
+        <h1>The <em>Delphi</em><br>Project</h1>
+        <p>Your content goes here.<br>This is the home page.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+elif st.session_state.page == "about":
+    st.markdown("""
+    <div class="hero">
+        <p class="eyebrow">Our Story</p>
+        <h1>About <em>Us</em></h1>
+        <p>Tell the world who you are.<br>Your about page content goes here.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+# ── Navbar button styling ───────────────────────────────────────────────────
+st.markdown("""
+<style>
+/* ============================================================
+   LOGO BUTTON — "delphi-project" — Cormorant Garamond Medium 500
+   ============================================================ */
+[data-testid="stBaseButton-secondary"]:first-child,
+[data-testid="stBaseButton-secondary"]:first-child p,
+[data-testid="stBaseButton-secondary"]:first-child span {
+    font-family: "Cormorant Garamond", serif !important;
+    font-optical-sizing: auto !important;
+    font-weight: 500 !important;
+    font-style: normal !important;
+    font-size: 2.0rem !important;
+    color: #c9a96e !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    line-height: 1.2 !important;
+}
+[data-testid="stBaseButton-secondary"]:first-child:hover {
+    opacity: 0.7;
+    color: #c9a96e !important;
+}
+
+/* ============================================================
+   ALL NAV BUTTONS — shared resets
+   ============================================================ */
+section[data-testid="stMain"] button {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+}
+
+/* ============================================================
+   ABOUT US BUTTON — Cormorant Garamond Medium 500
+   ============================================================ */
+button[kind="secondary"],
+button[kind="secondary"] p,
+button[kind="secondary"] span {
+    font-family: "Cormorant Garamond", serif !important;
+    font-optical-sizing: auto !important;
+    font-weight: 500 !important;
+    font-style: normal !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.02em !important;
+    color: #6b6560 !important;
+    float: right !important;
+}
+button[kind="secondary"]:hover,
+button[kind="secondary"]:hover p,
+button[kind="secondary"]:hover span {
+    color: #c9a96e !important;
+}
+
+/* ============================================================
+   SEARCH INPUT — Merriweather Light (unchanged)
+   ============================================================ */
+input[type="text"] {
+    background: #161616 !important;
+    border: 1px solid #2a2a2a !important;
+    border-radius: 6px !important;
+    font-family: "Merriweather", serif !important;
+    font-weight: 300 !important;
+    font-size: 0.85rem !important;
+    color: #e8e2d9 !important;
+}
+input[type="text"]:focus {
+    border-color: #c9a96e !important;
+    box-shadow: none !important;
+}
+input[type="text"]::placeholder {
+    font-family: "Merriweather", serif !important;
+    font-weight: 300 !important;
+    font-style: italic !important;
+    color: #6b6560 !important;
+}
+</style>
+""", unsafe_allow_html=True)
