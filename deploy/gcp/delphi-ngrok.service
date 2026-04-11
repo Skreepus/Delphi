@@ -1,0 +1,14 @@
+[Unit]
+Description=ngrok tunnel to nginx (Delphi public URL)
+After=network-online.target nginx.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__DELPHI_USER__
+ExecStart=/usr/bin/ngrok http 80 --log=stdout
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,23 +1,28 @@
 #!/usr/bin/env bash
-# Delphi — install on Ubuntu/Debian (e.g. Google Cloud VM) with nginx + systemd.
-# Run as a normal user with sudo; do not run as root only.
+# Delphi — one-shot install on Ubuntu/Debian (e.g. Google Cloud VM).
 #
-# Usage (from repo clone):
-#   chmod +x deploy/gcp/install.sh
+# From repo root:
+#   chmod +x deploy/gcp/install.sh deploy/gcp/update.sh deploy/gcp/print-ngrok-url.sh
 #   ./deploy/gcp/install.sh
 #
-# Optional: DELPHI_REPO=/path/to/Delphi to override auto-detected repo root.
+# With ngrok (token never goes in git — pass only here):
+#   NGROK_AUTHTOKEN='your-token' ./deploy/gcp/install.sh
+#
+# Optional: DELPHI_REPO=/path/to/Delphi
+#
+# Run as root (root@vm) or as a user with sudo. If you use `sudo ./install.sh` from
+# ubuntu, services and files are owned by ubuntu (SUDO_USER).
 
 set -euo pipefail
 
-if [[ "${EUID:-}" -eq 0 ]]; then
-  echo "Run this script as a normal user (with sudo). It will prompt for sudo when needed."
-  exit 1
-fi
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO="${DELPHI_REPO:-$(cd "$SCRIPT_DIR/../.." && pwd)}"
-RUN_USER="${SUDO_USER:-$(id -un)}"
+
+if [[ "${EUID:-}" -eq 0 ]]; then
+  RUN_USER="${SUDO_USER:-root}"
+else
+  RUN_USER="$(id -un)"
+fi
 
 if [[ ! -f "$REPO/app.py" ]] || [[ ! -f "$REPO/requirements.txt" ]]; then
   echo "Could not find Delphi repo at: $REPO"
@@ -26,45 +31,89 @@ if [[ ! -f "$REPO/app.py" ]] || [[ ! -f "$REPO/requirements.txt" ]]; then
 fi
 
 need_cmd() {
-  command -v "$1" >/dev/null 2>&1 || {
-    echo "Missing: $1 — install it first."
-    exit 1
-  }
+  command -v "$1" >/dev/null 2>&1 || return 1
 }
 
-need_cmd python3
-need_cmd node
-need_cmd npm
-need_cmd sudo
+need_cmd sudo || {
+  echo "Missing: sudo (required for nginx, /var/www, systemd)"
+  exit 1
+}
 
 echo "=== Delphi GCP install ==="
-echo "Repo:    $REPO"
+echo "Repo:         $REPO"
 echo "Service user: $RUN_USER"
 echo ""
 
 sudo apt-get update -qq
-sudo apt-get install -y nginx rsync
+sudo apt-get install -y nginx rsync curl ca-certificates gnupg
 
+if ! need_cmd node || ! need_cmd npm; then
+  echo "[Delphi] Installing Node.js 20..."
+  curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+fi
+
+if [[ -n "${NGROK_AUTHTOKEN:-}" ]]; then
+  if ! need_cmd ngrok; then
+    echo "[Delphi] Installing ngrok package..."
+    curl -fsSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
+      | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
+    echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list >/dev/null
+    sudo apt-get update -qq
+    sudo apt-get install -y ngrok
+  fi
+fi
+
+run_as_owner() {
+  if [[ "${EUID:-}" -eq 0 ]] && [[ "$RUN_USER" != "root" ]]; then
+    sudo -u "$RUN_USER" "$@"
+  else
+    "$@"
+  fi
+}
+
+# Python venv, pip, npm build (files owned by RUN_USER when installing via sudo)
+if [[ "${EUID:-}" -eq 0 ]] && [[ "$RUN_USER" != "root" ]]; then
+  sudo -u "$RUN_USER" bash -s <<EOS
+set -euo pipefail
 cd "$REPO"
 if [[ ! -d .venv ]]; then
   python3 -m venv .venv
 fi
-# shellcheck source=/dev/null
 source .venv/bin/activate
 pip install -q --upgrade pip
 pip install -q -r requirements.txt
-
-pushd web >/dev/null
+cd web
 if [[ -f package-lock.json ]]; then
   npm ci
 else
   npm install
 fi
 npm run build:deploy
-popd >/dev/null
+EOS
+else
+  bash -s <<EOS
+set -euo pipefail
+cd "$REPO"
+if [[ ! -d .venv ]]; then
+  python3 -m venv .venv
+fi
+source .venv/bin/activate
+pip install -q --upgrade pip
+pip install -q -r requirements.txt
+cd web
+if [[ -f package-lock.json ]]; then
+  npm ci
+else
+  npm install
+fi
+npm run build:deploy
+EOS
+fi
 
-sudo mkdir -p /var/www/delphi
+sudo mkdir -p /var/www/delphi/radar
 sudo rsync -a --delete "$REPO/web/dist/" /var/www/delphi/radar/
+sudo chmod -R a+rX /var/www/delphi/radar
 
 sudo cp "$SCRIPT_DIR/nginx-delphi.conf" /etc/nginx/sites-available/delphi
 if [[ -L /etc/nginx/sites-enabled/default ]]; then
@@ -86,20 +135,44 @@ substitute_unit() {
 substitute_unit "$SCRIPT_DIR/delphi-api.service" /etc/systemd/system/delphi-api.service
 substitute_unit "$SCRIPT_DIR/delphi-streamlit.service" /etc/systemd/system/delphi-streamlit.service
 
+if [[ -n "${NGROK_AUTHTOKEN:-}" ]]; then
+  run_as_owner ngrok config add-authtoken "$NGROK_AUTHTOKEN" >/dev/null
+  substitute_unit "$SCRIPT_DIR/delphi-ngrok.service" /etc/systemd/system/delphi-ngrok.service
+  echo "[Delphi] ngrok authtoken saved for user: $RUN_USER"
+fi
+
 sudo systemctl daemon-reload
 sudo systemctl enable --now delphi-api delphi-streamlit
 
+if [[ -f /etc/systemd/system/delphi-ngrok.service ]]; then
+  sudo systemctl enable --now delphi-ngrok
+fi
+
+echo ""
+echo "=== Smoke tests (localhost) ==="
+code_root="$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1/ || true)"
+code_radar="$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1/radar/ || true)"
+code_api="$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1/api/health || true)"
+echo "  GET /           -> HTTP $code_root  (expect 200)"
+echo "  GET /radar/     -> HTTP $code_radar  (expect 200)"
+echo "  GET /api/health -> HTTP $code_api  (expect 200)"
+
 echo ""
 echo "=== Done ==="
-echo "Nginx listens on port 80. Services:"
-echo "  - delphi-api      (127.0.0.1:8000)"
-echo "  - delphi-streamlit (127.0.0.1:8501)"
+echo "Units: delphi-api, delphi-streamlit, nginx"
+if [[ -f /etc/systemd/system/delphi-ngrok.service ]]; then
+  echo "       delphi-ngrok"
+  echo ""
+  echo "Wait a few seconds, then show your public https URL:"
+  echo "  $REPO/deploy/gcp/print-ngrok-url.sh"
+  echo ""
+  echo "Set $REPO/.env (copy from .env.example), then:"
+  echo "  sudo systemctl restart delphi-api delphi-streamlit"
+else
+  echo ""
+  echo "Optional: NGROK_AUTHTOKEN='...' ./deploy/gcp/install.sh  (or: ngrok http 80)"
+  echo "Then set .env from .env.example and: sudo systemctl restart delphi-api delphi-streamlit"
+fi
 echo ""
-echo "1. Point DNS or ngrok at this VM's port 80 (e.g. ngrok http 80)."
-echo "2. Copy .env.example to .env and set (use your real public https origin, no trailing slash):"
-echo "     DELPHI_PUBLIC_BASE=https://YOUR_HOST"
-echo "     DELPHI_RADAR_URL=https://YOUR_HOST/radar/"
-echo "     DELPHI_CORS_ORIGINS=https://YOUR_HOST"
-echo "3. sudo systemctl restart delphi-api delphi-streamlit"
-echo ""
-echo "After code or web changes on the VM, run: ./deploy/gcp/update.sh"
+echo "Updates: ./deploy/gcp/update.sh"
+echo "Never commit ngrok tokens. Rotate any token that was pasted into chat or logs."

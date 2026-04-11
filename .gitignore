@@ -7,3 +7,7 @@ venv/
 *.joblib
 .vscode/
 .DS_Store
+
+# Local secrets (e.g. ngrok token for install)
+deploy/gcp/ngrok.local.env
+*.local.env

@@ -40,7 +40,14 @@ Copy `.env.example` to `.env` and adjust if you use Space-Track ingestion or cus
 
 ## Deploy on Google Cloud / Ubuntu (nginx + systemd)
 
-Use **`deploy/gcp/install.sh`** for a single-host layout: Streamlit on `/`, API on `/api`, built radar on `/radar/`. See **[deploy/gcp/README.md](deploy/gcp/README.md)** for ngrok, `.env` values, and **`deploy/gcp/update.sh`** after `git pull`.
+From the repo root on the VM:
+
+```bash
+chmod +x deploy/gcp/install.sh deploy/gcp/update.sh deploy/gcp/print-ngrok-url.sh
+NGROK_AUTHTOKEN='your-token' ./deploy/gcp/install.sh
+```
+
+Full steps, `.env` lines, and updates: **[deploy/gcp/README.md](deploy/gcp/README.md)**. Never commit ngrok tokens; rotate any token that was exposed.
 
 ---
 

@@ -25,6 +25,7 @@ npm run build:deploy
 popd >/dev/null
 
 sudo rsync -a --delete "$REPO/web/dist/" /var/www/delphi/radar/
+sudo chmod -R a+rX /var/www/delphi/radar
 sudo systemctl restart delphi-api delphi-streamlit
 
 echo "Update complete. delphi-api and delphi-streamlit restarted."
