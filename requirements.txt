@@ -1,13 +1,28 @@
-# Delphi — Python dependencies (see README)
+# Delphi — Python dependencies
+# Install: pip install -r requirements.txt
+# Use a recent Python (3.10+ recommended; 3.12 supported).
+
+# Dashboard & UI
 streamlit>=1.40
+plotly>=5.24
+
+# Data & numerics
 pandas>=2.2
 numpy>=2.0
+pyarrow>=14.0          # optional parquet reads in utils/caching.py
+
+# ML
 scikit-learn>=1.5
+
+# Ingestion & config
 requests>=2.32
 python-dotenv>=1.0
-thefuzz[speed]>=0.22
-plotly>=5.24
-openpyxl>=3.1
-pytest>=8.0
+openpyxl>=3.1          # UCS Excel loader
+thefuzz>=0.22          # operator fuzzy matching (optional: pip install python-Levenshtein for speed)
+
+# API (Space Risk Radar backend)
 fastapi>=0.115
 uvicorn[standard]>=0.32
+
+# Tests
+pytest>=8.0

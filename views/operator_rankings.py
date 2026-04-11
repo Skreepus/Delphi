@@ -1,6 +1,19 @@
+"""Operator rankings view. Optional backdrop from assets/nasa1.jpg (see README)."""
+import base64
 import streamlit as st
 import pandas as pd
 from pathlib import Path
+
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+
+def _load_nasa1_image_uri() -> str:
+    """Data-URI for page background (empty if missing)."""
+    img = _PROJECT_ROOT / "assets" / "nasa1.jpg"
+    if not img.is_file():
+        return ""
+    b64 = base64.b64encode(img.read_bytes()).decode()
+    return f"data:image/jpeg;base64,{b64}"
 
 
 def load_operator_data():
@@ -26,6 +39,8 @@ def render():
         max-width: 1100px;
         margin: 0 auto;
         padding: 4rem 2rem;
+        position: relative;
+        z-index: 1;
     }
     .rankings-header {
         text-align: center;
@@ -330,6 +345,8 @@ def render():
         font-weight: 300;
         font-size: 0.95rem;
         color: #2a2a2a;
+        position: relative;
+        z-index: 1;
     }
 
     .rank-table-wrap {
@@ -338,6 +355,8 @@ def render():
         -webkit-overflow-scrolling: touch;
         margin: 0 -0.25rem;
         padding: 0 0.25rem 0.5rem;
+        position: relative;
+        z-index: 1;
     }
 
     @media (max-width: 900px) {
@@ -350,6 +369,15 @@ def render():
         .tier-legend { flex-direction: column !important; gap: 0.75rem !important; align-items: center !important; }
     }
     </style>""", unsafe_allow_html=True)
+
+    nasa_uri = _load_nasa1_image_uri()
+    if nasa_uri:
+        st.markdown(
+            f"""<div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;">
+<img src="{nasa_uri}" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:0.20;">
+</div>""",
+            unsafe_allow_html=True,
+        )
 
     # ── Load ──
     df = load_operator_data()

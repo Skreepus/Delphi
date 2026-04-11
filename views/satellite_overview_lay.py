@@ -1,12 +1,27 @@
 """
 Layperson-facing satellite risk overview: minimal fields, Australian English.
+Optional full-page backdrop from assets/nasa2.jpg (see README).
 """
+import base64
 import html
+from pathlib import Path
+
 import pandas as pd
 import streamlit as st
 
 from config import RISK_HIGH_THRESHOLD, RISK_MEDIUM_THRESHOLD
 from utils.caching import load_satellite_risk_merged
+
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+
+def _load_nasa2_image_uri() -> str:
+    """Data-URI for page background (empty if missing)."""
+    img = _PROJECT_ROOT / "assets" / "nasa2.jpg"
+    if not img.is_file():
+        return ""
+    b64 = base64.b64encode(img.read_bytes()).decode()
+    return f"data:image/jpeg;base64,{b64}"
 
 
 def _organisation_label(row: pd.Series) -> str:
@@ -150,15 +165,7 @@ def render():
         """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Merriweather:wght@300;400;700&display=swap');
-.lay-wrap { max-width: min(960px, 100%); margin: 0 auto; padding: clamp(1.25rem, 4vw, 2rem) clamp(1rem, 3vw, 1.5rem) 3rem; box-sizing: border-box; }
-.lay-intro h1 {
-    font-family: "Lora", serif; font-weight: 500; font-size: clamp(1.65rem, 5vw, 2.4rem); color: #e8e2d9;
-    margin-bottom: 1rem; text-align: center; line-height: 1.2;
-}
-.lay-intro p {
-    font-family: "Merriweather", serif; font-weight: 300; font-size: clamp(0.95rem, 2.5vw, 1.05rem);
-    color: #8a8478; line-height: 1.85; text-align: center; max-width: 42rem; margin: 0 auto 2rem;
-}
+.lay-wrap { max-width: min(960px, 100%); margin: 0 auto; padding: clamp(1.25rem, 4vw, 2rem) clamp(1rem, 3vw, 1.5rem) 3rem; box-sizing: border-box; position: relative; z-index: 1; }
 .lay-card {
     background: rgba(22, 22, 22, 0.75);
     border: 1px solid #2a2a2a;
@@ -166,6 +173,8 @@ def render():
     padding: 1.35rem 1.5rem 1.5rem;
     margin-bottom: 1rem;
     transition: border-color 0.2s ease;
+    position: relative;
+    z-index: 1;
 }
 .lay-card:hover { border-color: #3a3a3a; }
 .lay-card-title {
@@ -188,11 +197,22 @@ def render():
 .lay-empty {
     text-align: center; font-family: "Merriweather", serif; color: #6b6560;
     padding: 3rem 1rem;
+    position: relative;
+    z-index: 1;
 }
 </style>
 """,
         unsafe_allow_html=True,
     )
+
+    nasa_uri = _load_nasa2_image_uri()
+    if nasa_uri:
+        st.markdown(
+            f"""<div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;">
+<img src="{nasa_uri}" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:0.20;">
+</div>""",
+            unsafe_allow_html=True,
+        )
 
     df = load_satellite_risk_merged()
 
@@ -206,18 +226,6 @@ def render():
 
     if "final_risk_tier" in df.columns:
         df["final_risk_tier"] = df["final_risk_tier"].astype(str).str.strip().str.upper()
-
-    st.markdown(
-        """<div class="lay-wrap lay-intro">
-<h1>Satellite disposal risk</h1>
-<p>This list includes only satellites that appear in both our risk model output and the
-UCS mission catalogue (best-available rows, one entry per satellite). These are estimates
-from public data about how likely each object is to meet post-mission disposal
-expectations—not an official safety rating. Use <strong>Sort by</strong> below to order
-the list the way you prefer.</p>
-</div>""",
-        unsafe_allow_html=True,
-    )
 
     sort_choices = [
         "Clearest catalogue data first",

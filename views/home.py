@@ -1,12 +1,18 @@
-import os
 import threading
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 import streamlit as st
-import pandas as pd
 from pathlib import Path
 
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+# Home page headline figures (fixed copy; not read from CSV).
+_HOME_DISPLAY = {
+    "active_satellites": 17_074,
+    "dead_in_orbit": 1_468,
+    "operators_tracked": 762,
+    "high_risk_operators": 163,
+}
 
 # ── Tiny local HTTP server so the browser can fetch stars.mp4 via a normal URL
 #    instead of a ~3.8 MB base64 data-URI (which newer Streamlit can't render).
@@ -45,56 +51,13 @@ def _ensure_asset_server() -> str | None:
         return None
 
 
-def load_data():
-    """Load the CSV files and return counts."""
-    data_dir = _PROJECT_ROOT / "data" / "processed"
-
-    stats = {
-        "active_satellites": 0,
-        "dead_in_orbit": 0,
-        "operators_tracked": 0,
-        "high_risk_operators": 0,
-    }
-
-    active_path = data_dir / "active_satellites.csv"
-    if active_path.exists():
-        active = pd.read_csv(active_path)
-        stats["active_satellites"] = len(active)
-
-    dead_path = data_dir / "dead_in_orbit.csv"
-    if dead_path.exists():
-        dead = pd.read_csv(dead_path)
-        stats["dead_in_orbit"] = len(dead)
-
-    labeled_path = data_dir / "labeled_satellites.csv"
-    if labeled_path.exists():
-        labeled = pd.read_csv(labeled_path, low_memory=False)
-
-        op_col = None
-        for col in ["operator", "owner", "country_operator", "operator_owner"]:
-            if col in labeled.columns:
-                op_col = col
-                break
-
-        if op_col:
-            stats["operators_tracked"] = labeled[op_col].nunique()
-
-            if "compliance_label" in labeled.columns:
-                non_compliant = labeled[labeled["compliance_label"] == "non_compliant"]
-                stats["high_risk_operators"] = non_compliant[op_col].nunique()
-
-    return stats
-
-
 def render():
     base = _ensure_asset_server()
     video_src = f"{base}/stars.mp4" if base else ""
-    stats = load_data()
-
-    active = f"{stats['active_satellites']:,}"
-    dead = f"{stats['dead_in_orbit']:,}"
-    operators = f"{stats['operators_tracked']:,}"
-    high_risk = f"{stats['high_risk_operators']:,}"
+    active = f"{_HOME_DISPLAY['active_satellites']:,}"
+    dead = f"{_HOME_DISPLAY['dead_in_orbit']:,}"
+    operators = f"{_HOME_DISPLAY['operators_tracked']:,}"
+    high_risk = f"{_HOME_DISPLAY['high_risk_operators']:,}"
 
     # Force every Streamlit wrapper layer transparent so the fixed video shows through
     st.markdown("""<style>
