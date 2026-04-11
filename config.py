@@ -36,6 +36,7 @@ BOXSCORE_CSV = DATA_PROCESSED / "boxscore.csv"
 LABELED_CSV = DATA_PROCESSED / "labeled_satellites.csv"
 OPERATOR_SCORES_CSV = DATA_PROCESSED / "operator_scores.csv"
 SATELLITE_RISK_CSV = DATA_PROCESSED / "satellite_risk_scores.csv"
+SATELLITE_RISK_ENRICHED_CSV = DATA_PROCESSED / "satellite_risk_enriched.csv"
 FEATURE_TABLE_CSV = DATA_PROCESSED / "feature_table.csv"
 
 # ── Scoring thresholds ─────────────────────────────────────────────────────

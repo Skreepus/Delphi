@@ -354,6 +354,15 @@ def train_model(feature_table_path=FEATURE_TABLE_CSV) -> dict:
     print(f"✅ Scored satellites saved to {SATELLITE_RISK_CSV}")
     print(f"   {len(scored):,} rows")
 
+    try:
+        from utils.satellite_risk_merge import export_enriched_satellite_risk_csv
+
+        enriched_path = export_enriched_satellite_risk_csv()
+        if enriched_path is not None:
+            print(f"✅ Enriched export saved to {enriched_path}")
+    except Exception as exc:
+        print(f"⚠️ Could not write satellite_risk_enriched.csv: {exc}")
+
     return {
         "accuracy": accuracy,
         "auc": auc,

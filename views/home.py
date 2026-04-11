@@ -89,7 +89,7 @@ def render():
 
 <!-- ── Section 2: The Dead ── -->
 <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;">
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.54rem;color:#6b6560;line-height:1.8;max-width:800px;margin-bottom:3rem;">but not all of them are alive.<br>alot of them are just drifting.</p>
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.54rem;color:#6b6560;line-height:1.8;max-width:800px;margin-bottom:3rem;">but not all of them are alive.<br>A lot of them are just drifting.</p>
 <p style="font-family:'Lora',serif;font-weight:500;font-size:9.8rem;color:#c94a4a;line-height:1;margin-bottom:1rem;">{dead}</p>
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.54rem;color:#c94a4a;letter-spacing:0.1em;opacity:0.8;">are dead, still orbiting with no purpose.</p>
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.54rem;color:#c94a4a;letter-spacing:0.1em;opacity:0.8;">space junk that circles our planet.</p>
@@ -104,7 +104,7 @@ def render():
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.26rem;color:#6b6560;letter-spacing:0.1em;margin-bottom:2rem;">dead satellites have completed</p>
 <p id="orbit-count" style="font-family:'DM Mono',monospace;font-weight:400;font-size:4.9rem;color:#c9a96e;">0</p>
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.26rem;color:#6b6560;max-width:600px;line-height:1.8;margin-top:0.5rem;">uncontrolled orbits around Earth</p>
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.54rem;color:#c94a4a;letter-spacing:0.1em;opacity:0.8;">a collison is bound to happen.</p>
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.54rem;color:#c94a4a;letter-spacing:0.1em;opacity:0.8;">a collision is bound to happen.</p>
 
 </div>
 </div>

@@ -1,15 +1,40 @@
 import streamlit as st
 import pandas as pd
-from pathlib import Path
+
+from config import RISK_HIGH_THRESHOLD, RISK_MEDIUM_THRESHOLD
+from utils.caching import load_satellite_risk_merged
 
 
 def load_satellite_data():
-    """Load satellite risk scores."""
-    path = Path("data/processed/satellite_risk_scores.csv")
-    if not path.exists():
-        return None
-    df = pd.read_csv(path)
-    return df
+    """Load satellite risk scores merged with master_satellites when available."""
+    return load_satellite_risk_merged()
+
+
+def _tier_from_score(score: float) -> str:
+    if score > RISK_HIGH_THRESHOLD:
+        return "HIGH"
+    if score > RISK_MEDIUM_THRESHOLD:
+        return "MEDIUM"
+    return "LOW"
+
+
+def _row_display_tier(row: pd.Series) -> str:
+    ml = row.get("ml_risk_score")
+    if pd.notna(ml):
+        return _tier_from_score(float(ml))
+    t = row.get("final_risk_tier")
+    if pd.notna(t) and str(t).strip():
+        return str(t).strip().upper()
+    return "LOW"
+
+
+def _row_ml_score_display(row: pd.Series) -> tuple[float | None, str]:
+    """Primary score column: ML output only; returns (value or None, formatted string)."""
+    ml = row.get("ml_risk_score")
+    if pd.notna(ml):
+        v = float(ml)
+        return v, f"{v:.3f}"
+    return None, "—"
 
 
 def render():
@@ -493,28 +518,33 @@ def render():
 </div></div>""", unsafe_allow_html=True)
         return
 
-    # ── Normalize tier column ──
+    # ── Normalise tier column; add UI tier (ML-first) ──
     df["final_risk_tier"] = df["final_risk_tier"].str.strip().str.upper()
+    df["_ui_tier"] = df.apply(_row_display_tier, axis=1)
 
-    # ── Summary stats ──
+    # ── Summary stats (machine learning score–based band counts) ──
     total_sats = len(df)
-    high_risk_count = len(df[df["final_risk_tier"] == "HIGH"])
-    med_risk_count = len(df[df["final_risk_tier"] == "MEDIUM"])
-    low_risk_count = len(df[df["final_risk_tier"] == "LOW"])
-    avg_risk = df["final_risk_score"].mean()
+    high_risk_count = len(df[df["_ui_tier"] == "HIGH"])
+    med_risk_count = len(df[df["_ui_tier"] == "MEDIUM"])
+    low_risk_count = len(df[df["_ui_tier"] == "LOW"])
+    if "ml_risk_score" in df.columns and df["ml_risk_score"].notna().any():
+        avg_risk = float(df["ml_risk_score"].mean(skipna=True))
+    else:
+        avg_risk = float(df["final_risk_score"].mean())
 
-    # ── Risk distribution histogram data ──
+    # ── Risk distribution histogram (ML risk scores) ──
     bins = 20
     hist_min, hist_max = 0.0, 1.0
     bin_edges = [hist_min + i * (hist_max - hist_min) / bins for i in range(bins + 1)]
     hist_counts = []
     hist_colors = []
+    score_col = "ml_risk_score" if "ml_risk_score" in df.columns else "final_risk_score"
     for i in range(bins):
         lo, hi = bin_edges[i], bin_edges[i + 1]
         if i == bins - 1:
-            count = len(df[(df["final_risk_score"] >= lo) & (df["final_risk_score"] <= hi)])
+            count = len(df[(df[score_col] >= lo) & (df[score_col] <= hi)])
         else:
-            count = len(df[(df["final_risk_score"] >= lo) & (df["final_risk_score"] < hi)])
+            count = len(df[(df[score_col] >= lo) & (df[score_col] < hi)])
         hist_counts.append(count)
         mid = (lo + hi) / 2
         if mid < 0.3:
@@ -530,16 +560,27 @@ def render():
         h = max(int((hist_counts[i] / max_count) * 160), 2) if hist_counts[i] > 0 else 2
         hist_bars_html += f'<div class="risk-dist-bar" style="height:{h}px;background:{hist_colors[i]};" title="{hist_counts[i]:,} satellites"></div>'
 
-    # ── Top 10 highest risk ──
-    top10 = df.nsmallest(10, "ml_compliance_probability") if "ml_compliance_probability" in df.columns else df.nlargest(10, "final_risk_score")
+    # ── Top 10 highest ML risk ──
+    if "ml_risk_score" in df.columns and df["ml_risk_score"].notna().any():
+        top10 = df.nlargest(10, "ml_risk_score")
+    elif "ml_compliance_probability" in df.columns:
+        top10 = df.nsmallest(10, "ml_compliance_probability")
+    else:
+        top10 = df.nlargest(10, "final_risk_score")
 
     spotlight_html = ""
     for i, (_, row) in enumerate(top10.iterrows()):
         name = row.get("satellite_name", "Unknown")
-        score = row["final_risk_score"]
-        bar_w = min(score * 100, 100)
+        ml = row.get("ml_risk_score")
+        if pd.notna(ml):
+            score = float(ml)
+            bar_w = min(score * 100, 100)
+            score_txt = f"{score:.3f}"
+        else:
+            bar_w = 0
+            score_txt = "—"
         orbit = row.get("orbit_class", "—")
-        owner = row.get("owner_code", "—")
+        owner = row.get("organisation") or row.get("owner_code", "—")
         age = row.get("age_years", None)
         age_str = f"{age:.1f}y" if pd.notna(age) else "—"
 
@@ -550,7 +591,7 @@ def render():
 <span class="spotlight-meta">{owner} · {orbit} · age: {age_str}</span>
 </div>
 <div class="spotlight-bar-wrap"><div class="spotlight-bar" style="width:{bar_w}%"></div></div>
-<span class="spotlight-score">{score:.3f}</span>
+<span class="spotlight-score">{score_txt}</span>
 </div>"""
 
     # ── Orbit class breakdown ──
@@ -561,8 +602,12 @@ def render():
             subset = df[df["orbit_class"] == oc]
             count = len(subset)
             if count > 0:
-                avg_r = subset["final_risk_score"].mean()
-                high_pct = len(subset[subset["final_risk_tier"] == "HIGH"]) / count * 100
+                if "ml_risk_score" in subset.columns and subset["ml_risk_score"].notna().any():
+                    avg_r = float(subset["ml_risk_score"].mean(skipna=True))
+                else:
+                    avg_r = float(subset["final_risk_score"].mean())
+                sub_tier = subset.apply(_row_display_tier, axis=1)
+                high_pct = (sub_tier == "HIGH").sum() / count * 100
                 if avg_r >= 0.6:
                     risk_class = "risk-high"
                 elif avg_r >= 0.3:
@@ -574,7 +619,7 @@ def render():
 <p class="orbit-card-num">{count:,}</p>
 <p class="orbit-card-sub">satellites</p>
 <p class="orbit-card-risk {risk_class}">{avg_r:.3f}</p>
-<p class="orbit-card-risk-label">avg risk score</p>
+<p class="orbit-card-risk-label">average risk</p>
 <p class="orbit-card-sub" style="margin-top:0.5rem">{high_pct:.1f}% high risk</p>
 </div>"""
 
@@ -584,7 +629,7 @@ def render():
 <div class="explorer-header">
 <p class="explorer-eyebrow">Satellite Intelligence</p>
 <p class="explorer-title">Satellite Risk Explorer</p>
-<p class="explorer-subtitle">Every tracked satellite, scored by our ML model. Higher score = higher risk.</p>
+<p class="explorer-subtitle">UCS catalogue satellites with a risk score, scored by our machine learning model. Higher ML score = higher risk.</p>
 </div>
 
 <div class="exp-summary-bar">
@@ -607,7 +652,7 @@ def render():
 </div>
 
 <div class="risk-dist-section">
-<p class="risk-dist-title">Risk Score Distribution</p>
+<p class="risk-dist-title">Risk score distribution</p>
 <div class="risk-dist-bars">{hist_bars_html}</div>
 <div class="risk-dist-axis">
 <span>0.0 — low risk</span>
@@ -622,7 +667,7 @@ def render():
 </div>
 
 <div class="spotlight-section">
-<p class="spotlight-label">10 highest risk satellites</p>
+<p class="spotlight-label">10 highest ML risk satellites</p>
 {spotlight_html}
 </div>
 
@@ -630,7 +675,7 @@ def render():
 
 <div class="exp-divider">
 <div class="line"></div>
-<span class="label">Full Satellite Database</span>
+<span class="label">Full satellite list</span>
 <div class="line"></div>
 </div>
 
@@ -643,14 +688,18 @@ def render():
 </div>""", unsafe_allow_html=True)
 
     # ── Search ──
-    search = st.text_input("Search satellites by name, COSPAR ID, or operator", key="sat_search", placeholder="e.g. STARLINK, 2020-001A, spacex...")
+    search = st.text_input(
+        "Search satellites by name, international designator, or organisation",
+        key="sat_search",
+        placeholder="e.g. STARLINK, 2020-001A, spacex…",
+    )
 
     # ── Filters ──
     col_tier, col_orbit, col_status, col_sort = st.columns([1, 1, 1, 1])
 
     tier_options = ["All", "High", "Medium", "Low"]
     with col_tier:
-        tier_filter = st.selectbox("Risk tier", tier_options, key="sat_tier")
+        tier_filter = st.selectbox("Risk band", tier_options, key="sat_tier")
 
     orbit_options = ["All"]
     if "orbit_class" in df.columns:
@@ -663,7 +712,17 @@ def render():
         status_filter = st.selectbox("Status", status_options, key="sat_status")
 
     with col_sort:
-        sort_by = st.selectbox("Sort by", ["Risk Score (High→Low)", "Risk Score (Low→High)", "Age (Oldest)", "Age (Newest)", "ML Probability"], key="sat_sort")
+        sort_by = st.selectbox(
+            "Sort by",
+            [
+                "ML risk (high→low)",
+                "ML risk (low→high)",
+                "Age (oldest)",
+                "Age (newest)",
+                "Compliance likelihood",
+            ],
+            key="sat_sort",
+        )
 
     # ── Apply filters ──
     filtered = df.copy()
@@ -677,12 +736,16 @@ def render():
             mask |= filtered["cospar_id"].astype(str).str.lower().str.contains(q, na=False)
         if "operator_final" in filtered.columns:
             mask |= filtered["operator_final"].astype(str).str.lower().str.contains(q, na=False)
+        if "organisation" in filtered.columns:
+            mask |= filtered["organisation"].astype(str).str.lower().str.contains(q, na=False)
         if "owner_code" in filtered.columns:
             mask |= filtered["owner_code"].astype(str).str.lower().str.contains(q, na=False)
         filtered = filtered[mask]
 
+    filtered["_ui_tier"] = filtered.apply(_row_display_tier, axis=1)
+
     if tier_filter != "All":
-        filtered = filtered[filtered["final_risk_tier"] == tier_filter.upper()]
+        filtered = filtered[filtered["_ui_tier"] == tier_filter.upper()]
 
     if orbit_filter != "All" and "orbit_class" in filtered.columns:
         filtered = filtered[filtered["orbit_class"] == orbit_filter]
@@ -694,13 +757,15 @@ def render():
             filtered = filtered[filtered["is_inactive"] == True]
 
     sort_map = {
-        "Risk Score (High→Low)": ("final_risk_score", False),
-        "Risk Score (Low→High)": ("final_risk_score", True),
-        "Age (Oldest)": ("age_years", False),
-        "Age (Newest)": ("age_years", True),
-        "ML Probability": ("ml_compliance_probability", True),
+        "ML risk (high→low)": ("ml_risk_score", False),
+        "ML risk (low→high)": ("ml_risk_score", True),
+        "Age (oldest)": ("age_years", False),
+        "Age (newest)": ("age_years", True),
+        "Compliance likelihood": ("ml_compliance_probability", True),
     }
     sort_col, sort_asc = sort_map[sort_by]
+    if sort_col not in filtered.columns and sort_col == "ml_risk_score":
+        sort_col = "final_risk_score"
     if sort_col in filtered.columns:
         filtered = filtered.sort_values(sort_col, ascending=sort_asc, na_position="last").reset_index(drop=True)
 
@@ -718,15 +783,15 @@ def render():
         rank = start_idx + i + 1
         name = row.get("satellite_name", "Unknown")
         cospar = row.get("cospar_id", "—")
-        score = row["final_risk_score"]
-        tier = row["final_risk_tier"]
+        score_val, score_str = _row_ml_score_display(row)
+        tier = _row_display_tier(row)
         ml_prob = row.get("ml_compliance_probability", None)
         ml_str = f"{ml_prob:.2f}" if pd.notna(ml_prob) else "—"
         orbit = row.get("orbit_class", "—")
         age = row.get("age_years", None)
         age_str = f"{age:.1f}" if pd.notna(age) else "—"
-        owner = row.get("owner_code", "—")
-        bar_w = min(score * 100, 100)
+        owner = row.get("organisation") or row.get("owner_code", "—")
+        bar_w = min(float(score_val) * 100, 100) if score_val is not None else 0
 
         if tier == "HIGH":
             sc, bc, tc = "sat-s-high", "sat-b-high", "sat-bg-high"
@@ -738,26 +803,32 @@ def render():
         rows_html += f"""<tr class="sat-row">
 <td class="sat-cell-rank">{rank:02d}</td>
 <td><div class="sat-cell-name">{name}</div><div class="sat-cell-name-sub">{cospar} · {owner}</div></td>
-<td class="sat-cell-score"><span class="sat-score-val {sc}">{score:.3f}</span><div class="sat-score-bar-bg"><div class="sat-score-bar-fill {bc}" style="width:{bar_w}%"></div></div></td>
+<td class="sat-cell-score"><span class="sat-score-val {sc}">{score_str}</span><div class="sat-score-bar-bg"><div class="sat-score-bar-fill {bc}" style="width:{bar_w}%"></div></div></td>
 <td style="text-align:center"><span class="sat-tier-badge {tc}">{tier}</span></td>
 <td class="sat-cell-data">{ml_str}</td>
 <td class="sat-cell-data-center">{orbit if orbit and orbit != "nan" else "—"}</td>
 <td class="sat-cell-data">{age_str}</td>
 </tr>"""
 
+    avg_footer = (
+        float(filtered["ml_risk_score"].mean(skipna=True))
+        if "ml_risk_score" in filtered.columns and filtered["ml_risk_score"].notna().any()
+        else float(filtered["final_risk_score"].mean())
+    )
+
     st.markdown(f"""<table class="sat-table">
 <thead><tr>
 <th></th>
 <th>Satellite</th>
-<th class="r">Risk Score</th>
-<th class="c">Tier</th>
-<th class="r">ML Prob</th>
+<th class="r">Risk score</th>
+<th class="c">Band</th>
+<th class="r">Compliance likelihood</th>
 <th class="c">Orbit</th>
 <th class="r">Age (yrs)</th>
 </tr></thead>
 <tbody>{rows_html}</tbody>
 </table>
-<p class="sat-table-footer">page {page_num} of {total_pages} · {len(filtered):,} satellites match filters · avg risk {filtered['final_risk_score'].mean():.3f}</p>""", unsafe_allow_html=True)
+<p class="sat-table-footer">page {page_num} of {total_pages} · {len(filtered):,} satellites match filters · average risk {avg_footer:.3f}</p>""", unsafe_allow_html=True)
 
     # ── Filter widget styling ──
     st.markdown("""<style>
