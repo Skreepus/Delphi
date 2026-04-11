@@ -1,0 +1,1 @@
+This module reads the same enriched satellite dataset as the rest of Delphi—risk scores, operator reliability, and orbit class—served to the globe by the Delphi API. The view below is the Space Risk Radar interface
