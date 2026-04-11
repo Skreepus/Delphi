@@ -199,7 +199,7 @@ html, body {{
     # ── YouTube Video (Streamlit native – avoids iframe nesting issue) ──
     col_left, col_video, col_right = st.columns([2, 2, 2])
     with col_video:
-        st.video("https://www.youtube.com/watch?v=Ij42ss911BQ")
+        st.video("https://www.youtube.com/watch?v=lf16Gt03Gz8")
 
     st.markdown("<div style='height:6rem;position:relative;z-index:2;'></div>", unsafe_allow_html=True)
 
