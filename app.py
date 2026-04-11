@@ -129,11 +129,16 @@ if SHOW_CENTER_GUIDE:
     st.markdown('<div class="center-guide"></div>', unsafe_allow_html=True)
 
 # ── Navbar ─────────────────────────────────────────────────────────────────
-col_logo, col_rankings, col_explorer, col_overview, col_about = st.columns([2, 0.8, 0.8, 0.8, 0.8])
+col_logo, col_compare, col_rankings, col_explorer, col_overview, col_about = st.columns([2, 0.8, 0.8, 0.8, 0.8, 0.8])
 
 with col_logo:
     if st.button("delphi-project", key="logo_btn"):
         st.session_state.page = "home"
+        st.rerun()
+
+with col_compare:
+    if st.button("compare", key="compare_btn"):
+        st.session_state.page = "operator_compare"
         st.rerun()
 
 with col_rankings:
@@ -172,6 +177,10 @@ elif st.session_state.page == "operator_rankings":
 elif st.session_state.page == "satellite_explorer":
     from views import explorer
     explorer.render()
+
+elif st.session_state.page == "operator_compare":
+    from views import operator_compare
+    operator_compare.render()
 
 elif st.session_state.page == "satellite_overview":
     from views import satellite_overview_lay

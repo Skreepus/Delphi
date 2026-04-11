@@ -96,8 +96,6 @@ def render():
     operators = f"{stats['operators_tracked']:,}"
     high_risk = f"{stats['high_risk_operators']:,}"
 
-    dead_count = stats['dead_in_orbit'] if stats['dead_in_orbit'] > 0 else 3200
-
     # Force every Streamlit wrapper layer transparent so the fixed video shows through
     st.markdown("""<style>
     .stApp,
@@ -121,7 +119,7 @@ def render():
 </video>
 </div>""", unsafe_allow_html=True)
 
-    # ── All Scrollytelling Sections ──
+    # ── Scrollytelling Sections 1 & 2 ──
     st.markdown(f"""
 <div style="position:relative;z-index:2;">
 
@@ -141,19 +139,58 @@ def render():
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.54rem;color:#c94a4a;letter-spacing:0.1em;opacity:0.8;">space junk that circles our planet.</p>
 </div>
 
-<!-- ── Section 3: The Counter ── -->
-<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;">
+</div>
+""", unsafe_allow_html=True)
+
+    # ── Section 3: The Counter (self-contained with live JS) ──
+    counter_height = 700
+    counter_html = f"""
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+<style>
+html, body {{
+    margin: 0; padding: 0;
+    background: transparent !important;
+    overflow: hidden;
+}}
+</style>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;height:{counter_height}px;box-sizing:border-box;">
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.4rem;color:#6b6560;line-height:1.8;max-width:750px;margin-bottom:2.5rem;">Every 90 minutes, they circle the planet. Uncontrolled. Untracked.</p>
 <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;">
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.26rem;color:#6b6560;letter-spacing:0.1em;margin-bottom:2rem;">since you opened this page</p>
-<p id="elapsed-time" style="font-family:'DM Mono',monospace;font-weight:400;font-size:5.6rem;color:#e8e2d9;letter-spacing:0.05em;">00:00:00</p>
+<p id="elapsed-time" style="font-family:'DM Mono',monospace;font-weight:400;font-size:5.6rem;color:#e8e2d9;letter-spacing:0.05em;margin:0;">00:00:00</p>
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.26rem;color:#6b6560;letter-spacing:0.1em;margin-bottom:2rem;">dead satellites have completed</p>
-<p id="orbit-count" style="font-family:'DM Mono',monospace;font-weight:400;font-size:4.9rem;color:#c9a96e;">0</p>
+<p id="orbit-count" style="font-family:'DM Mono',monospace;font-weight:400;font-size:4.9rem;color:#c9a96e;margin:0;">0</p>
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.26rem;color:#6b6560;max-width:600px;line-height:1.8;margin-top:0.5rem;">uncontrolled orbits around Earth</p>
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.54rem;color:#c94a4a;letter-spacing:0.1em;opacity:0.8;">a collision is bound to happen.</p>
+</div>
+</div>
+<script>
+(function() {{
+    var startTime = Date.now();
+    var timeEl = document.getElementById('elapsed-time');
+    var orbitEl = document.getElementById('orbit-count');
+    function update() {{
+        var elapsed = (Date.now() - startTime) / 1000;
+        var hrs = Math.floor(elapsed / 3600);
+        var mins = Math.floor((elapsed % 3600) / 60);
+        var secs = Math.floor(elapsed % 60);
+        timeEl.textContent =
+            String(hrs).padStart(2,'0') + ':' +
+            String(mins).padStart(2,'0') + ':' +
+            String(secs).padStart(2,'0');
+        orbitEl.textContent = Math.floor(elapsed / 3.7);
+    }}
+    setInterval(update, 200);
+    update();
+}})();
+</script>
+"""
+    import streamlit.components.v1 as components
+    components.html(counter_html, height=counter_height)
 
-</div>
-</div>
+    # ── Scrollytelling Sections 4 & 5 ──
+    st.markdown(f"""
+<div style="position:relative;z-index:2;">
 
 <!-- ── Section 4: What We Built ── -->
 <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;">
@@ -196,73 +233,3 @@ def render():
 
     st.markdown("<div style='height:6rem;position:relative;z-index:2;'></div>", unsafe_allow_html=True)
 
-    # ── Live Counter JavaScript ──
-    st.html(f"""
-    <script>
-    (function() {{
-        const deadSats = {dead_count};
-        const orbitPeriod = 5400;
-        const startTime = Date.now();
-
-        function update() {{
-            const elapsed = (Date.now() - startTime) / 1000;
-
-            const hrs = Math.floor(elapsed / 3600);
-            const mins = Math.floor((elapsed % 3600) / 60);
-            const secs = Math.floor(elapsed % 60);
-            const timeStr = String(hrs).padStart(2,'0') + ':' +
-                           String(mins).padStart(2,'0') + ':' +
-                           String(secs).padStart(2,'0');
-
-            const totalOrbits = Math.floor(elapsed / 4);
-
-            const parent = window.parent.document;
-            const timeEl = parent.getElementById('elapsed-time');
-            const orbitEl = parent.getElementById('orbit-count');
-
-            if (timeEl) timeEl.textContent = timeStr;
-            if (orbitEl) orbitEl.textContent = totalOrbits.toFixed(0);
-        }}
-
-        setInterval(update, 1000);
-        update();
-    }})();
-    </script>
-    """)
-
-    # ── Navigation Buttons ──
-    st.markdown("""<div style="height: 2rem; position: relative; z-index: 10;"></div>""", unsafe_allow_html=True)
-
-    col1, col2 = st.columns([1, 1])
-    with col1:
-        if st.button("Operator Rankings", key="nav_rankings", use_container_width=True):
-            st.session_state.page = "operator_rankings"
-            st.rerun()
-
-    # ── Style the navigation buttons ──
-    st.markdown("""<style>
-    div[data-testid="stHorizontalBlock"] {
-        position: relative !important;
-        z-index: 10 !important;
-    }
-    div[data-testid="stHorizontalBlock"] button[kind="secondary"] {
-        background: rgba(22, 22, 22, 0.85) !important;
-        border: 1px solid #2a2a2a !important;
-        border-radius: 8px !important;
-        padding: 2rem 2rem !important;
-        font-family: "Lora", serif !important;
-        font-weight: 500 !important;
-        font-size: 1.1rem !important;
-        color: #e8e2d9 !important;
-        transition: all 0.3s ease !important;
-        float: none !important;
-        position: relative !important;
-        z-index: 10 !important;
-    }
-    div[data-testid="stHorizontalBlock"] button[kind="secondary"]:hover {
-        border-color: #c9a96e !important;
-        transform: translateY(-3px) !important;
-        background: rgba(30, 28, 24, 0.9) !important;
-        color: #c9a96e !important;
-    }
-    </style>""", unsafe_allow_html=True)

@@ -390,10 +390,6 @@ def render():
 
     # ── Header + Summary + Worst 5 ──
     st.markdown(f"""<div class="rankings-page">
-<div class="rankings-header">
-<p class="rankings-eyebrow">Operator Risk Rankings</p>
-<p class="rankings-title">Ranked by DRCS reliability score. Lower score = higher risk.</p>
-</div>
 
 <div class="summary-bar">
 <div class="summary-card">

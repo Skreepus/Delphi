@@ -93,14 +93,7 @@ def render() -> None:
 .explorer-about li { margin-bottom: 0.4rem; }
 </style>
 
-<div class="explorer-wrap">
-  <p class="explorer-eyebrow">Explorer</p>
-  <h1 class="explorer-title">Delphi – <em>Space Risk Radar</em></h1>
-  <p class="explorer-sub">Interactive globe: each point is a satellite. Colour shows modelled
-  disposal risk; point size and outline reflect operator reliability. Use the filters and
-  detail panel inside the view to narrow the list.</p>
-  <p class="explorer-hint">Positions are illustrative (catalogue-based), not live propagated orbits.</p>
-</div>
+
 """,
         unsafe_allow_html=True,
     )
