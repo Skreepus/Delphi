@@ -69,7 +69,7 @@ def _build_operator_column(df: pd.DataFrame) -> pd.DataFrame:
         operator_display: title-cased version for UI display
     """
     df = df.copy()
-    df["operator_final"] = np.nan
+    df["operator_final"] = pd.array([pd.NA] * len(df), dtype="object")
 
     # ── Fill best-first. Each column only fills remaining NaN. ──
     for col in ("operator_resolved", "operator_clean", "operator", "owner_code"):

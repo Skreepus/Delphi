@@ -38,7 +38,7 @@ def load_data():
 
     labeled_path = data_dir / "labeled_satellites.csv"
     if labeled_path.exists():
-        labeled = pd.read_csv(labeled_path)
+        labeled = pd.read_csv(labeled_path, low_memory=False)
 
         op_col = None
         for col in ["operator", "owner", "country_operator", "operator_owner"]:

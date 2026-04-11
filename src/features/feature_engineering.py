@@ -45,16 +45,34 @@ METADATA_COLUMNS = [
 ]
 
 
+def add_temporal_features(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Derive satellite_age_yrs from launch_date and age_lifetime_ratio vs expected lifetime.
+
+    age_lifetime_ratio is NaN when expected_lifetime_yrs is missing or <= 0.
+    """
+    df = df.copy()
+    df["launch_date"] = pd.to_datetime(df["launch_date"], errors="coerce")
+    now = pd.Timestamp.now()
+    df["satellite_age_yrs"] = (now - df["launch_date"]).dt.days / 365.25
+    df["satellite_age_yrs"] = df["satellite_age_yrs"].clip(lower=0)
+    if "expected_lifetime_yrs" in df.columns:
+        el = pd.to_numeric(df["expected_lifetime_yrs"], errors="coerce")
+        ratio = df["satellite_age_yrs"] / el
+        df["age_lifetime_ratio"] = ratio.where(el > 0, np.nan)
+    else:
+        df["age_lifetime_ratio"] = np.nan
+    return df
+
+
 def add_age_feature(df: pd.DataFrame) -> pd.DataFrame:
     """
     Calculate satellite age in years.
 
     age_years = (today - launch_date) in days / 365.25
     """
-    df["launch_date"] = pd.to_datetime(df["launch_date"], errors="coerce")
-    now = pd.Timestamp.now()
-    df["age_years"] = (now - df["launch_date"]).dt.days / 365.25
-    df["age_years"] = df["age_years"].clip(lower=0)
+    df = add_temporal_features(df)
+    df["age_years"] = df["satellite_age_yrs"]
     return df
 
 

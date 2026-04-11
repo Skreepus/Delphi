@@ -2,7 +2,7 @@
 Tests for feature engineering.
 """
 import pandas as pd
-from src.features.engineer import add_temporal_features
+from src.features.feature_engineering import add_temporal_features
 
 
 def test_satellite_age_non_negative():

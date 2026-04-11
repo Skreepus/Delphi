@@ -17,6 +17,7 @@ def make_satellite_df():
         "orbit_class": ["LEO", "GEO", "LEO"],
         "is_inactive": [False, True, True],
         "is_compliant": [True, False, False],
+        "compliance_label": ["compliant", "non_compliant", "non_compliant"],
     })
 
 
