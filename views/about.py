@@ -243,22 +243,22 @@ def render():
 <div class="team-grid">
 <div class="team-card">
 <p class="name">Kenneth</p>
-<p class="role">why am i here?</p>
+<p class="role">"why am i here? to suffer?"</p>
 <div class="card-line"></div>
 </div>
 <div class="team-card">
 <p class="name">Srineer</p>
-<p class="role">great guy they say</p>
+<p class="role">"guys remember to pull"</p>
 <div class="card-line"></div>
 </div>
 <div class="team-card">
 <p class="name">Vimal</p>
-<p class="role">havent decided what titles yet</p>
+<p class="role">"do i gotta clone again?"</p>
 <div class="card-line"></div>
 </div>
 <div class="team-card">
 <p class="name">Vinn</p>
-<p class="role">these are pretty much just placeholders</p>
+<p class="role">"boys git push push push!"</p>
 <div class="card-line"></div>
 </div>
 </div>

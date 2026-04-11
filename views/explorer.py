@@ -104,8 +104,8 @@ def render() -> None:
 <div class="explorer-about">
 
 <h3>What you are seeing</h3>
-<p>This module reads the same enriched satellite dataset as the rest of Delphi—risk scores,
-operator reliability, and orbit class—served to the globe by the Delphi API. The view below
+<p>This module reads the same enriched satellite dataset as the rest of Delphi risk scores,
+operator reliability, and orbit class served to the globe by the Delphi API. The view below
 is the Space Risk Radar interface</p>
 
 <h3>How to read the globe</h3>
