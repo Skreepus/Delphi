@@ -11,6 +11,7 @@ EnvironmentFile=-__DELPHI_REPO__/.env
 ExecStart=__DELPHI_REPO__/.venv/bin/streamlit run app.py --server.address 127.0.0.1 --server.port 8501 --server.headless true --browser.gatherUsageStats false --server.enableXsrfProtection false
 Restart=always
 RestartSec=3
+StartLimitIntervalSec=0
 
 [Install]
 WantedBy=multi-user.target

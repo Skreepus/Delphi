@@ -9,6 +9,7 @@ User=__DELPHI_USER__
 ExecStart=/usr/bin/ngrok http 80 --log=stdout
 Restart=always
 RestartSec=5
+StartLimitIntervalSec=0
 
 [Install]
 WantedBy=multi-user.target

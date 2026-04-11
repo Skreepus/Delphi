@@ -29,3 +29,4 @@ sudo chmod -R a+rX /var/www/delphi/radar
 sudo systemctl restart delphi-api delphi-streamlit
 
 echo "Update complete. delphi-api and delphi-streamlit restarted."
+echo "Note: do not restart delphi-ngrok after deploy unless you must — free ngrok URLs often change on agent restart; update .env if the URL changes."

@@ -45,7 +45,11 @@ echo "Service user: $RUN_USER"
 echo ""
 
 sudo apt-get update -qq
-sudo apt-get install -y nginx rsync curl ca-certificates gnupg
+# python3-venv: required for `python3 -m venv` on minimal cloud images
+# git: clone/pull; build-essential: some pip wheels compile on Linux
+sudo apt-get install -y \
+  nginx rsync curl ca-certificates gnupg \
+  python3 python3-venv python3-pip git build-essential
 
 if ! need_cmd node || ! need_cmd npm; then
   echo "[Delphi] Installing Node.js 20..."
@@ -121,7 +125,12 @@ if [[ -L /etc/nginx/sites-enabled/default ]]; then
 fi
 sudo ln -sf /etc/nginx/sites-available/delphi /etc/nginx/sites-enabled/delphi
 sudo nginx -t
-sudo systemctl enable --now nginx
+sudo systemctl enable nginx
+if sudo systemctl is-active --quiet nginx 2>/dev/null; then
+  sudo systemctl reload nginx
+else
+  sudo systemctl start nginx
+fi
 
 substitute_unit() {
   local src="$1"

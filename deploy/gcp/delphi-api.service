@@ -11,6 +11,7 @@ EnvironmentFile=-__DELPHI_REPO__/.env
 ExecStart=__DELPHI_REPO__/.venv/bin/uvicorn api.main:app --host 127.0.0.1 --port 8000
 Restart=always
 RestartSec=3
+StartLimitIntervalSec=0
 
 [Install]
 WantedBy=multi-user.target
