@@ -1,5 +1,6 @@
 import streamlit as st
 from views import home, about
+from views.delphi_theme import inject_global_layout
 
 st.set_page_config(page_title="Delphi Project", layout="wide")
 
@@ -113,6 +114,8 @@ body, .stApp {
 </style>
 """, unsafe_allow_html=True)
 
+inject_global_layout()
+
 # ── Conditionally show center guide ─────────────────────────────────────────
 if SHOW_CENTER_GUIDE:
     st.markdown('<div class="center-guide"></div>', unsafe_allow_html=True)
@@ -161,12 +164,40 @@ elif st.session_state.page == "operator_rankings":
     operator_rankings.render()
 
 elif st.session_state.page == "satellite_explorer":
-    from views import satellite_explorer
-    satellite_explorer.render()
+    from views import explorer
+
+    explorer.render()
 
 elif st.session_state.page == "satellite_overview":
     from views import satellite_overview_lay
     satellite_overview_lay.render()
+
+st.markdown(
+    """
+<footer class="delphi-site-footer">
+<p>Delphi — orbital risk insight from public catalogue data. Scores are model estimates, not official safety ratings.</p>
+</footer>
+<style>
+.delphi-site-footer {
+    margin-top: 2.5rem;
+    padding: 1.5rem max(1rem, env(safe-area-inset-right)) 2rem max(1rem, env(safe-area-inset-left));
+    text-align: center;
+    border-top: 1px solid #2a2a2a;
+    font-family: "Merriweather", Georgia, serif;
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: #4a4540;
+    letter-spacing: 0.04em;
+    line-height: 1.65;
+    max-width: min(720px, 100%);
+    margin-left: auto;
+    margin-right: auto;
+}
+.delphi-site-footer p { margin: 0; }
+</style>
+""",
+    unsafe_allow_html=True,
+)
 
 # ── Navbar button styling ───────────────────────────────────────────────────
 st.markdown("""
@@ -219,7 +250,8 @@ button[kind="secondary"] span {
     font-size: 0.95rem !important;
     letter-spacing: 0.02em !important;
     color: #6b6560 !important;
-    float: right !important;
+    float: none !important;
+    text-align: center !important;
 }
 button[kind="secondary"]:hover,
 button[kind="secondary"]:hover p,

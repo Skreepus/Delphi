@@ -331,6 +331,24 @@ def render():
         font-size: 0.95rem;
         color: #2a2a2a;
     }
+
+    .rank-table-wrap {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -0.25rem;
+        padding: 0 0.25rem 0.5rem;
+    }
+
+    @media (max-width: 900px) {
+        .summary-bar { grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+        .rankings-title { font-size: clamp(1.35rem, 5vw, 2.5rem) !important; line-height: 1.25 !important; }
+        .rankings-subtitle { font-size: 1.05rem !important; }
+    }
+    @media (max-width: 560px) {
+        .summary-bar { grid-template-columns: 1fr !important; }
+        .tier-legend { flex-direction: column !important; gap: 0.75rem !important; align-items: center !important; }
+    }
     </style>""", unsafe_allow_html=True)
 
     # ── Load ──
@@ -465,7 +483,8 @@ def render():
 <td class="cell-data">{dead:,}</td>
 </tr>"""
 
-    st.markdown(f"""<table class="rank-table">
+    st.markdown(f"""<div class="rank-table-wrap">
+<table class="rank-table">
 <thead><tr>
 <th></th>
 <th>Operator</th>
@@ -477,6 +496,7 @@ def render():
 </tr></thead>
 <tbody>{rows_html}</tbody>
 </table>
+</div>
 <p class="table-footer">showing {len(filtered)} operators · avg DRCS {filtered['reliability_score'].mean():.1f}</p>""", unsafe_allow_html=True)
 
     # ── Filter widget styling ──

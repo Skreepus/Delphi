@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: #0d0d0d;
+    color: #e8e2d9;
+    font-family: Merriweather, Georgia, serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.cesium-viewer-animationContainer,
+.cesium-viewer-timelineContainer {
+  display: none !important;
+}
+
+/* Match Delphi chrome — Cesium default controls are bright blue */
+.cesium-viewer .cesium-button {
+  background: #161616 !important;
+  border: 1px solid #2a2a2a !important;
+  color: #c9a96e !important;
+  fill: #c9a96e !important;
+}
+
+.cesium-viewer .cesium-button:hover {
+  background: #1f1f1f !important;
+  border-color: #c9a96e !important;
+  color: #e8e2d9 !important;
+  fill: #e8e2d9 !important;
+}

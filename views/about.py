@@ -197,6 +197,14 @@ def render():
         text-transform: lowercase;
         color: #e8e2d9;
     }}
+
+    @media (max-width: 768px) {{
+        .about-page {{ padding: 2.5rem 1rem 3rem !important; }}
+        .about-section h2 {{ font-size: clamp(1.75rem, 7vw, 2.8rem) !important; }}
+        .about-section p {{ font-size: 0.98rem !important; max-width: 100% !important; }}
+        .team-grid {{ grid-template-columns: 1fr !important; gap: 1.5rem !important; }}
+        .team-card {{ padding: 1.75rem 1.25rem !important; }}
+    }}
     </style>""", unsafe_allow_html=True)
 
     st.markdown(f"""<div class="bg-layers">

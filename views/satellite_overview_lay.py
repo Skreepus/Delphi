@@ -150,13 +150,13 @@ def render():
         """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Merriweather:wght@300;400;700&display=swap');
-.lay-wrap { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+.lay-wrap { max-width: min(960px, 100%); margin: 0 auto; padding: clamp(1.25rem, 4vw, 2rem) clamp(1rem, 3vw, 1.5rem) 3rem; box-sizing: border-box; }
 .lay-intro h1 {
-    font-family: "Lora", serif; font-weight: 500; font-size: 2.4rem; color: #e8e2d9;
-    margin-bottom: 1rem; text-align: center;
+    font-family: "Lora", serif; font-weight: 500; font-size: clamp(1.65rem, 5vw, 2.4rem); color: #e8e2d9;
+    margin-bottom: 1rem; text-align: center; line-height: 1.2;
 }
 .lay-intro p {
-    font-family: "Merriweather", serif; font-weight: 300; font-size: 1.05rem;
+    font-family: "Merriweather", serif; font-weight: 300; font-size: clamp(0.95rem, 2.5vw, 1.05rem);
     color: #8a8478; line-height: 1.85; text-align: center; max-width: 42rem; margin: 0 auto 2rem;
 }
 .lay-card {
