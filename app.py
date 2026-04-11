@@ -1,6 +1,5 @@
 import streamlit as st
 from views import home, about
-from views.delphi_theme import inject_global_layout
 
 st.set_page_config(page_title="Delphi Project", layout="wide")
 
@@ -22,12 +21,19 @@ st.markdown("""
 [data-testid="stSidebarCollapsedControl"] { display: none !important; }
 .block-container { padding-top: 0 !important; }
 
-/* ── Sticky Navbar ── */
+/* ── Sticky Navbar ──
+   In Streamlit 1.56 the first-child of stMain is the full content wrapper,
+   so we must NOT give it an opaque background (it covers the hero video).
+   Instead, make only the first horizontal block (the nav row) sticky. */
 [data-testid="stMain"] > div:first-child {
+    background: transparent !important;
+}
+[data-testid="stMain"] [data-testid="stVerticalBlock"] > [data-testid="stHorizontalBlock"]:first-child {
     position: sticky !important;
     top: 0 !important;
     z-index: 999 !important;
     background: #0d0d0d !important;
+    padding-bottom: 0.25rem;
 }
 
 /* Root variables */
@@ -41,8 +47,12 @@ st.markdown("""
 }
 
 body, .stApp {
-    background-color: #0d0d0d !important;
+    background-color: transparent !important;
     color: #e8e2d9;
+}
+
+html {
+    background-color: #0d0d0d !important;
 }
 
 .bg-earth {
@@ -114,16 +124,12 @@ body, .stApp {
 </style>
 """, unsafe_allow_html=True)
 
-inject_global_layout()
-
 # ── Conditionally show center guide ─────────────────────────────────────────
 if SHOW_CENTER_GUIDE:
     st.markdown('<div class="center-guide"></div>', unsafe_allow_html=True)
 
 # ── Navbar ─────────────────────────────────────────────────────────────────
-col_logo, col_spacer, col_rankings, col_overview, col_explorer, col_about = st.columns(
-    [1.2, 1.2, 0.72, 0.72, 0.72, 0.5]
-)
+col_logo, col_rankings, col_explorer, col_overview, col_about = st.columns([2, 0.8, 0.8, 0.8, 0.8])
 
 with col_logo:
     if st.button("delphi-project", key="logo_btn"):
@@ -135,14 +141,14 @@ with col_rankings:
         st.session_state.page = "operator_rankings"
         st.rerun()
 
-with col_overview:
-    if st.button("overview", key="overview_btn"):
-        st.session_state.page = "satellite_overview"
-        st.rerun()
-
 with col_explorer:
     if st.button("explorer", key="explorer_btn"):
         st.session_state.page = "satellite_explorer"
+        st.rerun()
+
+with col_overview:
+    if st.button("overview", key="overview_btn"):
+        st.session_state.page = "satellite_overview"
         st.rerun()
 
 with col_about:
@@ -165,39 +171,11 @@ elif st.session_state.page == "operator_rankings":
 
 elif st.session_state.page == "satellite_explorer":
     from views import explorer
-
     explorer.render()
 
 elif st.session_state.page == "satellite_overview":
     from views import satellite_overview_lay
     satellite_overview_lay.render()
-
-st.markdown(
-    """
-<footer class="delphi-site-footer">
-<p>Delphi — orbital risk insight from public catalogue data. Scores are model estimates, not official safety ratings.</p>
-</footer>
-<style>
-.delphi-site-footer {
-    margin-top: 2.5rem;
-    padding: 1.5rem max(1rem, env(safe-area-inset-right)) 2rem max(1rem, env(safe-area-inset-left));
-    text-align: center;
-    border-top: 1px solid #2a2a2a;
-    font-family: "Merriweather", Georgia, serif;
-    font-size: 0.78rem;
-    font-weight: 300;
-    color: #4a4540;
-    letter-spacing: 0.04em;
-    line-height: 1.65;
-    max-width: min(720px, 100%);
-    margin-left: auto;
-    margin-right: auto;
-}
-.delphi-site-footer p { margin: 0; }
-</style>
-""",
-    unsafe_allow_html=True,
-)
 
 # ── Navbar button styling ───────────────────────────────────────────────────
 st.markdown("""
@@ -238,7 +216,7 @@ section[data-testid="stMain"] button {
 }
 
 /* ============================================================
-   NAV LINK BUTTONS — rankings + explorer + about us
+   NAV LINK BUTTONS — rankings + explorer + overview + about us
    ============================================================ */
 button[kind="secondary"],
 button[kind="secondary"] p,
@@ -250,8 +228,7 @@ button[kind="secondary"] span {
     font-size: 0.95rem !important;
     letter-spacing: 0.02em !important;
     color: #6b6560 !important;
-    float: none !important;
-    text-align: center !important;
+    float: right !important;
 }
 button[kind="secondary"]:hover,
 button[kind="secondary"]:hover p,

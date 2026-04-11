@@ -1,65 +1,48 @@
-import html
 import os
+import threading
+from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 import streamlit as st
-import streamlit.components.v1 as components
 import pandas as pd
-import base64
 from pathlib import Path
 
-# Repository root (parent of `views/`) — stable when `streamlit run` cwd varies
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-
-def _resolve_stars_video() -> Path:
-    """Prefer repo `assets/stars.mp4`; fall back to cwd-relative (old behaviour)."""
-    canonical = _PROJECT_ROOT / "assets" / "stars.mp4"
-    if canonical.exists():
-        return canonical
-    cwd_rel = Path("assets") / "stars.mp4"
-    return cwd_rel if cwd_rel.exists() else canonical
+# ── Tiny local HTTP server so the browser can fetch stars.mp4 via a normal URL
+#    instead of a ~3.8 MB base64 data-URI (which newer Streamlit can't render).
+_asset_http_lock = threading.Lock()
+_asset_http_port: int | None = None
 
 
-def get_base64_video(video_path: str | Path):
-    """Convert video to base64 for HTML embedding."""
-    file = Path(video_path)
-    if not file.exists():
-        return ""
-    video_bytes = file.read_bytes()
-    encoded = base64.b64encode(video_bytes).decode()
-    return f"data:video/mp4;base64,{encoded}"
+def _ensure_asset_server() -> str | None:
+    """Start a daemon HTTP server on 127.0.0.1 serving the assets/ folder.
+    Returns the base URL (e.g. http://127.0.0.1:8765) or None on failure."""
+    global _asset_http_port
+    assets_dir = _PROJECT_ROOT / "assets"
+    if not (assets_dir / "stars.mp4").is_file():
+        return None
+    if _asset_http_port is not None:
+        return f"http://127.0.0.1:{_asset_http_port}"
 
+    with _asset_http_lock:
+        if _asset_http_port is not None:
+            return f"http://127.0.0.1:{_asset_http_port}"
 
-# Above ~1.5 MB, data-URIs in markdown are unreliable; use API `/media/stars.mp4` instead.
-_MAX_EMBED_BYTES = int(os.environ.get("DELPHI_HERO_MAX_EMBED_BYTES", "1500000"))
+        class _H(SimpleHTTPRequestHandler):
+            def __init__(self, *a, **kw):
+                super().__init__(*a, directory=str(assets_dir), **kw)
+            def log_message(self, *_a):
+                pass
 
-
-def _hero_background_src() -> str:
-    """
-    Return a value suitable for <source src="...">.
-
-    Priority:
-    1. DELPHI_HERO_VIDEO_URL — any public http(s) mp4 URL
-    2. Local assets/stars.mp4: small files → base64; larger → DELPHI_API_URL + /media/stars.mp4
-    """
-    env_url = os.environ.get("DELPHI_HERO_VIDEO_URL", "").strip()
-    if env_url:
-        return env_url
-
-    p = _resolve_stars_video()
-    if not p.exists():
-        return ""
-
-    try:
-        size = p.stat().st_size
-    except OSError:
-        return ""
-
-    if size <= _MAX_EMBED_BYTES:
-        return get_base64_video(p)
-
-    api = os.environ.get("DELPHI_API_URL", "http://127.0.0.1:8000").rstrip("/")
-    return f"{api}/media/stars.mp4"
+        for port in [8765, 8766, 8767, 8770]:
+            try:
+                httpd = HTTPServer(("127.0.0.1", port), _H)
+            except OSError:
+                continue
+            threading.Thread(target=httpd.serve_forever, daemon=True).start()
+            _asset_http_port = port
+            return f"http://127.0.0.1:{port}"
+        return None
 
 
 def load_data():
@@ -104,6 +87,8 @@ def load_data():
 
 
 def render():
+    base = _ensure_asset_server()
+    video_src = f"{base}/stars.mp4" if base else ""
     stats = load_data()
 
     active = f"{stats['active_satellites']:,}"
@@ -113,87 +98,92 @@ def render():
 
     dead_count = stats['dead_in_orbit'] if stats['dead_in_orbit'] > 0 else 3200
 
-    video_src = _hero_background_src()
+    # Force every Streamlit wrapper layer transparent so the fixed video shows through
+    st.markdown("""<style>
+    .stApp,
+    [data-testid="stAppViewContainer"],
+    [data-testid="stAppViewContainer"] > div,
+    section[data-testid="stMain"],
+    section[data-testid="stMain"] > div,
+    section[data-testid="stMain"] > div > div,
+    section[data-testid="stMain"] .block-container,
+    .block-container {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+    </style>""", unsafe_allow_html=True)
 
-    # ── Video background (fixed layer z-index 0, content z-index 2) ──
+    # ── Video Background ──
     if video_src:
-        safe_src = html.escape(video_src, quote=True)
-        st.markdown(
-            f"""<div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;overflow:hidden;pointer-events:none;">
-<video autoplay muted loop playsinline preload="metadata" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:0.35;">
-<source src="{safe_src}" type="video/mp4">
+        st.markdown(f"""<div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;overflow:hidden;pointer-events:none;">
+<video autoplay muted loop playsinline style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;opacity:0.35;">
+<source src="{video_src}" type="video/mp4">
 </video>
-</div>""",
-            unsafe_allow_html=True,
-        )
-    else:
-        st.caption(
-            "Starfield: add **`assets/stars.mp4`**, or set **`DELPHI_HERO_VIDEO_URL`**, or run **`uvicorn api.main:app --port 8000`** for large files (`/media/stars.mp4`)."
-        )
+</div>""", unsafe_allow_html=True)
 
     # ── All Scrollytelling Sections ──
     st.markdown(f"""
-<div style="position:relative;z-index:2;isolation:isolate;max-width:100vw;overflow-x:hidden;box-sizing:border-box;">
+<div style="position:relative;z-index:2;">
 
 <!-- ── Section 1: Opening ── -->
-<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(2rem,6vw,4rem) clamp(1rem,4vw,2rem);box-sizing:border-box;">
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:clamp(1rem,3.5vw,1.4rem);letter-spacing:0.2em;color:#6b6560;margin-bottom:2rem;">right now, above us</p>
-<p style="font-family:'Lora',serif;font-weight:500;font-size:clamp(3.25rem,18vw,11.2rem);color:#e8e2d9;line-height:1;margin-bottom:1rem;">{active}</p>
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:clamp(1.1rem,4vw,1.68rem);color:#c9a96e;letter-spacing:0.15em;">satellites are orbiting Earth</p>
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:clamp(0.85rem,2.5vw,0.98rem);color:#2a2a2a;letter-spacing:0.15em;margin-top:4rem;">scroll down. this isn't the full picture.</p>
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;">
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.4rem;letter-spacing:0.2em;color:#6b6560;margin-bottom:2rem;">right now, above us</p>
+<p style="font-family:'Lora',serif;font-weight:500;font-size:11.2rem;color:#e8e2d9;line-height:1;margin-bottom:1rem;">{active}</p>
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.68rem;color:#c9a96e;letter-spacing:0.15em;">satellites are orbiting Earth</p>
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:0.98rem;color:#2a2a2a;letter-spacing:0.15em;margin-top:4rem;">scroll down. this isn't the full picture.</p>
 </div>
 
 <!-- ── Section 2: The Dead ── -->
-<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(2rem,6vw,4rem) clamp(1rem,4vw,2rem);box-sizing:border-box;">
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:clamp(1.05rem,3.8vw,1.54rem);color:#6b6560;line-height:1.8;max-width:min(800px,92vw);margin-bottom:3rem;">but not all of them are alive.<br>A lot of them are just drifting.</p>
-<p style="font-family:'Lora',serif;font-weight:500;font-size:clamp(2.75rem,16vw,9.8rem);color:#c94a4a;line-height:1;margin-bottom:1rem;">{dead}</p>
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;">
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.54rem;color:#6b6560;line-height:1.8;max-width:800px;margin-bottom:3rem;">but not all of them are alive.<br>A lot of them are just drifting.</p>
+<p style="font-family:'Lora',serif;font-weight:500;font-size:9.8rem;color:#c94a4a;line-height:1;margin-bottom:1rem;">{dead}</p>
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.54rem;color:#c94a4a;letter-spacing:0.1em;opacity:0.8;">are dead, still orbiting with no purpose.</p>
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.54rem;color:#c94a4a;letter-spacing:0.1em;opacity:0.8;">space junk that circles our planet.</p>
 </div>
 
 <!-- ── Section 3: The Counter ── -->
-<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(2rem,6vw,4rem) clamp(1rem,4vw,2rem);box-sizing:border-box;">
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:clamp(1rem,3.5vw,1.4rem);color:#6b6560;line-height:1.8;max-width:min(750px,92vw);margin-bottom:2.5rem;">Every 90 minutes, they circle the planet. Uncontrolled. Untracked.</p>
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;">
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.4rem;color:#6b6560;line-height:1.8;max-width:750px;margin-bottom:2.5rem;">Every 90 minutes, they circle the planet. Uncontrolled. Untracked.</p>
 <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;">
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:clamp(1rem,3.2vw,1.26rem);color:#6b6560;letter-spacing:0.1em;margin-bottom:2rem;">since you opened this page</p>
-<p id="elapsed-time" style="font-family:'DM Mono',monospace;font-weight:400;font-size:clamp(2rem,12vw,5.6rem);color:#e8e2d9;letter-spacing:0.05em;">00:00:00</p>
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:clamp(1rem,3.2vw,1.26rem);color:#6b6560;letter-spacing:0.1em;margin-bottom:2rem;">dead satellites have completed</p>
-<p id="orbit-count" style="font-family:'DM Mono',monospace;font-weight:400;font-size:clamp(1.75rem,11vw,4.9rem);color:#c9a96e;">0</p>
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:clamp(1rem,3.2vw,1.26rem);color:#6b6560;max-width:min(600px,92vw);line-height:1.8;margin-top:0.5rem;">uncontrolled orbits around Earth</p>
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:clamp(1.05rem,3.8vw,1.54rem);color:#c94a4a;letter-spacing:0.1em;opacity:0.8;">a collision is bound to happen.</p>
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.26rem;color:#6b6560;letter-spacing:0.1em;margin-bottom:2rem;">since you opened this page</p>
+<p id="elapsed-time" style="font-family:'DM Mono',monospace;font-weight:400;font-size:5.6rem;color:#e8e2d9;letter-spacing:0.05em;">00:00:00</p>
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.26rem;color:#6b6560;letter-spacing:0.1em;margin-bottom:2rem;">dead satellites have completed</p>
+<p id="orbit-count" style="font-family:'DM Mono',monospace;font-weight:400;font-size:4.9rem;color:#c9a96e;">0</p>
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.26rem;color:#6b6560;max-width:600px;line-height:1.8;margin-top:0.5rem;">uncontrolled orbits around Earth</p>
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.54rem;color:#c94a4a;letter-spacing:0.1em;opacity:0.8;">a collision is bound to happen.</p>
 
 </div>
 </div>
 
 <!-- ── Section 4: What We Built ── -->
-<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(2rem,6vw,4rem) clamp(1rem,4vw,2rem);box-sizing:border-box;">
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:clamp(1rem,3vw,1.26rem);letter-spacing:0.2em;text-transform:uppercase;color:#c9a96e;margin-bottom:1.5rem;">introducing</p>
-<p style="font-family:'Lora',serif;font-weight:500;font-size:clamp(2.25rem,11vw,4.9rem);color:#e8e2d9;margin-bottom:1.5rem;line-height:1.2;">The <em style="font-style:italic;color:#c9a96e;">Delphi</em><br>Project</p>
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:clamp(1rem,3.5vw,1.4rem);color:#6b6560;line-height:1.8;max-width:min(800px,92vw);margin-bottom:3rem;">An orbital intelligence platform that tracks every satellite, scores every operator, and predicts failures before they happen.</p>
-<div style="display:flex;gap:clamp(1.5rem,4vw,4rem);justify-content:center;flex-wrap:wrap;">
-<div style="text-align:center;min-width:min(140px,45%);">
-<p style="font-family:'DM Mono',monospace;font-weight:400;font-size:clamp(1.35rem,6vw,2.45rem);color:#e8e2d9;">{active}</p>
+<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;">
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.26rem;letter-spacing:0.2em;text-transform:uppercase;color:#c9a96e;margin-bottom:1.5rem;">introducing</p>
+<p style="font-family:'Lora',serif;font-weight:500;font-size:4.9rem;color:#e8e2d9;margin-bottom:1.5rem;line-height:1.2;">The <em style="font-style:italic;color:#c9a96e;">Delphi</em><br>Project</p>
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.4rem;color:#6b6560;line-height:1.8;max-width:800px;margin-bottom:3rem;">An orbital intelligence platform that tracks every satellite, scores every operator, and predicts failures before they happen.</p>
+<div style="display:flex;gap:4rem;justify-content:center;flex-wrap:wrap;">
+<div style="text-align:center;">
+<p style="font-family:'DM Mono',monospace;font-weight:400;font-size:2.45rem;color:#e8e2d9;">{active}</p>
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:0.98rem;color:#4a4540;letter-spacing:0.08em;margin-top:0.3rem;">active satellites</p>
 </div>
-<div style="text-align:center;min-width:min(140px,45%);">
-<p style="font-family:'DM Mono',monospace;font-weight:400;font-size:clamp(1.35rem,6vw,2.45rem);color:#e8e2d9;">{dead}</p>
+<div style="text-align:center;">
+<p style="font-family:'DM Mono',monospace;font-weight:400;font-size:2.45rem;color:#e8e2d9;">{dead}</p>
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:0.98rem;color:#4a4540;letter-spacing:0.08em;margin-top:0.3rem;">dead in orbit</p>
 </div>
-<div style="text-align:center;min-width:min(140px,45%);">
-<p style="font-family:'DM Mono',monospace;font-weight:400;font-size:clamp(1.35rem,6vw,2.45rem);color:#e8e2d9;">{operators}</p>
+<div style="text-align:center;">
+<p style="font-family:'DM Mono',monospace;font-weight:400;font-size:2.45rem;color:#e8e2d9;">{operators}</p>
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:0.98rem;color:#4a4540;letter-spacing:0.08em;margin-top:0.3rem;">operators tracked</p>
 </div>
-<div style="text-align:center;min-width:min(140px,45%);">
-<p style="font-family:'DM Mono',monospace;font-weight:400;font-size:clamp(1.35rem,6vw,2.45rem);color:#c9a96e;">{high_risk}</p>
+<div style="text-align:center;">
+<p style="font-family:'DM Mono',monospace;font-weight:400;font-size:2.45rem;color:#c9a96e;">{high_risk}</p>
 <p style="font-family:'Merriweather',serif;font-weight:300;font-size:0.98rem;color:#4a4540;letter-spacing:0.08em;margin-top:0.3rem;">high-risk operators</p>
 </div>
 </div>
 </div>
 
 <!-- ── Section 5: Product Preview Header ── -->
-<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(2rem,6vw,4rem) clamp(1rem,4vw,2rem) 2rem;box-sizing:border-box;">
-<p style="font-family:'Lora',serif;font-weight:500;font-size:clamp(1.75rem,8vw,3.4rem);color:#e8e2d9;margin-bottom:1rem;line-height:1.2;">Product Preview</p>
-<p style="font-family:'Merriweather',serif;font-weight:300;font-size:clamp(0.95rem,3vw,1.1rem);color:#6b6560;line-height:1.8;max-width:min(600px,92vw);margin-bottom:2rem;">Watch how Delphi tracks, scores, and predicts satellite failures in real time.</p>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem 2rem 2rem;">
+<p style="font-family:'Lora',serif;font-weight:500;font-size:3.4rem;color:#e8e2d9;margin-bottom:1rem;line-height:1.2;">Product Preview</p>
+<p style="font-family:'Merriweather',serif;font-weight:300;font-size:1.1rem;color:#6b6560;line-height:1.8;max-width:600px;margin-bottom:2rem;">Watch how Delphi tracks, scores, and predicts satellite failures in real time.</p>
 </div>
 
 </div>
@@ -206,8 +196,8 @@ def render():
 
     st.markdown("<div style='height:6rem;position:relative;z-index:2;'></div>", unsafe_allow_html=True)
 
-    # ── Live Counter JavaScript (uses components.html so JS actually runs) ──
-    components.html(f"""
+    # ── Live Counter JavaScript ──
+    st.html(f"""
     <script>
     (function() {{
         const deadSats = {dead_count};
@@ -217,7 +207,6 @@ def render():
         function update() {{
             const elapsed = (Date.now() - startTime) / 1000;
 
-            // Timer ticks every second
             const hrs = Math.floor(elapsed / 3600);
             const mins = Math.floor((elapsed % 3600) / 60);
             const secs = Math.floor(elapsed % 60);
@@ -225,7 +214,6 @@ def render():
                            String(mins).padStart(2,'0') + ':' +
                            String(secs).padStart(2,'0');
 
-            // Orbits increase by 1 every 4 seconds
             const totalOrbits = Math.floor(elapsed / 4);
 
             const parent = window.parent.document;
@@ -240,7 +228,7 @@ def render():
         update();
     }})();
     </script>
-    """, height=0)
+    """)
 
     # ── Navigation Buttons ──
     st.markdown("""<div style="height: 2rem; position: relative; z-index: 10;"></div>""", unsafe_allow_html=True)

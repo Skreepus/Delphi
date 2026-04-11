@@ -11,6 +11,33 @@ interface Props {
   operatorOptions: string[];
   filteredCount: number;
   totalCount: number;
+  loading: boolean;
+  loadError: string | null;
+}
+
+function PillButton({
+  active,
+  onClick,
+  children,
+  color,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+  color?: string;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`rounded-full border px-2.5 py-1 text-[10px] font-light uppercase tracking-[0.12em] transition-all duration-200
+        ${active
+          ? `border-transparent ${color ?? "bg-delphi-surface text-delphi-text"}`
+          : "border-delphi-border bg-transparent text-delphi-muted/60 hover:border-delphi-border hover:text-delphi-muted"
+        }`}
+    >
+      {children}
+    </button>
+  );
 }
 
 export function LegendAndFilters({
@@ -24,40 +51,52 @@ export function LegendAndFilters({
   operatorOptions,
   filteredCount,
   totalCount,
+  loading,
 }: Props) {
   const selectClass =
-    "rounded border border-delphi-border bg-delphi-surface px-2 py-1.5 text-sm text-delphi-text focus:border-delphi-accent focus:outline-none focus:ring-1 focus:ring-delphi-accent/40";
+    "appearance-none rounded-md border border-delphi-border bg-delphi-surface px-2.5 py-1.5 text-[10px] tracking-wider text-delphi-muted transition-all duration-200 focus:border-delphi-accent/40 focus:outline-none focus:ring-1 focus:ring-delphi-accent/20 cursor-pointer hover:border-delphi-accent/20 hover:text-delphi-text";
 
   return (
-    <div className="flex flex-wrap items-end gap-4 border-b border-delphi-border bg-delphi-bg px-4 py-3 text-xs font-light text-delphi-text">
-      <div className="flex flex-wrap gap-3">
-        <span className="text-[10px] uppercase tracking-[0.22em] text-delphi-accent">
-          Legend
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-delphi-border bg-delphi-bg px-5 py-2 text-[11px] font-light">
+      {/* Risk pill filters */}
+      <div className="flex items-center gap-1.5">
+        <span className="mr-1 text-[9px] uppercase tracking-[0.2em] text-delphi-muted/50">
+          Risk
         </span>
-        <span className="flex items-center gap-1.5 text-delphi-muted">
-          <span className="h-2 w-4 rounded-sm bg-gradient-to-r from-emerald-600 to-red-600" />
-          Colour → disposal risk (0–1)
-        </span>
-        <span className="flex items-center gap-1.5 text-delphi-muted">
-          <span className="inline-block h-2 w-2 rounded-full border-2 border-delphi-text/50" />
-          Size / outline → operator reliability
-        </span>
+        <PillButton active={riskBand === "all"} onClick={() => onRiskBand("all")}>
+          All
+        </PillButton>
+        <PillButton
+          active={riskBand === "low"}
+          onClick={() => onRiskBand("low")}
+          color="bg-emerald-500/15 text-emerald-400"
+        >
+          Low
+        </PillButton>
+        <PillButton
+          active={riskBand === "medium"}
+          onClick={() => onRiskBand("medium")}
+          color="bg-amber-500/15 text-amber-300"
+        >
+          Med
+        </PillButton>
+        <PillButton
+          active={riskBand === "high"}
+          onClick={() => onRiskBand("high")}
+          color="bg-red-500/15 text-red-400"
+        >
+          High
+        </PillButton>
       </div>
 
-      <div className="ml-auto flex flex-wrap items-center gap-2">
-        <label className="text-delphi-muted">Risk</label>
-        <select
-          value={riskBand}
-          onChange={(e) => onRiskBand(e.target.value as RiskBandFilter)}
-          className={selectClass}
-        >
-          <option value="all">All</option>
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-        </select>
+      {/* Divider */}
+      <div className="h-4 w-px bg-delphi-border" />
 
-        <label className="text-delphi-muted">Orbit</label>
+      {/* Dropdowns */}
+      <div className="flex items-center gap-2">
+        <label className="text-[9px] uppercase tracking-[0.15em] text-delphi-muted/50">
+          Orbit
+        </label>
         <select
           value={orbitClass}
           onChange={(e) => onOrbitClass(e.target.value)}
@@ -65,29 +104,45 @@ export function LegendAndFilters({
         >
           {orbitOptions.map((o) => (
             <option key={o} value={o}>
-              {o}
+              {o === "all" ? "All orbits" : o}
             </option>
           ))}
         </select>
+      </div>
 
-        <label className="text-delphi-muted">Operator</label>
+      <div className="flex items-center gap-2">
+        <label className="text-[9px] uppercase tracking-[0.15em] text-delphi-muted/50">
+          Operator
+        </label>
         <select
           value={operator}
           onChange={(e) => onOperator(e.target.value)}
-          className={`max-w-[200px] ${selectClass}`}
+          className={`max-w-[160px] ${selectClass}`}
         >
           {operatorOptions.map((o) => (
             <option key={o} value={o}>
-              {o === "__all__" ? "All" : o}
+              {o === "__all__" ? "All operators" : o}
             </option>
           ))}
         </select>
+      </div>
 
-        <span className="text-delphi-muted">
-          Showing{" "}
-          <span className="font-normal text-delphi-accent">{filteredCount}</span> /{" "}
-          {totalCount}
-        </span>
+      {/* Count */}
+      <div className="ml-auto flex items-center gap-2">
+        <div className="flex items-center gap-1.5 text-[10px] tracking-wider text-delphi-muted/50">
+          {loading ? (
+            <span className="animate-pulse text-delphi-accent/40">Scanning...</span>
+          ) : (
+            <>
+              <span className="font-mono text-delphi-accent/70">
+                {filteredCount.toLocaleString()}
+              </span>
+              <span className="text-delphi-muted/30">/</span>
+              <span className="font-mono text-delphi-muted/50">{totalCount.toLocaleString()}</span>
+              <span className="text-delphi-muted/40">tracked</span>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

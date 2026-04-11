@@ -24,8 +24,9 @@ section[data-testid="stAppViewContainer"] > div {
   padding-bottom: 2.5rem !important;
 }
 
-/* Default Streamlit text: match site body */
-[data-testid="stMarkdownContainer"] p,
+/* Default Streamlit text: match site body.
+   Use :not([style*="color"]) so inline colour on home hero <p> tags wins. */
+[data-testid="stMarkdownContainer"] p:not([style*="color"]),
 [data-testid="stMarkdownContainer"] li,
 [data-testid="stCaption"] {
   font-family: "Merriweather", Georgia, serif !important;

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=DM+Mono:wght@300;400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -16,25 +16,88 @@
     font-family: Merriweather, Georgia, serif;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(201, 169, 110, 0.2);
+    color: #e8e2d9;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2a2a2a transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 4px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 2px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: #3a3a3a;
   }
 }
 
+/* ── Hide Cesium default chrome ── */
 .cesium-viewer-animationContainer,
-.cesium-viewer-timelineContainer {
+.cesium-viewer-timelineContainer,
+.cesium-viewer-bottom {
   display: none !important;
 }
 
-/* Match Delphi chrome — Cesium default controls are bright blue */
-.cesium-viewer .cesium-button {
-  background: #161616 !important;
-  border: 1px solid #2a2a2a !important;
-  color: #c9a96e !important;
-  fill: #c9a96e !important;
+.cesium-credit-logoContainer,
+.cesium-credit-expand-link,
+.cesium-credit-textContainer,
+.cesium-viewer .cesium-widget-credits {
+  display: none !important;
 }
 
-.cesium-viewer .cesium-button:hover {
-  background: #1f1f1f !important;
-  border-color: #c9a96e !important;
-  color: #e8e2d9 !important;
-  fill: #e8e2d9 !important;
+.cesium-selection-wrapper {
+  display: none !important;
+}
+
+.cesium-viewer .cesium-button {
+  display: none !important;
+}
+
+.cesium-widget canvas:focus {
+  outline: none;
+}
+
+.cesium-navigation-help {
+  display: none !important;
+}
+
+/* ── Sidebar ── */
+.sidebar-panel {
+  background: rgba(13, 13, 13, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ── Select dropdown styling ── */
+select option {
+  background: #161616;
+  color: #e8e2d9;
+  padding: 8px;
+}
+
+/* ── Smooth transitions ── */
+button, select, a {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Fullscreen mode ── */
+:fullscreen {
+  background: #0d0d0d;
+}
+
+::backdrop {
+  background: #0d0d0d;
 }

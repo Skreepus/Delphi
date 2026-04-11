@@ -4,7 +4,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Matches Streamlit `app.py` Delphi theme
         delphi: {
           bg: "#0d0d0d",
           surface: "#161616",
@@ -18,7 +17,7 @@ export default {
       fontFamily: {
         sans: ["Merriweather", "Georgia", "serif"],
         display: ["Cormorant Garamond", "Georgia", "serif"],
-        mono: ["ui-monospace", "SFMono-Regular", "monospace"],
+        mono: ["DM Mono", "ui-monospace", "SFMono-Regular", "monospace"],
       },
     },
   },

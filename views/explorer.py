@@ -10,10 +10,13 @@ import os
 
 import streamlit as st
 
+from views.delphi_theme import inject_global_layout
+
 RADAR_URL = os.getenv("DELPHI_RADAR_URL", "http://localhost:5173")
 
 
 def render() -> None:
+    inject_global_layout()
     st.markdown(
         """
 <style>
