@@ -1,0 +1,16 @@
+[Unit]
+Description=Delphi FastAPI (Space Risk API)
+After=network.target
+
+[Service]
+Type=simple
+User=__DELPHI_USER__
+WorkingDirectory=__DELPHI_REPO__
+Environment=PATH=__DELPHI_REPO__/.venv/bin
+EnvironmentFile=-__DELPHI_REPO__/.env
+ExecStart=__DELPHI_REPO__/.venv/bin/uvicorn api.main:app --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

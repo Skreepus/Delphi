@@ -45,16 +45,16 @@ if errorlevel 1 (
 popd
 
 echo.
-echo [Delphi] Starting API      - http://127.0.0.1:8000  ^(new window^)
-start "Delphi API" /D "%~dp0" cmd /k "python -m uvicorn api.main:app --host 127.0.0.1 --port 8000"
+echo [Delphi] Starting API      - http://localhost:8000  ^(new window^)
+start "Delphi API" /D "%~dp0" cmd /k "python -m uvicorn api.main:app --host localhost --port 8000"
 
-echo [Delphi] Starting Explorer - http://127.0.0.1:5173  ^(new window^)
+echo [Delphi] Starting Explorer - http://localhost:5173  ^(new window^)
 start "Delphi Explorer" /D "%~dp0web" cmd /k "npm run dev"
 
 echo [Delphi] Waiting a few seconds for API and Vite to start...
 timeout /t 8 /nobreak >nul
 
-set "DELPHI_RADAR_URL=http://127.0.0.1:5173"
+set "DELPHI_RADAR_URL=http://localhost:5173"
 echo.
 echo [Delphi] Starting website  - Streamlit ^(this window^)
 echo [Delphi] Open http://localhost:8501 in your browser.

@@ -29,7 +29,17 @@ cd web
 npm run build
 ```
 
-Serve `web/dist` with any static host; configure CORS on the API for that origin. If you embed the radar in Streamlit, the static host must allow framing (e.g. `Content-Security-Policy: frame-ancestors *` or your Streamlit origin); the dev server sets this in `vite.config.ts`.
+**Production behind nginx** (same host as Streamlit + API): use the deploy build so assets load under `/radar/`:
+
+```bash
+npm run build:deploy
+```
+
+See **[deploy/gcp/README.md](../deploy/gcp/README.md)** for the full VM setup.
+
+Serve `web/dist` with any static host; configure CORS on the API for that origin (or set `DELPHI_CORS_ORIGINS` in `.env`). If you embed the radar in Streamlit, the static host must allow framing (e.g. `Content-Security-Policy: frame-ancestors *` or your Streamlit origin); the dev server sets this in `vite.config.ts`.
+
+**API URL:** in development, the app calls `http://127.0.0.1:8000` by default. In production builds, if `VITE_API_URL` is unset, requests use the **same origin** (`/api/...`), which matches the nginx layout in `deploy/gcp/`.
 
 ## Streamlit Explorer
 

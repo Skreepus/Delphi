@@ -1,0 +1,16 @@
+[Unit]
+Description=Delphi Streamlit app
+After=network.target delphi-api.service
+
+[Service]
+Type=simple
+User=__DELPHI_USER__
+WorkingDirectory=__DELPHI_REPO__
+Environment=PATH=__DELPHI_REPO__/.venv/bin
+EnvironmentFile=-__DELPHI_REPO__/.env
+ExecStart=__DELPHI_REPO__/.venv/bin/streamlit run app.py --server.address 127.0.0.1 --server.port 8501 --server.headless true --browser.gatherUsageStats false --server.enableXsrfProtection false
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

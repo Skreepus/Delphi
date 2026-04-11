@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:deploy": "tsc -b && vite build --base /radar/",
     "preview": "vite preview"
   },
   "dependencies": {

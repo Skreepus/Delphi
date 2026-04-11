@@ -1,3 +1,4 @@
+import os
 import threading
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
@@ -52,8 +53,14 @@ def _ensure_asset_server() -> str | None:
 
 
 def render():
-    base = _ensure_asset_server()
-    video_src = f"{base}/stars.mp4" if base else ""
+    # Behind nginx/ngrok: set DELPHI_PUBLIC_BASE=https://your-host (no trailing slash) so the
+    # browser loads /media/stars.mp4 from FastAPI; localhost asset server only works on-machine.
+    public = os.getenv("DELPHI_PUBLIC_BASE", "").strip().rstrip("/")
+    if public and (_PROJECT_ROOT / "assets" / "stars.mp4").is_file():
+        video_src = f"{public}/media/stars.mp4"
+    else:
+        base = _ensure_asset_server()
+        video_src = f"{base}/stars.mp4" if base else ""
     active = f"{_HOME_DISPLAY['active_satellites']:,}"
     dead = f"{_HOME_DISPLAY['dead_in_orbit']:,}"
     operators = f"{_HOME_DISPLAY['operators_tracked']:,}"

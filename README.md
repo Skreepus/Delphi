@@ -33,6 +33,14 @@ Copy `.env.example` to `.env` and adjust if you use Space-Track ingestion or cus
 |----------|---------|
 | `SPACETRACK_USERNAME` / `SPACETRACK_PASSWORD` | Optional; for pulling decay data into `data/raw/spacetrack_decay.csv` via `src/ingestion/spacetrack_client.py` |
 | `DELPHI_RADAR_URL` | Origin of the embedded radar UI (default `http://localhost:5173` for Vite dev) |
+| `DELPHI_PUBLIC_BASE` | Public site origin with no trailing slash (e.g. `https://your-host`). Sets the home hero video URL for remote viewers (`/media/stars.mp4` on FastAPI). |
+| `DELPHI_CORS_ORIGINS` | Comma-separated extra origins allowed by FastAPI CORS (e.g. your ngrok HTTPS URL). |
+
+---
+
+## Deploy on Google Cloud / Ubuntu (nginx + systemd)
+
+Use **`deploy/gcp/install.sh`** for a single-host layout: Streamlit on `/`, API on `/api`, built radar on `/radar/`. See **[deploy/gcp/README.md](deploy/gcp/README.md)** for ngrok, `.env` values, and **`deploy/gcp/update.sh`** after `git pull`.
 
 ---
 
@@ -139,6 +147,7 @@ Delphi/
 ├── tests/                 # pytest
 ├── requirements.txt
 ├── run.bat / run.sh       # Full-stack dev launcher
+├── deploy/gcp/            # nginx + systemd install for Linux / GCP VMs
 └── docs/METHODOLOGY.md    # Scoring and modelling detail
 ```
 

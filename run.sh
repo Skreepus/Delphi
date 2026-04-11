@@ -48,18 +48,18 @@ trap 'stop_children; exit 130' INT
 trap 'stop_children; exit 143' TERM
 
 echo ""
-echo "[Delphi] Starting API      - http://127.0.0.1:8000"
-"$PY" -m uvicorn api.main:app --host 127.0.0.1 --port 8000 &
+echo "[Delphi] Starting API      - http://localhost:8000"
+"$PY" -m uvicorn api.main:app --host localhost --port 8000 &
 API_PID=$!
 
-echo "[Delphi] Starting Explorer - http://127.0.0.1:5173"
+echo "[Delphi] Starting Explorer - http://localhost:5173"
 (cd "$ROOT/web" && exec npm run dev) &
 WEB_PID=$!
 
 echo "[Delphi] Waiting for API and Vite to bind..."
 sleep 8
 
-export DELPHI_RADAR_URL=http://127.0.0.1:5173
+export DELPHI_RADAR_URL=http://localhost:5173
 echo ""
 echo "[Delphi] Starting website  - Streamlit (foreground)"
 echo "[Delphi] Open http://localhost:8501 in your browser."

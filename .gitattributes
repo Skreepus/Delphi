@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Linux deploy scripts must stay LF for shebang on GCP VMs
+deploy/gcp/*.sh text eol=lf

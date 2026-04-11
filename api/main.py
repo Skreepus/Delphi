@@ -8,6 +8,7 @@ Run: uvicorn api.main:app --reload --port 8000
 from __future__ import annotations
 
 import math
+import os
 from pathlib import Path
 
 import pandas as pd
@@ -24,22 +25,35 @@ if str(ROOT) not in sys.path:
 
 from config import RISK_HIGH_THRESHOLD, RISK_MEDIUM_THRESHOLD, SATELLITE_RISK_ENRICHED_CSV
 
+_DEFAULT_CORS_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:8501",
+    "http://127.0.0.1:8501",
+    "http://localhost:8502",
+    "http://127.0.0.1:8502",
+    "http://localhost:8503",
+    "http://127.0.0.1:8503",
+]
+
+
+def _cors_allow_origins() -> list[str]:
+    extra = os.getenv("DELPHI_CORS_ORIGINS", "")
+    out = list(_DEFAULT_CORS_ORIGINS)
+    for part in extra.split(","):
+        o = part.strip()
+        if o and o not in out:
+            out.append(o)
+    return out
+
+
 app = FastAPI(title="Delphi Space Risk API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        "http://localhost:8501",
-        "http://127.0.0.1:8501",
-        "http://localhost:8502",
-        "http://127.0.0.1:8502",
-        "http://localhost:8503",
-        "http://127.0.0.1:8503",
-    ],
+    allow_origins=_cors_allow_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
