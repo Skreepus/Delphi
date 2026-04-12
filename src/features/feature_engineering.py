@@ -11,6 +11,15 @@ One-hot encoding: manual pd.get_dummies
 Math required: mean, standard deviation, median (intro stats level)
 """
 
+import sys
+from pathlib import Path
+
+# Repo root on sys.path so `import config` works when run as:
+#   python src/features/feature_engineering.py
+_ROOT = Path(__file__).resolve().parents[2]
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
+
 import pandas as pd
 import numpy as np
 import os
